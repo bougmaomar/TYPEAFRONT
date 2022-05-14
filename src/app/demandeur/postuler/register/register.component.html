@@ -4,24 +4,29 @@
       <div class="col-lg-6">
         <div class="card1 pb-5">
           <div class="row">
-            <img src="https://seeklogo.com/images/U/universite-cadi-ayyad-marrakech-maroc-logo-CCE5BB11B1-seeklogo.com.png" class="logo">
+            <img
+              src="https://seeklogo.com/images/U/universite-cadi-ayyad-marrakech-maroc-logo-CCE5BB11B1-seeklogo.com.png"
+              class="logo">
           </div>
           <div class="row px-3 justify-content-center mt-4 mb-5 border-line">
-            <img src="https://www.dreamjob.ma/wp-content/uploads/2021/06/Universite-Cadi-Ayyad-Concours-Emploi-Recrutement-1.jpg" class="image">
+            <img
+              src="https://www.dreamjob.ma/wp-content/uploads/2021/06/Universite-Cadi-Ayyad-Concours-Emploi-Recrutement-1.jpg"
+              class="image">
           </div>
         </div>
       </div>
       <div class="col-lg-6">
         <div class="card2 card border-0 px-4 py-5">
-          <div class="row px-3 mb-4"  >
-
-            <a href="#" class="register" style="padding-left: 400px;" routerLink="/login">S'identifier?</a>
+          <div class="row mb-4">
+            <div class="col-md-9"></div>
+            <div class="col-md-3"><a href="#" class="register" routerLink="/login">S'identifier?</a>
+            </div>
           </div>
           <div class="row px-3" style="">
             <label class="mb-1"><h6 class="mb-0 text-sm">Nom</h6></label>
             <input class="mb-4" type="text" name="email" placeholder="Entrer votre nom" [ngModel]="user.nom">
           </div>
-          <div class="row px-3" >
+          <div class="row px-3">
             <label class="mb-1"><h6 class="mb-0 text-sm">Prenom</h6></label>
             <input class="mb-4" type="text" name="email" placeholder="Entrer votre prenom" [ngModel]="user.prenom">
           </div>
@@ -29,21 +34,24 @@
             <label class="mb-1"><h6 class="mb-0 text-sm">telephone</h6></label>
             <input class="mb-4" type="text" name="email" placeholder="Entrer votre prenom" [ngModel]="user.telephone">
           </div>
-          <div class="row px-3" >
+          <div class="row px-3">
             <label class="mb-1"><h6 class="mb-0 text-sm">Adresse Email </h6></label>
             <input class="mb-4" type="email" name="email" placeholder="exemple@uca.ma" [ngModel]="user.email">
           </div>
-          <div class="row px-3" >
+          <div class="row px-3">
             <label class="mb-1"><h6 class="mb-0 text-sm"> Mot de passe</h6></label>
             <input type="password" name="password" placeholder="Entrer le mot de passe" [ngModel]="user.password">
           </div>
-          <div class="row px-3" >
-            <label class="mb-1"><h6 class="mb-0 text-sm" style="padding-top: 20px">Confirmez le mot de passe</h6></label>
+          <div class="row px-3">
+            <label class="mb-1"><h6 class="mb-0 text-sm" style="padding-top: 20px">Confirmez le mot de passe</h6>
+            </label>
             <input type="password" name="password" placeholder="Confirmez le mot de passe">
           </div>
-          <div class="row px-3 mb-4"  >
-
-            <a href="#" class="password" style="padding-left: 300px;" routerLink="/contact">Mot de passe oublié?</a>
+          <div class="row  my-3">
+            <div class="col-md-7"></div>
+            <div class="col-md-5"><a class="password" routerLink="/contact">Mot de passe
+              oublié?</a>
+            </div>
           </div>
           <div class="row mb-3 px-3" style="padding-top: 30px">
             <button type="submit" class="btn btn-blue text-center" routerLink="/choisir-postuler" (click)="saveuser()">Valider</button>
@@ -52,9 +60,9 @@
         </div>
       </div>
     </div>
-    <div class="bg-blue py-4" >
-      <div class="row px-3" >
-        <small style="width: 400px" >Copyright ©2015 UCA Marrakech</small>
+    <div class="bg-blue py-4">
+      <div class="row px-3">
+        <small style="width: 400px">Copyright ©2015 UCA Marrakech</small>
         <div class="social-contact ml-4 ml-sm-auto" style="width:200px; padding-top: 0px;padding-bottom: 90px">
           <span class="fa fa-facebook mr-4 text-sm"></span>
           <span class="fa fa-google-plus mr-4 text-sm"></span>
