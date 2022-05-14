@@ -48,6 +48,10 @@ import {AuthentificationComponent} from "./admin/authentification/authentificati
 import {HistoriqueComponent} from "./demandeur/historique/historique.component";
 import {HeaderaComponent} from "./admin/headera/headera.component";
 import {DemandeursComponent} from "./admin/demandeurs/demandeurs.component";
+import { DemandesComponent } from './admin/demandes/demandes.component';
+import { MessageComponent } from './admin/message/message.component';
+import { SettingsComponent } from './admin/settings/settings.component';
+import {MatSidenavModule} from "@angular/material/sidenav";
 
 @NgModule({
   declarations: [
@@ -69,7 +73,10 @@ import {DemandeursComponent} from "./admin/demandeurs/demandeurs.component";
     LoginComponent,
     AuthentificationComponent,
     HistoriqueComponent,
-    DemandeurComponent
+    DemandeurComponent,
+    DemandesComponent,
+    MessageComponent,
+    SettingsComponent
   ],
   imports: [
     BrowserModule,
@@ -95,7 +102,8 @@ import {DemandeursComponent} from "./admin/demandeurs/demandeurs.component";
     TableModule,
     DropdownModule,
     MatPaginatorModule,
-    MatTableModule
+    MatTableModule,
+    MatSidenavModule
   ],
   providers: [],
   bootstrap: [AppComponent]

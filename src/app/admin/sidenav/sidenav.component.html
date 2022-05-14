@@ -1,16 +1,18 @@
 <div class="d-flex flex-column flex-shrink-0 bg-light vh-100" style="width: 100px; padding-top:81px">
-  <ul class="nav nav-pills nav-flush flex-column mb-auto text-center" >
+  <ul class="nav nav-pills nav-flush flex-column mb-auto text-center">
 
-    <li><a href="#" class="nav-link py-3 border-bottom"> <i class="fa fa-dashboard" style="color: #c66b3d"></i> <small style="color: #c66b3d">Dashboard</small> </a>
+    <li><a class="nav-link py-3 border-bottom" routerLink="dashboard"> <i class="fa fa-dashboard"></i> <small>Dashboard</small> </a>
     </li>
-    <li><a href="#" class="nav-link py-3 border-bottom"> <i class="fa fa-first-order" style="color: #c66b3d"></i> <small style="color: #c66b3d">Demandes</small> </a>
+    <li><a class="nav-link py-3 border-bottom"  > <i class="fa fa-first-order"></i> <small>Demandes</small> </a>
     </li>
-    <li><a href="#" class="nav-link py-3 border-bottom"> <i class="fa fa-users" style="color: #c66b3d"></i>  <small style="color: #c66b3d">Demandeurs</small> </a>
-    <li><a href="#" class="nav-link py-3 border-bottom"> <i class="fa fa-message" style="color: #c66b3d"></i> <small style="color: #c66b3d">Messages</small> </a>
+    <li routerLinkActive="active"><a class="nav-link py-3 border-bottom" routerLink="demandeurs"> <i
+      class="fa fa-users"></i> <small>Demandeurs</small> </a>
+    <li><a class="nav-link py-3 border-bottom"> <i class="fa fa-message"></i> <small>Messages</small> </a>
     </li>
-    <li><a href="#" class="nav-link py-3 border-bottom"> <i class="fa fa-cog" style="color: #c66b3d"></i> <small style="color: #c66b3d">Settings</small> </a></li>
+    <li><a class="nav-link py-3 border-bottom"> <i class="fa fa-cog"></i> <small>Settings</small> </a></li>
   </ul>
   <div class="dropdown border-top">
-    <a class="dropdown-item" href="#" style="padding-top:20px;padding-bottom:20px"><i class="fas fa-power-off mr-2"></i>Logout</a>
+    <a class="dropdown-item" style="padding-top:20px;padding-bottom:20px"><i
+      class="fas fa-power-off mr-2"></i>Logout</a>
   </div>
 </div>
