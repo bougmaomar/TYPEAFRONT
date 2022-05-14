@@ -39,13 +39,13 @@ a {
 .social-connect .fa-google-plus {
   color: #df4b37;
   padding: 10px 12px;
-  font-size: 20px;
+  font-size: 30px;
 }
 
 .social-connect .fa-facebook-square {
   color: #3b5998;
   padding: 10px 15px;
-  font-size: 20px;
+  font-size: 30px;
 }
 
 .social-connect {
@@ -91,7 +91,7 @@ input:focus {
   -moz-box-shadow: none !important;
   -webkit-box-shadow: none !important;
   box-shadow: none !important;
-  border: 1px solid #c66b3d;
+  border: 1px solid #a64512;
   outline-width: 0;
 }
 
@@ -116,17 +116,29 @@ button:focus {
 }
 
 .btn-blue {
-  background-color: #26495c;
-  width: 100%;
+  background-color: #2196F3;
+  width: 140px;
+  color: #fff;
+  border-radius: 6px;
+}
+.btn2-blue {
+  background-color: #edbb00;
+  width: 140px;
   color: #fff;
   border-radius: 6px;
 }
 
 .btn-blue:hover {
-  background-color: #c66b3d;
+  background-color:  #edbb00;
   color: #fff;
   cursor: pointer;
 }
+.btn2-blue:hover {
+  background-color: #80bdff;
+  color: #fff;
+  cursor: pointer;
+}
+
 
 .card-0 {
   color: #a64512;

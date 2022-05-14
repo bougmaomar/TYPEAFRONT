@@ -18,7 +18,7 @@ a {
 .card1 {
   border-bottom-left-radius: 20px;
   border-top-left-radius: 20px;
-  background-color: #a64512;
+  background-color: #c66b3d;
   height: 100%;
   color: #fff;
   padding-left: 13%;
@@ -91,7 +91,7 @@ input:focus {
   -moz-box-shadow: none !important;
   -webkit-box-shadow: none !important;
   box-shadow: none !important;
-  border: 1px solid #a64512;
+  border: 1px solid #c66b3d;
   outline-width: 0;
 }
 
@@ -116,14 +116,25 @@ button:focus {
 }
 
 .btn-blue {
-  background-color: #a64512;
-  width: 100%;
+  background-color: #2196F3;
+  width: 140px;
+  color: #fff;
+  border-radius: 6px;
+}
+.btn2-blue {
+  background-color: #edbb00;
+  width: 140px;
   color: #fff;
   border-radius: 6px;
 }
 
 .btn-blue:hover {
-  background-color: green;
+  background-color:  #edbb00;
+  color: #fff;
+  cursor: pointer;
+}
+.btn2-blue:hover {
+  background-color: #80bdff;
   color: #fff;
   cursor: pointer;
 }

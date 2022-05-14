@@ -15,14 +15,6 @@ import {InputTextModule} from "primeng/inputtext";
 import {ButtonModule} from "primeng/button";
 import {PasswordModule} from "primeng/password";
 import {CardModule} from "primeng/card";
-import {HeaderComponent} from "./view/header/header.component";
-import {FooterComponent} from "./view/footer/footer.component";
-import {HomeComponent} from "./view/home/home.component";
-import {RegisterComponent} from "./view/postuler/register/register.component";
-import {ContactComponent} from "./view/contact/contact.component";
-import {PostulerMissionComponent} from "./view/postuler/postuler-mission/postuler-mission.component";
-import {ChoisirPostulerComponent} from "./view/choisir-postuler/choisir-postuler.component";
-import {PostulerManifestationComponent} from "./view/postuler/postuler-manifestation/postuler-manifestation.component";
 import {MatAutocompleteModule} from "@angular/material/autocomplete";
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatStepperModule} from "@angular/material/stepper";
@@ -30,18 +22,32 @@ import {MatDatepickerModule} from "@angular/material/datepicker";
 import {MatIconModule} from "@angular/material/icon";
 import {MatNativeDateModule} from "@angular/material/core";
 import {CalendarModule} from "primeng/calendar";
-import { InformationSurDemandeurComponent } from './view/postuler/information-sur-demandeur/information-sur-demandeur.component';
-import { HeaderaComponent } from './view/admin/headera/headera.component';
-import {AdminComponent} from "./view/admin/admin.component";
-import { SidenavComponent } from './view/admin/sidenav/sidenav.component';
-import { DashboardComponent } from './view/admin/dashboard/dashboard.component';
 import {TableModule} from "primeng/table";
 import {DropdownModule} from "primeng/dropdown";
 import {MatPaginatorModule} from "@angular/material/paginator";
 import {MatTableModule} from "@angular/material/table";
-import {DemandeursComponent} from "./view/admin/demandeurs/demandeurs.component";
-import {LoginComponent} from "./view/postuler/login/login.component";
-import {AuthentificationComponent} from "./view/admin/authentification/authentification.component";
+import { DemandeurComponent } from './demandeur/demandeur.component';
+import {HeaderComponent} from "./demandeur/header/header.component";
+import {PostulerMissionComponent} from "./demandeur/postuler/postuler-mission/postuler-mission.component";
+import {FooterComponent} from "./demandeur/footer/footer.component";
+import {HomeComponent} from "./demandeur/home/home.component";
+import {ChoisirPostulerComponent} from "./demandeur/choisir-postuler/choisir-postuler.component";
+import {
+  PostulerManifestationComponent
+} from "./demandeur/postuler/postuler-manifestation/postuler-manifestation.component";
+import {RegisterComponent} from "./demandeur/postuler/register/register.component";
+import {ContactComponent} from "./demandeur/contact/contact.component";
+import {
+  InformationSurDemandeurComponent
+} from "./demandeur/postuler/information-sur-demandeur/information-sur-demandeur.component";
+import {AdminComponent} from "./admin/admin.component";
+import {SidenavComponent} from "./admin/sidenav/sidenav.component";
+import {DashboardComponent} from "./admin/dashboard/dashboard.component";
+import {LoginComponent} from "./demandeur/postuler/login/login.component";
+import {AuthentificationComponent} from "./admin/authentification/authentification.component";
+import {HistoriqueComponent} from "./demandeur/historique/historique.component";
+import {HeaderaComponent} from "./admin/headera/headera.component";
+import {DemandeursComponent} from "./admin/demandeurs/demandeurs.component";
 
 @NgModule({
   declarations: [
@@ -61,7 +67,9 @@ import {AuthentificationComponent} from "./view/admin/authentification/authentif
     DashboardComponent,
     DemandeursComponent,
     LoginComponent,
-    AuthentificationComponent
+    AuthentificationComponent,
+    HistoriqueComponent,
+    DemandeurComponent
   ],
   imports: [
     BrowserModule,

@@ -141,7 +141,7 @@ body
 }
 
 .btn-outline-primary {
-  color: #fff1e1;
+  color: #d27b17;
   border: 2px solid #fff1e1
 }
 
@@ -166,7 +166,7 @@ body
 .btn-outline-primary:hover {
   color: #fff !important;
   background: none;
-  border: 2px solid #00e0d8
+  border: 2px solid #c66b3d;
 }
 
 
