@@ -20,7 +20,7 @@ import {AdminComponent} from "./admin/admin.component";
 import {AuthentificationComponent} from "./admin/authentification/authentification.component";
 import {DashboardComponent} from "./admin/dashboard/dashboard.component";
 import {DemandeursComponent} from "./admin/demandeurs/demandeurs.component";
-import {SettingsComponent} from "./admin/settings/settings.component";
+
 import {MessageComponent} from "./admin/message/message.component";
 import {DemandesComponent} from "./admin/demandes/demandes.component";
 import {DemandeurComponent} from "./demandeur/demandeur.component";
@@ -53,7 +53,7 @@ const routes: Routes = [
       {path: "demandeurs", component: DemandeursComponent},
       {path: "demandes", component: DemandesComponent},
       {path: "message", component: MessageComponent},
-      {path: "settings", component: SettingsComponent},
+
 
     ]
   }

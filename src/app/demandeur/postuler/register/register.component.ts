@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {UserService} from "../../../controller/service/user.service";
 import {User} from "../../../controller/model/user.model";
+import {AllusersService} from "../../../controller/service/allusers.service";
 
 
 @Component({
@@ -9,18 +10,18 @@ import {User} from "../../../controller/model/user.model";
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
-  get user(): User {
-    return this.userservice.user;
+  get allusersservice(): AllusersService {
+    return this._allusersservice;
   }
 
 
 
-  constructor(private userservice : UserService) { }
+  constructor(private _allusersservice : AllusersService , private user: User) { }
 
   ngOnInit(): void {
   }
 
   saveuser() {
-    this.userservice.saveuser();
+    this.allusersservice.registerUser(this.user);
   }
 }

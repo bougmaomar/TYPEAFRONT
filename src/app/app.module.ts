@@ -50,8 +50,9 @@ import {HeaderaComponent} from "./admin/headera/headera.component";
 import {DemandeursComponent} from "./admin/demandeurs/demandeurs.component";
 import { DemandesComponent } from './admin/demandes/demandes.component';
 import { MessageComponent } from './admin/message/message.component';
-import { SettingsComponent } from './admin/settings/settings.component';
+
 import {MatSidenavModule} from "@angular/material/sidenav";
+import {HttpClient, HttpClientModule} from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -76,7 +77,7 @@ import {MatSidenavModule} from "@angular/material/sidenav";
     DemandeurComponent,
     DemandesComponent,
     MessageComponent,
-    SettingsComponent
+
   ],
   imports: [
     BrowserModule,
@@ -103,7 +104,8 @@ import {MatSidenavModule} from "@angular/material/sidenav";
     DropdownModule,
     MatPaginatorModule,
     MatTableModule,
-    MatSidenavModule
+    MatSidenavModule,
+   HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
