@@ -24,6 +24,8 @@ import {SettingsComponent} from "./admin/settings/settings.component";
 import {MessageComponent} from "./admin/message/message.component";
 import {DemandesComponent} from "./admin/demandes/demandes.component";
 import {DemandeurComponent} from "./demandeur/demandeur.component";
+import {DetailDemandeComponent} from "./admin/detail-demande/detail-demande.component";
+import {DetailDemandeurComponent} from "./admin/detail-demandeur/detail-demandeur.component";
 
 const routes: Routes = [
   {
@@ -46,17 +48,19 @@ const routes: Routes = [
 
   {path: "admin",
   component: AdminComponent,
+
     children: [
       {path: "", component: DashboardComponent},
-      {path: "authentification", component: AuthentificationComponent},
       {path: "dashboard", component: DashboardComponent},
       {path: "demandeurs", component: DemandeursComponent},
       {path: "demandes", component: DemandesComponent},
       {path: "message", component: MessageComponent},
       {path: "settings", component: SettingsComponent},
-
     ]
-  }
+  },
+  {path: "detail-demande", component: DetailDemandeComponent},
+  {path: "detail-demandeur", component: DetailDemandeurComponent},
+
 ];
 
 @NgModule({

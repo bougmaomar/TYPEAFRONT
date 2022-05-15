@@ -52,6 +52,8 @@ import { DemandesComponent } from './admin/demandes/demandes.component';
 import { MessageComponent } from './admin/message/message.component';
 import { SettingsComponent } from './admin/settings/settings.component';
 import {MatSidenavModule} from "@angular/material/sidenav";
+import { DetailDemandeComponent } from './admin/detail-demande/detail-demande.component';
+import { DetailDemandeurComponent } from './admin/detail-demandeur/detail-demandeur.component';
 
 @NgModule({
   declarations: [
@@ -76,7 +78,9 @@ import {MatSidenavModule} from "@angular/material/sidenav";
     DemandeurComponent,
     DemandesComponent,
     MessageComponent,
-    SettingsComponent
+    SettingsComponent,
+    DetailDemandeComponent,
+    DetailDemandeurComponent
   ],
   imports: [
     BrowserModule,
