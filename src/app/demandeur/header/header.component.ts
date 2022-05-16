@@ -1,7 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Router} from "@angular/router";
 import {PrimeNGConfig} from "primeng/api";
 import {ContactComponent} from "../contact/contact.component";
+import {AllusersService} from "../../controller/service/allusers.service";
+import {User} from "../../controller/model/user.model";
 
 @Component({
   selector: 'app-header',
@@ -10,11 +12,17 @@ import {ContactComponent} from "../contact/contact.component";
 })
 export class HeaderComponent implements OnInit {
   menu: any;
+  user: User = new User();
+  isloggedin : boolean;
 
-  constructor(private router: Router) {
+  constructor(private router: Router, private allusersService: AllusersService) {
+    this.isloggedin = true;
   }
 
   ngOnInit() {
+    this.allusersService.loginUser(this.user).subscribe(data => {
+      console.log(data)
+    });
   }
 
 
@@ -22,6 +30,13 @@ export class HeaderComponent implements OnInit {
     this.router.navigateByUrl('/contact');
   }
 
-
-
+  // addUser() {
+  //   this.allusersService.loginUser(this.user).subscribe(data => {
+  //     console.log(data);
+  //     if (data === 1)
+  //       this.logged = true;
+  //     else
+  //       this.logged = false;
+  //   })
+  // }
 }
