@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { Manifestation } from 'src/app/controller/model/manifestation.model';
 import { Soutien } from 'src/app/controller/model/soutien.model';
 import { UserService } from 'src/app/controller/service/user.service';
-import {documents} from "../../../controller/model/documents.model";
+import { documents } from '../../../controller/model/documents.model';
 
 @Component({
   selector: 'app-postuler-manifestation',
@@ -20,7 +20,7 @@ export class PostulerManifestationComponent implements OnInit {
 
   manif: Manifestation = new Manifestation();
   soutien: Soutien = new Soutien();
-  documents: documents= new documents();
+  documents: documents = new documents();
 
   constructor(private userService: UserService) {}
 

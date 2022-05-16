@@ -2,11 +2,12 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Cadre } from '../model/cadre.model';
+import { documents } from '../model/documents.model';
 import { DonneePro } from '../model/donnee-pro.model';
 import { Manifestation } from '../model/manifestation.model';
+import { messages } from '../model/messages.model';
 import { MissionStage } from '../model/mission-stage.model';
 import { Soutien } from '../model/soutien.model';
-import {documents} from "../model/documents.model";
 
 @Injectable({
   providedIn: 'root',
@@ -143,5 +144,9 @@ export class UserService {
       manif,
       { withCredentials: true }
     );
+  }
+
+  addMessage(mssg: messages): Observable<Object> {
+    return this.httpClient.post(`${this.baseUrl + '/contact'}`, mssg);
   }
 }

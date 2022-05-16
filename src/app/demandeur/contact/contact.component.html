@@ -21,33 +21,33 @@
     <div class="card1">
       <div class="left">
         <div class="form-control">
-          <input type="text" required="required">
-          <span> Entrez votre nom complet</span>
+          <input type="text" required="required" [(ngModel)] = "mssg.subject">
+          <span> Subject</span>
           <i class="fa fa-users"></i>
         </div>
         <div class="form-control">
 
-          <input type="text" required="required">
+          <input type="text" required="required" [(ngModel)] = "mssg.email" >
           <span>Adresse email</span>
           <i class="fa fa-envelope"></i>
         </div>
         <div class="form-control">
 
-          <input type="text" required="required">
+          <input type="text" required="required" [(ngModel)] = "mssg.telephone">
           <span>Entrez votre numéro de contact</span>
           <i class="fa fa-mobile-phone"></i>
         </div>
       </div>
       <div class="right">
         <div class="text-area">
-          <textarea required="required"></textarea>
+          <textarea required="required" [(ngModel)] = "mssg.mssgContent"></textarea>
           <span>Message</span>
         </div>
       </div>
     </div>
 
     <div class="button">
-      <button>Valider</button>
+      <button (click)="onSubmit()">Valider</button>
     </div>
 
   </div>

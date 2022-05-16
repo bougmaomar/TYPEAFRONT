@@ -12,14 +12,14 @@
       </tr>
       </thead>
       <tbody>
-      <tr>
-        <td>M'RHAR</td>
-        <td>Kaoutar</td>
-        <td>kaoutarmrhar@uca.ma</td>
-        <td>Stage</td>
-        <td>Accepter</td>
+      <tr *ngFor = "let missionStage of mStages">
+        <td>{{missionStage.objetMission}}</td>
+        <td>{{missionStage.pays}}</td>
+        <td>{{missionStage.ville}}</td>
+        <td>{{missionStage.ville}}</td>
+        <td>{{missionStage.objetMission}}</td>
         <td>
-          <a class="btn btn-primary" routerLink="/detail-demande">Détails</a>
+          <a class="btn btn-primary" (click)="viewDetails(missionStage.id)">Détails</a>
         </td>
       </tr>
       </tbody>
