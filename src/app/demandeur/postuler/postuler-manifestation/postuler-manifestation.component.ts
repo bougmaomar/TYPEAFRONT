@@ -1,4 +1,7 @@
 import {Component, OnInit} from '@angular/core';
+import {Manifestation} from "../../../controller/model/manifestation.model";
+import {UserService} from "../../../controller/service/user.service";
+import {Soutien} from "../../../controller/model/soutien.model";
 
 @Component({
   selector: 'app-postuler-manifestation',
@@ -18,8 +21,10 @@ export class PostulerManifestationComponent implements OnInit {
   set date4(value: Date) {
     this._date4 = value;
   }
+  manifestation : Manifestation = new Manifestation();
 
-  constructor() {
+   soutien : Soutien= new Soutien();
+  constructor( private  userservice : UserService) {
 
   }
   private _date4: Date | undefined;
@@ -30,6 +35,25 @@ export class PostulerManifestationComponent implements OnInit {
   ngOnInit() {
 
   }
+onsubmitt(){
+
+}
+
+  onsubmit() {
+    this.userservice.addManif(this.manifestation).subscribe(data =>{
+        if (data > 0) {
+          this.userservice.addSoutien(this.soutien,true,this.manifestation.id,null).subscribe(data =>{
+            console.log(data);})
+        }
+      }, error => {
+        console.log('error');
+      }
+    );
 
 
+
+
+
+
+  }
 }

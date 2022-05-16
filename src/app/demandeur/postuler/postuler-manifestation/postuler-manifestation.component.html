@@ -136,16 +136,16 @@
 
           <div class="row px-3">
             <label class="mb-0"><h6 class="mb-0 text-sm">Intitulé de la manifestation</h6></label>
-            <input type="text" name="intitulem" placeholder="">
+            <input type="text" name="intitulem" placeholder=""  [(ngModel)]="manifestation.titreManifestation">
           </div>
           <div class="row px-3">
             <label class="mb-0"><h6 class="mb-0 text-sm">Intitulé de la participation</h6></label>
-            <input type="text" name="intitulep" placeholder="">
+            <input type="text" name="intitulep" placeholder=""  [(ngModel)]="manifestation.titreParticipation">
           </div>
           <div class="row mt-3">
             <div class="col-md-6">
               <label for="inputState" class="mb-0"><h6 class="mb-0 text-sm">Pays</h6></label>
-              <select id="inputState" class="form-control">
+              <select id="inputState" class="form-control"  [(ngModel)]="manifestation.pays" >
                 <option selected>Maroc</option>
                 <option>Algérie</option>
                 <option>Soudan</option>
@@ -156,34 +156,34 @@
             </div>
             <div class="col-md-6">
               <label class="mb-0"><h6 class="mb-0 text-sm">Ville</h6></label>
-              <input type="text" name="uname" placeholder="ville">
+              <input type="text" name="uname" placeholder="ville" [(ngModel)]="manifestation.ville">
             </div>
 
             <div class="row mt-3">
               <div class="col-md-6">
                 <label for="inputState" class="mb-0"><h6 class="mb-0 text-sm">Date début</h6></label><br>
-                <p-calendar [(ngModel)]="date1" [showIcon]="true" inputId="icon"></p-calendar>
+                <p-calendar [(ngModel)]="date1" [showIcon]="true" inputId="icon" [(ngModel)]="manifestation.dateDebut" ></p-calendar>
               </div>
               <div class="col-md-6">
                 <label class="mb-0"><h6 class="mb-0 text-sm">Date Fin</h6></label><br>
-                <p-calendar [(ngModel)]="date2" [showIcon]="true" inputId="icon"></p-calendar>
+                <p-calendar [(ngModel)]="date2" [showIcon]="true" inputId="icon"  [(ngModel)]="manifestation.dateFin"></p-calendar>
               </div>
             </div>
 
             <div class="row mt-3">
               <div class="col-md-6">
                 <label for="inputState" class="mb-0"><h6 class="mb-0 text-sm">Date départ</h6></label><br>
-                <p-calendar [(ngModel)]="date3" [showIcon]="true" inputId="icon"></p-calendar>
+                <p-calendar [(ngModel)]="date3" [showIcon]="true" inputId="icon"  [(ngModel)]="manifestation.dateDepart"></p-calendar>
               </div>
               <div class="col-md-6">
                 <label class="mb-0"><h6 class="mb-0 text-sm">Date retour</h6></label><br>
-                <p-calendar [(ngModel)]="date4" [showIcon]="true" inputId="icon"></p-calendar>
+                <p-calendar [(ngModel)]="date4" [showIcon]="true" inputId="icon"  [(ngModel)]="manifestation.dateRetour"></p-calendar>
               </div>
             </div>
             <div class="row px-3" style="padding-bottom: 20px ">
               <label for="inputState" class="mb-0" style="padding-top: 20px; padding-bottom: 10px "><h6
                 class="mb-0 text-sm">Nature de la participation</h6></label>
-              <select class="custom-select">
+              <select class="custom-select" [(ngModel)]="manifestation.natureParticiaton">
                 <option selected>choisir votre participation</option>
                 <option value="1">One</option>
                 <option value="2">Two</option>
@@ -205,12 +205,12 @@
             </div>
             <div class="row px-3">
               <label class="mb-0"><h6 class="mb-0 text-sm">Préciser le montant</h6></label>
-              <input type="number" name="intitulep" placeholder="" style="margin-bottom: 0px">
+              <input type="number" name="intitulep" placeholder="" style="margin-bottom: 0px" [(ngModel)]="soutien.montant">
             </div>
             <div class="row px-3" style="padding-bottom: 20px ">
               <label for="inputState" class="mb-0" style="padding-top: 20px; padding-bottom: 10px "><h6
                 class="mb-0 text-sm">Nature de soutien demandé</h6></label>
-              <select class="custom-select">
+              <select class="custom-select" [(ngModel)]="soutien.nature">
                 <option selected>choisir votre soutien</option>
                 <option value="1">Soutien Total</option>
                 <option value="2">Soutien complémentaire</option>
@@ -219,23 +219,23 @@
             <div class="row mt-3">
               <div class="col-md-6">
                 <label for="inputState" class="mb-0"><h6 class="mb-0 text-sm">Montant Titre de Transport</h6></label>
-                <input type="number" name="intitulep" placeholder="" style="margin-bottom: 0px">
+                <input type="number" name="intitulep" placeholder="" style="margin-bottom: 0px" [(ngModel)]="soutien.mTitreTransport">
 
               </div>
               <div class="col-md-6">
                 <label class="mb-0"><h6 class="mb-0 text-sm">Montant Frais d'inscription</h6></label>
-                <input type="number" name="intitulep" placeholder="" style="margin-bottom: 0px">
+                <input type="number" name="intitulep" placeholder="" style="margin-bottom: 0px" [(ngModel)]="soutien.mFraisInscription">
               </div>
             </div>
             <div class="row mt-3">
               <div class="col-md-6">
                 <label for="inputState" class="mb-0"><h6 class="mb-0 text-sm">Montant hébergement</h6></label>
-                <input type="number" name="intitulep" placeholder="" style="margin-bottom: 30px">
+                <input type="number" name="intitulep" placeholder="" style="margin-bottom: 30px" [(ngModel)]="soutien.mHebergement">
 
               </div>
               <div class="col-md-6">
                 <label class="mb-0"><h6 class="mb-0 text-sm">Autre</h6></label>
-                <input type="number" name="intitulep" placeholder="" style="margin-bottom: 30px">
+                <input type="number" name="intitulep" placeholder="" style="margin-bottom: 30px" [(ngModel)]="soutien.mAutre">
               </div>
             </div>
             <h3 class="mb-1">Piéces jointes</h3>
@@ -275,7 +275,7 @@
 
             <div class="row mb-4">
               <div class="col-md-3">
-                <button class="btn btn-blue text-center mb-1 py-2" > <i class="fas fa-save" style="padding-right: 10px"></i>Sauvegarder</button>
+                <button class="btn btn-blue text-center mb-1 py-2" (click)="onsubmit()"> <i class="fas fa-save" style="padding-right: 10px" ></i>Sauvegarder</button>
               </div>
               <div class="col-md-3">
                 <button class="btn btn2-blue text-center mb-1 py-2"><i class="fas fa-address-card" style="padding-right: 10px"></i> Imprimer</button>
