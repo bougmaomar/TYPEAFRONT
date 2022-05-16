@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {UserService} from "../../../controller/service/user.service";
-import {User} from "../../../controller/model/user.model";
-import {DonneePro} from "../../../controller/model/donnee-pro.model";
+import { Router } from '@angular/router';
+import { DonneePro } from 'src/app/controller/model/donnee-pro.model';
+import { AllusersService } from 'src/app/controller/service/allusers.service';
+import { UserService } from 'src/app/controller/service/user.service';
 
 @Component({
   selector: 'app-information-sur-demandeur',
@@ -9,15 +10,24 @@ import {DonneePro} from "../../../controller/model/donnee-pro.model";
   styleUrls: ['./information-sur-demandeur.component.css']
 })
 export class InformationSurDemandeurComponent implements OnInit {
-  donnepro: DonneePro = new DonneePro();
-  Email : string;
-  constructor( private  userservice : UserService) {}
-onsubmit(){
-  this.userservice.saveDonnesPro(this.donnepro,this.Email).subscribe(data =>{
-  console.log(data);
-  })
-}
+
+  donne: DonneePro = new DonneePro();
+  constructor(private userService: UserService,
+              private router: Router
+  ) { }
+
   ngOnInit(): void {
+  }
+
+  addUser(){
+    this.userService.saveDonnesPro(this.donne).subscribe(data =>{
+      console.log(data);
+    })
+  }
+
+  onSubmit(){
+    console.log(this.donne);
+    this.addUser();
   }
 
 }

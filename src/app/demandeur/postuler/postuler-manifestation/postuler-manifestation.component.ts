@@ -1,7 +1,9 @@
-import {Component, OnInit} from '@angular/core';
-import {Manifestation} from "../../../controller/model/manifestation.model";
-import {UserService} from "../../../controller/service/user.service";
-import {Soutien} from "../../../controller/model/soutien.model";
+import { Component, OnInit } from '@angular/core';
+
+import { Manifestation } from 'src/app/controller/model/manifestation.model';
+import { Soutien } from 'src/app/controller/model/soutien.model';
+import { UserService } from 'src/app/controller/service/user.service';
+import {documents} from "../../../controller/model/documents.model";
 
 @Component({
   selector: 'app-postuler-manifestation',
@@ -9,51 +11,64 @@ import {Soutien} from "../../../controller/model/soutien.model";
   styleUrls: ['./postuler-manifestation.component.css'],
 })
 export class PostulerManifestationComponent implements OnInit {
-  set date1(value: Date) {
-    this._date1 = value;
+  selectedFile = {} as HTMLInputElement;
+  selectedFileA = {} as HTMLInputElement;
+  selectedFileB = {} as HTMLInputElement;
+  selectedFileC = {} as HTMLInputElement;
+  selectedFileD = {} as HTMLInputElement;
+  selectedFileE = {} as HTMLInputElement;
+
+  manif: Manifestation = new Manifestation();
+  soutien: Soutien = new Soutien();
+  documents: documents= new documents();
+
+  constructor(private userService: UserService) {}
+
+  ngOnInit(): void {}
+
+  onSubmit() {
+    this.userService
+      .addAllManif(this.manif, this.soutien)
+      .subscribe((x: any) => {
+        this.userService.addFilesManif(x, this.documents).subscribe((data) => {
+          console.log(data);
+        });
+      });
   }
-  set date2(value: Date) {
-    this._date2 = value;
+
+  onFileSelected(event: Event) {
+    let selectedFile = (<HTMLInputElement>event.target).files![0];
+    console.log(selectedFile);
+    this.documents.filecin = selectedFile;
   }
-  set date3(value: Date) {
-    this._date3 = value;
+
+  onFileSelectedA(event: Event) {
+    let selectedFileA = (<HTMLInputElement>event.target).files![0];
+    console.log(selectedFileA);
+    this.documents.fileA = selectedFileA;
   }
-  set date4(value: Date) {
-    this._date4 = value;
+
+  onFileSelectedB(event: Event) {
+    let selectedFileB = (<HTMLInputElement>event.target).files![0];
+    console.log(selectedFileB);
+    this.documents.fileB = selectedFileB;
   }
-  manifestation : Manifestation = new Manifestation();
 
-   soutien : Soutien= new Soutien();
-  constructor( private  userservice : UserService) {
-
+  onFileSelectedC(event: Event) {
+    let selectedFileC = (<HTMLInputElement>event.target).files![0];
+    console.log(selectedFileC);
+    this.documents.fileC = selectedFileC;
   }
-  private _date4: Date | undefined;
-  private _date3: Date | undefined;
-  private _date2: Date | undefined;
-  private _date1: Date | undefined;
 
-  ngOnInit() {
-
+  onFileSelectedD(event: Event) {
+    let selectedFileD = (<HTMLInputElement>event.target).files![0];
+    console.log(selectedFileD);
+    this.documents.fileD = selectedFileD;
   }
-onsubmitt(){
 
-}
-
-  onsubmit() {
-    this.userservice.addManif(this.manifestation).subscribe(data =>{
-        if (data > 0) {
-          this.userservice.addSoutien(this.soutien,true,this.manifestation.id,null).subscribe(data =>{
-            console.log(data);})
-        }
-      }, error => {
-        console.log('error');
-      }
-    );
-
-
-
-
-
-
+  onFileSelectedE(event: Event) {
+    let selectedFileE = (<HTMLInputElement>event.target).files![0];
+    console.log(selectedFileE);
+    this.documents.fileE = selectedFileE;
   }
 }
