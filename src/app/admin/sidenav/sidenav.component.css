@@ -1,5 +1,8 @@
 body {
-  background-color: #eee
+  background-color: #ffffff;
+  display: flex;
+  justify-content: center;
+  justify-items: flex-start;
 }
 
 .nav-link {
@@ -33,6 +36,6 @@ li{
 }
 
 .active .nav-link{
-  background-color: #c66b3d;
-  color:white !important;
+  background-color: #adabaa;
+  color:#c66b3d !important;
 }

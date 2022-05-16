@@ -15,46 +15,38 @@
           </div>
         </div>
       </div>
-      <div class="col-lg-6"  >
+      <div class="col-lg-6">
         <div class="card2 card border-0 px-4 py-5">
           <div class="row mb-4">
             <div class="col-md-9"></div>
-            <div class="col-md-3"><a href="#" class="register" routerLink="/login">S'identifier?</a>
+            <div class="col-md-3"><a  class="register" routerLink="/login">S'identifier?</a>
             </div>
           </div>
           <div class="row px-3" style="">
             <label class="mb-1"><h6 class="mb-0 text-sm">Nom</h6></label>
-            <input class="mb-4" type="text" name="email" placeholder="Entrer votre nom" [(ngModel)]="user.nom">
+            <input class="mb-4" type="text"
+                   placeholder="Nom">
+
           </div>
           <div class="row px-3">
             <label class="mb-1"><h6 class="mb-0 text-sm">Prenom</h6></label>
-            <input class="mb-4" type="text" name="email" placeholder="Entrer votre prenom" [(ngModel)]="user.prenom">
+            <input class="mb-4" type="text"  placeholder="Entrer votre prenom">
           </div>
-          <div class="row px-3" >
-            <label class="mb-1"><h6 class="mb-0 text-sm">telephone</h6></label>
-            <input class="mb-4" type="text" name="email" placeholder="Entrer votre prenom" [(ngModel)]="user.telephone">
+          <div class="row px-3">
+            <label class="mb-1"><h6 class="mb-0 text-sm">Téléphone</h6></label>
+            <input class="mb-4" type="number"  placeholder="Entrer votre numero">
           </div>
           <div class="row px-3">
             <label class="mb-1"><h6 class="mb-0 text-sm">Adresse Email </h6></label>
-            <input class="mb-4" type="email" name="email" placeholder="exemple@uca.ma" [(ngModel)]="user.email">
+            <input class="mb-4" type="email" name="email" placeholder="exemple@uca.ma">
           </div>
           <div class="row px-3">
             <label class="mb-1"><h6 class="mb-0 text-sm"> Mot de passe</h6></label>
-            <input type="password" name="password" placeholder="Entrer le mot de passe" [(ngModel)]="user.password">
+            <input type="password" name="password" placeholder="Entrer le mot de passe">
           </div>
-          <div class="row px-3">
-            <label class="mb-1"><h6 class="mb-0 text-sm" style="padding-top: 20px">Confirmez le mot de passe</h6>
-            </label>
-            <input type="password" name="password" placeholder="Confirmez le mot de passe">
-          </div>
-          <div class="row  my-3">
-            <div class="col-md-7"></div>
-            <div class="col-md-5"><a class="password" routerLink="/contact">Mot de passe
-              oublié?</a>
-            </div>
-          </div>
+
           <div class="row mb-3 px-3" style="padding-top: 30px">
-            <button type="submit" class="btn btn-blue text-center" routerLink="/login"  (click)="onSubmit()">Valider</button>
+            <button type="submit" class="btn btn-blue text-center" routerLink="/choisir-postuler">Valider</button>
           </div>
 
         </div>
