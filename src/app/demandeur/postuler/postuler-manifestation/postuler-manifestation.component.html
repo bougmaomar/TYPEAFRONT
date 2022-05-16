@@ -136,16 +136,16 @@
 
           <div class="row px-3">
             <label class="mb-0"><h6 class="mb-0 text-sm">Intitulé de la manifestation</h6></label>
-            <input type="text" name="intitulem" placeholder="">
+            <input type="text" name="intitulem" placeholder="" [(ngModel)] = "manif.titreManifestation">
           </div>
           <div class="row px-3">
             <label class="mb-0"><h6 class="mb-0 text-sm">Intitulé de la participation</h6></label>
-            <input type="text" name="intitulep" placeholder="">
+            <input type="text" name="intitulep" placeholder="" [(ngModel)] = "manif.titreParticipation">
           </div>
           <div class="row mt-3">
             <div class="col-md-6">
               <label for="inputState" class="mb-0"><h6 class="mb-0 text-sm">Pays</h6></label>
-              <select id="inputState" class="form-control">
+              <select id="inputState" class="form-control" [(ngModel)] = "manif.pays">
                 <option selected>Maroc</option>
                 <option>Algérie</option>
                 <option>Soudan</option>
@@ -156,34 +156,34 @@
             </div>
             <div class="col-md-6">
               <label class="mb-0"><h6 class="mb-0 text-sm">Ville</h6></label>
-              <input type="text" name="uname" placeholder="ville">
+              <input type="text" name="uname" placeholder="ville" [(ngModel)] = "manif.ville">
             </div>
 
             <div class="row mt-3">
               <div class="col-md-6">
                 <label for="inputState" class="mb-0"><h6 class="mb-0 text-sm">Date début</h6></label><br>
-                <p-calendar [(ngModel)]="date1" [showIcon]="true" inputId="icon"></p-calendar>
+                <p-calendar [showIcon]="true" inputId="icon" [(ngModel)] = "manif.dateDebut"></p-calendar>
               </div>
               <div class="col-md-6">
                 <label class="mb-0"><h6 class="mb-0 text-sm">Date Fin</h6></label><br>
-                <p-calendar [(ngModel)]="date2" [showIcon]="true" inputId="icon"></p-calendar>
+                <p-calendar [showIcon]="true" inputId="icon" [(ngModel)] = "manif.dateFin"></p-calendar>
               </div>
             </div>
 
             <div class="row mt-3">
               <div class="col-md-6">
                 <label for="inputState" class="mb-0"><h6 class="mb-0 text-sm">Date départ</h6></label><br>
-                <p-calendar [(ngModel)]="date3" [showIcon]="true" inputId="icon"></p-calendar>
+                <p-calendar [showIcon]="true" inputId="icon" [(ngModel)] ="manif.dateDepart"></p-calendar>
               </div>
               <div class="col-md-6">
                 <label class="mb-0"><h6 class="mb-0 text-sm">Date retour</h6></label><br>
-                <p-calendar [(ngModel)]="date4" [showIcon]="true" inputId="icon"></p-calendar>
+                <p-calendar [showIcon]="true" inputId="icon" [(ngModel)] = "manif.dateRetour"></p-calendar>
               </div>
             </div>
             <div class="row px-3" style="padding-bottom: 20px ">
               <label for="inputState" class="mb-0" style="padding-top: 20px; padding-bottom: 10px "><h6
                 class="mb-0 text-sm">Nature de la participation</h6></label>
-              <select class="custom-select">
+              <select class="custom-select" [(ngModel)] = "manif.natureParticiaton">
                 <option selected>choisir votre participation</option>
                 <option value="1">One</option>
                 <option value="2">Two</option>
@@ -195,12 +195,18 @@
               cours de cette année</h6></label>
             <div class="row px-3">
             <span> <input type="radio" name="flexRadioDefault" id="flexRadioDefault1"
-                          style="width: 40px;hight: 40px; padding-bottom: 50px  ;margin-bottom: 3px;margin-left:0px">
+                          style="width: 40px; padding-bottom: 50px  ;margin-bottom: 3px;margin-left:0px"
+                          value="oui"
+                          [(ngModel)] = "soutien.isBenfTypeA"
+            >
                        <label style="padding-bottom: 0px;">Oui</label></span>
             </div>
             <div class="row px-3">
             <span>  <input type="radio" name="flexRadioDefault" id="flexRadioDefault2"
-                           style="width: 40px;hight: 40px; padding-top:30px ;margin-bottom:20px;margin-top: 10px">
+                           style="width: 40px; padding-top:30px ;margin-bottom:20px;margin-top: 10px"
+                           value="non"
+                           [(ngModel)] = "soutien.isBenfTypeA"
+            >
     <label style="margin-bottom: 20px; margin-top:10px; padding: 0px">Non</label></span>
             </div>
             <div class="row px-3">
@@ -210,7 +216,7 @@
             <div class="row px-3" style="padding-bottom: 20px ">
               <label for="inputState" class="mb-0" style="padding-top: 20px; padding-bottom: 10px "><h6
                 class="mb-0 text-sm">Nature de soutien demandé</h6></label>
-              <select class="custom-select">
+              <select class="custom-select" [(ngModel)] = "soutien.nature">
                 <option selected>choisir votre soutien</option>
                 <option value="1">Soutien Total</option>
                 <option value="2">Soutien complémentaire</option>
@@ -219,63 +225,63 @@
             <div class="row mt-3">
               <div class="col-md-6">
                 <label for="inputState" class="mb-0"><h6 class="mb-0 text-sm">Montant Titre de Transport</h6></label>
-                <input type="number" name="intitulep" placeholder="" style="margin-bottom: 0px">
+                <input type="number" name="intitulep" placeholder="" style="margin-bottom: 0px" [(ngModel)] = "soutien.mTitreTransport">
 
               </div>
               <div class="col-md-6">
                 <label class="mb-0"><h6 class="mb-0 text-sm">Montant Frais d'inscription</h6></label>
-                <input type="number" name="intitulep" placeholder="" style="margin-bottom: 0px">
+                <input type="number" name="intitulep" placeholder="" style="margin-bottom: 0px" [(ngModel)] = "soutien.mFraisInscription">
               </div>
             </div>
             <div class="row mt-3">
               <div class="col-md-6">
                 <label for="inputState" class="mb-0"><h6 class="mb-0 text-sm">Montant hébergement</h6></label>
-                <input type="number" name="intitulep" placeholder="" style="margin-bottom: 30px">
+                <input type="number" name="intitulep" placeholder="" style="margin-bottom: 30px" [(ngModel)] = "soutien.mHebergement">
 
               </div>
               <div class="col-md-6">
                 <label class="mb-0"><h6 class="mb-0 text-sm">Autre</h6></label>
-                <input type="number" name="intitulep" placeholder="" style="margin-bottom: 30px">
+                <input type="number" name="intitulep" placeholder="" style="margin-bottom: 30px" [(ngModel)] = "soutien.mAutre">
               </div>
             </div>
             <h3 class="mb-1">Piéces jointes</h3>
             <div class="row mt-3">
               <div class="col-md-5 me-2">
-                <input type="file" class="custom-file-input" id="inputGroupFile">
+                <input type="file" class="custom-file-input" id="inputGroupFile" (change)="onFileSelected($event)">
                 <label class="custom-file-label" for="inputGroupFile">Cin</label>
 
               </div>
               <div class="col-md-5">
-                <input type="file" class="custom-file-input" id="inputGroupFile1">
+                <input type="file" class="custom-file-input" id="inputGroupFile1" (change)="onFileSelectedA($event)">
                 <label class="custom-file-label" for="inputGroupFile1">Document1</label>
               </div>
             </div>
             <div class="row mt-3">
               <div class="col-md-5 me-2">
-                <input type="file" class="custom-file-input" id="inputGroupFile2">
+                <input type="file" class="custom-file-input" id="inputGroupFile2" (change)="onFileSelectedB($event)">
                 <label class="custom-file-label" for="inputGroupFile2">Document2</label>
 
               </div>
               <div class="col-md-5">
-                <input type="file" class="custom-file-input" id="inputGroupFile3">
+                <input type="file" class="custom-file-input" id="inputGroupFile3" (change)="onFileSelectedC($event)">
                 <label class="custom-file-label" for="inputGroupFile3">Document3</label>
               </div>
             </div>
             <div class="row mt-3">
               <div class="col-md-5 me-2">
-                <input type="file" class="custom-file-input" id="inputGroupFile4">
+                <input type="file" class="custom-file-input" id="inputGroupFile4" (change)="onFileSelectedD($event)">
                 <label class="custom-file-label" for="inputGroupFile4">Document4</label>
 
               </div>
               <div class="col-md-5">
-                <input type="file" class="custom-file-input" id="inputGroupFile5">
+                <input type="file" class="custom-file-input" id="inputGroupFile5" (change)="onFileSelectedE($event)">
                 <label class="custom-file-label" for="inputGroupFile5" placeholder="">Document5</label>
               </div>
             </div>
 
             <div class="row mb-4">
               <div class="col-md-3">
-                <button class="btn btn-blue text-center mb-1 py-2" > <i class="fas fa-save" style="padding-right: 10px"></i>Sauvegarder</button>
+                <button class="btn btn-blue text-center mb-1 py-2"  (click)="onSubmit()"> <i class="fas fa-save" style="padding-right: 10px"></i>Sauvegarder</button>
               </div>
               <div class="col-md-3">
                 <button class="btn btn2-blue text-center mb-1 py-2"><i class="fas fa-address-card" style="padding-right: 10px"></i> Imprimer</button>

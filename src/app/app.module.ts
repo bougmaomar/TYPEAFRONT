@@ -50,10 +50,11 @@ import {HeaderaComponent} from "./admin/headera/headera.component";
 import {DemandeursComponent} from "./admin/demandeurs/demandeurs.component";
 import { DemandesComponent } from './admin/demandes/demandes.component';
 import { MessageComponent } from './admin/message/message.component';
-import { SettingsComponent } from './admin/settings/settings.component';
+
 import {MatSidenavModule} from "@angular/material/sidenav";
 import { DetailDemandeComponent } from './admin/detail-demande/detail-demande.component';
 import { DetailDemandeurComponent } from './admin/detail-demandeur/detail-demandeur.component';
+import {HttpClientModule} from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -78,7 +79,6 @@ import { DetailDemandeurComponent } from './admin/detail-demandeur/detail-demand
     DemandeurComponent,
     DemandesComponent,
     MessageComponent,
-    SettingsComponent,
     DetailDemandeComponent,
     DetailDemandeurComponent
   ],
@@ -107,7 +107,8 @@ import { DetailDemandeurComponent } from './admin/detail-demandeur/detail-demand
     DropdownModule,
     MatPaginatorModule,
     MatTableModule,
-    MatSidenavModule
+    MatSidenavModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

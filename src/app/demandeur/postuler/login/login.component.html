@@ -18,23 +18,25 @@
       <div class="col-lg-6">
         <div class="card2 card border-0 px-4 py-5">
           <div class="row  mb-4 justify-content-end">
+            <!--            <div class="col-md-9"></div>-->
             <div class="col-md-3"><a class="register" routerLink="/register">S'inscrire?</a>
             </div>
           </div>
           <div class="row px-3" style="padding-bottom: 20px;padding-top: 35px">
             <label class="mb-1"><h6 class="mb-0 text-sm"> Adresse email</h6></label>
-            <input class="mb-4" type="email" name="email" placeholder="exemple@uca.ma">
+            <input class="mb-4" type="email" name="email" placeholder="exemple@uca.ma" [(ngModel)] = "user.email">
           </div>
           <div class="row px-3" style="padding-bottom: 10px">
             <label class="mb-1"><h6 class="mb-0 text-sm">Mot de passe</h6></label>
-            <input type="password" name="password" placeholder="Entrer votre Mot de passe">
+            <input type="password" name="password" placeholder="Entrer votre Mot de passe" [(ngModel)] = "user.password">
           </div>
           <div class="row  mb-4 justify-content-end">
-            <div class="col-md-5"><a class="password"  routerLink="/contact">Mot de passe oublié?</a>
+            <!--            <div class="col-md-7"></div>-->
+            <div class="col-md-5"><a class="password">Mot de passe oublié?</a>
             </div>
           </div>
           <div class="row mb-3 px-3" style="padding-top: 30px">
-            <button type="submit" class="btn btn-blue text-center" routerLink="/choisir-postuler">Connexion</button>
+            <button type="submit" class="btn btn-blue text-center" routerLink="/choisir-postuler" (click)="onSubmit()">Connexion</button>
           </div>
 
         </div>

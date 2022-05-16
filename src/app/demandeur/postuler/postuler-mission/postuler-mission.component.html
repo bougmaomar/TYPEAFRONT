@@ -215,12 +215,12 @@
 
           <div class="row px-3">
             <label class="mb-0"><h6 class="mb-0 text-sm">Objet de la mission ou stage</h6></label>
-            <input type="text" name="intitulem" placeholder="">
+            <input type="text" name="intitulem" placeholder="" [(ngModel)] = "mstage.objetMission">
           </div>
           <div class="row mt-3">
             <div class="col-md-6">
               <label for="inputState" class="mb-0"><h6 class="mb-0 text-sm">Pays</h6></label>
-              <select id="inputState" class="form-control">
+              <select id="inputState" class="form-control" [(ngModel)] = "mstage.pays">
                 <option selected>Maroc</option>
                 <option>Algérie</option>
                 <option>Soudan</option>
@@ -231,88 +231,97 @@
             </div>
             <div class="col-md-6">
               <label class="mb-0"><h6 class="mb-0 text-sm">Ville</h6></label>
-              <input type="text" name="uname" placeholder="ville">
+              <input type="text" name="uname" placeholder="ville" [(ngModel)] = "mstage.ville">
             </div>
 
             <div class="row mt-3">
               <div class="col-md-6">
                 <label for="inputState" class="mb-0"><h6 class="mb-0 text-sm">Date début</h6></label><br>
-                <p-calendar [(ngModel)]="date1" [showIcon]="true" inputId="icon"></p-calendar>
+                <p-calendar [showIcon]="true" inputId="icon" [(ngModel)] = "mstage.dateDebut"></p-calendar>
               </div>
               <div class="col-md-6">
                 <label class="mb-0"><h6 class="mb-0 text-sm">Date Fin</h6></label><br>
-                <p-calendar [(ngModel)]="date2" [showIcon]="true" inputId="icon"></p-calendar>
+                <p-calendar [showIcon]="true" inputId="icon" [(ngModel)] = "mstage.dateFin"></p-calendar>
               </div>
             </div>
 
             <div class="row mt-3">
               <div class="col-md-6">
                 <label for="inputState" class="mb-0"><h6 class="mb-0 text-sm">Date départ</h6></label><br>
-                <p-calendar [(ngModel)]="date3" [showIcon]="true" inputId="icon"></p-calendar>
+                <p-calendar  [showIcon]="true" inputId="icon" [(ngModel)] = "mstage.dateDepart"></p-calendar>
               </div>
               <div class="col-md-6">
                 <label class="mb-0"><h6 class="mb-0 text-sm">Date retour</h6></label><br>
-                <p-calendar [(ngModel)]="date4" [showIcon]="true" inputId="icon"></p-calendar>
+                <p-calendar  [showIcon]="true" inputId="icon" [(ngModel)] = "mstage.dateRetour"></p-calendar>
               </div>
             </div>
             <h3 class="mb-1" style="padding-bottom: 0px">Cadre de la mission ou de stage</h3>
-
+            <!--            <div class="row px-3">-->
+            <!--            <span> <input type="radio" name="flexRadioDefault" id="flexRadioDefault3" style="width: 30px;hight: 30px; padding-bottom: 0px  ;margin-bottom: 0px;margin-left:0px;padding-top: 40px">-->
+            <!--              <label style="padding-bottom: 10px;padding-left: 20px;padding-top: 0px">Ce projet de coopération financé, mais le titre de transport ne fait pas partie de l'enveloppe budgétaire allouée</label></span>-->
+            <!--            </div>-->
             <div class="row px-3 mt-2">
             <span>
-              <label >
-              <input type="radio" name="flexRadioDefault1"
+              <label style="">
+              <input type="radio" name="flexRadioDefault"
                      id="flexRadioDefault4"
-                     style="width: 40px;">Ce n'est pas dans le cadre d'un projet de Recherche financé</label></span>
+                     value="Ce n'est pas dans le cadre d'un projet de Recherche financé"
+                     style="width: 40px;" [(ngModel)] = "cadre.isFinanced">Ce n'est pas dans le cadre d'un projet de Recherche financé</label></span>
             </div>
             <div class="row px-3 mb-3">
             <span>
               <label style="">
                 <input type="radio"
-                       name="flexRadioDefault1"
+                       name="flexRadioDefault"
                        id="flexRadioDefault5"
-                       style="width: 40px;">
+                       value="Ce projet de coopération financé, mais le titre de transport ne fait pas partie de l'enveloppe  budgétaire allouée"
+                       style="width: 40px;" [(ngModel)] = "cadre.isFinanced">
 Ce projet de coopération financé, mais le titre de transport ne fait pas partie de l'enveloppe  budgétaire allouée</label></span>
             </div>
             <div class="row px-3">
               <label class="mb-0"><h6 class="mb-0 text-sm">Préciser le cadre</h6></label>
-              <input type="text" name="intitulem" placeholder="">
+              <input type="text" name="intitulem" placeholder="" [(ngModel)] = "cadre.titreCadre">
 
             </div>
             <div class="row px-3">
               <label class="mb-0"><h6 class="mb-0 text-sm">Intitulé du projet de coopération</h6></label>
-              <input type="text" name="intitulem" placeholder="">
+              <input type="text" name="intitulem" placeholder=""  [(ngModel)] = "cadre.titreProjet">
             </div>
             <div class="row px-3">
               <label class="mb-0"><h6 class="mb-0 text-sm">Responsable marocain du projet</h6></label>
-              <input type="text" name="intitulem" placeholder="">
+              <input type="text" name="intitulem" placeholder=""  [(ngModel)] = "cadre.respoMarDuProjet">
             </div>
             <div class="row px-3">
 
               <label>Partenaire(s) étranger(s) impliqué(s) </label>
-              <textarea rows="2" cols="70" pInputTextarea></textarea>
+              <textarea rows="2" cols="70" pInputTextarea [(ngModel)] = "cadre.partenaireEtranger"></textarea>
             </div>
 
             <h3 class="mb-1">Informations sur le Soutien</h3>
             <label><h6 class="mb-0 text-sm" style="padding-top:10px ">Avez-vous déja bénéficié d'un soutien Type A au
               cours de cette année</h6></label>
             <div class="row px-3">
-            <span> <input type="radio" name="flexRadioDefault" id="flexRadioDefault1"
-                          style="width: 40px;hight: 40px; padding-bottom: 50px  ;margin-bottom: 3px;margin-left:0px">
-                       <label style="padding-bottom: 0px;">Oui</label></span>
+            <span> <input type="radio" name="flexRadioDefault2" id="flexRadioDefault1"
+                          style="width: 40px;hight: 40px; padding-bottom: 50px  ;margin-bottom: 3px;margin-left:0px" [(ngModel)] = "soutien.isBenfTypeA"
+                          value="oui"
+            >
+                       <label style="padding-bottom: 0px;" >Oui</label></span>
             </div>
             <div class="row px-3">
-            <span>  <input type="radio" name="flexRadioDefault" id="flexRadioDefault2"
-                           style="width: 40px;hight: 40px; padding-top:30px ;margin-bottom:20px;margin-top: 10px">
+            <span>  <input type="radio" name="flexRadioDefault2" id="flexRadioDefault2"
+                           style="width: 40px;hight: 40px; padding-top:30px ;margin-bottom:20px;margin-top: 10px" [(ngModel)] = "soutien.isBenfTypeA"
+                           value="non"
+            >
     <label style="margin-bottom: 20px; margin-top:10px; padding: 0px">Non</label></span>
             </div>
             <div class="row px-3">
               <label class="mb-0"><h6 class="mb-0 text-sm">Préciser le montant</h6></label>
-              <input type="number" name="intitulep" placeholder="" style="margin-bottom: 0px">
+              <input type="number" name="intitulep" placeholder="" style="margin-bottom: 0px"  [(ngModel)] = "soutien.montant">
             </div>
             <div class="row px-3" style="padding-bottom: 20px ">
               <label for="inputState" class="mb-0" style="padding-top: 20px; padding-bottom: 10px "><h6
                 class="mb-0 text-sm">Nature de soutien demandé</h6></label>
-              <select class="custom-select">
+              <select class="custom-select"  [(ngModel)] = "soutien.nature">
                 <option selected>choisir votre soutien</option>
                 <option value="1">Soutien Total</option>
                 <option value="2">Soutien complémentaire</option>
@@ -321,60 +330,60 @@ Ce projet de coopération financé, mais le titre de transport ne fait pas parti
             <div class="row mt-3">
               <div class="col-md-6">
                 <label for="inputState" class="mb-0"><h6 class="mb-0 text-sm">Montant Titre de Transport</h6></label>
-                <input type="number" name="intitulep" placeholder="" style="margin-bottom: 0px">
+                <input type="number" name="intitulep" placeholder="" style="margin-bottom: 0px" [(ngModel)] = "soutien.mTitreTransport">
 
               </div>
               <div class="col-md-6">
                 <label class="mb-0"><h6 class="mb-0 text-sm">Montant Frais d'inscription</h6></label>
-                <input type="number" name="intitulep" placeholder="" style="margin-bottom: 0px">
+                <input type="number" name="intitulep" placeholder="" style="margin-bottom: 0px" [(ngModel)] = "soutien.mFraisInscription">
               </div>
             </div>
             <div class="row mt-3">
               <div class="col-md-6">
                 <label for="inputState" class="mb-0"><h6 class="mb-0 text-sm">Montant hébergement</h6></label>
-                <input type="number" name="intitulep" placeholder="" style="margin-bottom: 30px">
+                <input type="number" name="intitulep" placeholder="" style="margin-bottom: 30px" [(ngModel)] = "soutien.mHebergement">
 
               </div>
               <div class="col-md-6">
                 <label class="mb-0"><h6 class="mb-0 text-sm">Autre</h6></label>
-                <input type="number" name="intitulep" placeholder="" style="margin-bottom: 30px">
+                <input type="number" name="intitulep" placeholder="" style="margin-bottom: 30px" [(ngModel)] = "soutien.mAutre">
               </div>
             </div>
             <h3 class="mb-1">Piéces jointes</h3>
             <div class="row mt-3">
               <div class="col-md-5 gx-2">
-                <input type="file" class="custom-file-input" id="inputGroupFile">
+                <input type="file" class="custom-file-input" id="inputGroupFile" (change)="onFileSelected($event)">
                 <label class="custom-file-label" for="inputGroupFile">Cin</label>
               </div>
               <div class="col-md-2"></div>
               <div class="col-md-5">
-                <input type="file" class="custom-file-input" id="inputGroupFile1">
+                <input type="file" class="custom-file-input" id="inputGroupFile1" (change)="onFileSelectedA($event)">
                 <label class="custom-file-label" for="inputGroupFile1">Document1</label>
               </div>
             </div>
             <div class="row mt-3">
               <div class="col-md-5">
-                <input type="file" class="custom-file-input" id="inputGroupFile2">
+                <input type="file" class="custom-file-input" id="inputGroupFile2" (change)="onFileSelectedB($event)">
                 <label class="custom-file-label" for="inputGroupFile2">Document2</label>
 
               </div>
               <div class="col-md-2"></div>
 
               <div class="col-md-5">
-                <input type="file" class="custom-file-input" id="inputGroupFile3">
+                <input type="file" class="custom-file-input" id="inputGroupFile3" (change)="onFileSelectedC($event)">
                 <label class="custom-file-label" for="inputGroupFile3">Document3</label>
               </div>
             </div>
             <div class="row mt-3">
               <div class="col-md-5">
-                <input type="file" class="custom-file-input" id="inputGroupFile4">
+                <input type="file" class="custom-file-input" id="inputGroupFile4"(change)="onFileSelectedD($event)">
                 <label class="custom-file-label" for="inputGroupFile4">Document4</label>
 
               </div>
               <div class="col-md-2"></div>
 
               <div class="col-md-5">
-                <input type="file" class="custom-file-input" id="inputGroupFile5">
+                <input type="file" class="custom-file-input" id="inputGroupFile5" (change)="onFileSelectedE($event)">
                 <label class="custom-file-label" for="inputGroupFile5" placeholder="">Document5</label>
               </div>
             </div>
@@ -382,7 +391,7 @@ Ce projet de coopération financé, mais le titre de transport ne fait pas parti
 
             <div class="row mb-4">
               <div class="col-md-3">
-                <button class="btn btn-blue text-center mb-1 py-2"><i class="fas fa-save"></i>Sauvegarder
+                <button class="btn btn-blue text-center mb-1 py-2" (click)="onSubmit()"><i class="fas fa-save" ></i>Sauvegarder
                 </button>
               </div>
               <div class="col-md-3  ">
