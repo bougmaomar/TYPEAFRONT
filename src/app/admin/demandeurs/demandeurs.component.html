@@ -11,13 +11,13 @@
       </tr>
       </thead>
       <tbody>
-      <tr>
-        <td>M'RHAR</td>
-        <td>Kaoutar</td>
-        <td>kaoutarmrhar@uca.ma</td>
-        <td>+212 651-117-970</td>
+      <tr *ngFor = "let user of users">
+        <td>{{user.nom}}</td>
+        <td>{{user.prenom}}</td>
+        <td>{{user.email}}</td>
+        <td>{{user.telephone}}</td>
         <td>
-          <div class="btn btn-primary" routerLink="/detail-demandeur">Détails</div>
+          <div class="btn btn-primary" (click)="viewUserDetails(user.id)">Détails</div>
         </td>
       </tr>
       </tbody>
