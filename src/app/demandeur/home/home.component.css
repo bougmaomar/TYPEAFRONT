@@ -356,7 +356,7 @@ body {
 .container .box .body .content div {
   transform-style: preserve-3d;
   padding: 20px;
-  background: linear-gradient(45deg, #FE0061, #FFEB3B);
+  background: linear-gradient(45deg, #d27b17, #b9b8ad);
   transform: translateZ(100px);
 }
 
