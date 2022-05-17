@@ -19,10 +19,11 @@ export class HeaderComponent implements OnInit {
     private router: Router,
     private allusers: AllusersService,
     private varService: VarService
-  ) {}
+  ) {
+    this.isLogged = this.varService.getIsLogged();
+  }
 
   user: User = new User();
-  isloggedin: boolean;
 
   ngOnInit() {}
 

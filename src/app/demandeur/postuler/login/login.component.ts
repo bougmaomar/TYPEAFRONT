@@ -23,8 +23,8 @@ export class LoginComponent {
   onSubmit() {
     this.allusersService.loginUser(this.user).subscribe((x: any) => {
       if (x == 1) {
-        this.varService.setIsLogged(true);
         this.router.navigate(['/choisir-postuler']);
+        this.varService.setIsLogged(true);
       } else {
         this.varService.setIsLogged(false);
       }
