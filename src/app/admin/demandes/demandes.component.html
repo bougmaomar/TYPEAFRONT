@@ -3,10 +3,10 @@
     <table class="table text-center">
       <thead>
       <tr>
-        <th>Nom</th>
-        <th>Prenom</th>
-        <th>Email</th>
-        <th>Type demande</th>
+        <th>Objet</th>
+        <th>Cadre</th>
+        <th>Ville</th>
+        <th>Pays</th>
         <th>état</th>
         <th>détails</th>
       </tr>
@@ -16,8 +16,11 @@
         <td>{{missionStage.objetMission}}</td>
         <td>{{missionStage.pays}}</td>
         <td>{{missionStage.ville}}</td>
-        <td>{{missionStage.ville}}</td>
-        <td>{{missionStage.objetMission}}</td>
+        <td>{{missionStage.pays}}</td>
+        <td>
+          <a class="btn1"><i class="fa fa-check"  style="color: limegreen; "></i> </a>
+          <br>  <a class="btn2" ><i class="fa fa-xmark"  style="color: red; "></i> </a>
+        </td>
         <td>
           <a class="btn btn-primary" (click)="viewDetails(missionStage.id)">Détails</a>
         </td>

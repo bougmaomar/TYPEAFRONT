@@ -1,0 +1,31 @@
+.btn-blue {
+  background-color: #2196F3;
+  width: 140px;
+  color: #fff;
+  border-radius: 6px;
+  justify-content: center;
+  justify-items: center;
+  display: flex;
+
+}
+.btn2-blue {
+  background-color: #edbb00;
+  width: 140px;
+  color: #fff;
+  border-radius: 6px;
+  justify-content: center;
+  justify-items: center;
+  display: flex;
+
+}
+
+.btn-blue:hover {
+  background-color:  #edbb00;
+  color: #fff;
+  cursor: pointer;
+}
+.btn2-blue:hover {
+  background-color: #80bdff;
+  color: #fff;
+  cursor: pointer;
+}

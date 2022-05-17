@@ -24,15 +24,14 @@
 
                 </div>
 
-                <div class="form-group" style="padding-top: 4px"><label
-                  style="padding-bottom: 3px">Email</label>
+                <div class="form-group" ><label
+                 >Email</label>
                   <input type="text" class="form-control" placeholder="" value={{mStage.objetMission}}>
-                  
+
                 </div>
 
 
               </div>
-
               <div class="col-lg-5 col-md-6 col-sm-12">
                 <div class="form-group"><label>vous êtes</label>
                   <input type="text" class="form-control" placeholder="">
@@ -50,14 +49,69 @@
 
                 </div>
 
-                <div class="form-group" style="padding-top: 4px"><label
-                  style="padding-bottom: 3px">Etablissement</label>
+                <div class="form-group" ><label
+                 >Etablissement</label>
                   <input type="text" class="form-control" placeholder="">
                 </div>
 
                 <div class="form-group"><label >Responsable de l'entite de recherche</label>
                   <input type="text" class="form-control"  placeholder=""></div>
               </div>
+
+              <h2 class="mb-1" style="padding-bottom: 20px;"  >Informations générales sur la mission ou stage</h2>
+
+              <div class="col-lg-5 col-md-6 col-sm-12">
+                <div class="form-group"><label for="time">Pays</label>
+                  <input type="text" class="form-control"  placeholder="">
+                </div>
+                <div class="form-group"><label for="time">Date début</label>
+                  <input type="text" class="form-control"  placeholder="">
+                </div>
+                <div class="form-group"><label for="time">Date départ</label>
+                  <input type="text" class="form-control"  placeholder="">
+                </div>
+                <div class="form-group"><label>Objet de la mission ou stage</label>
+                  <input type="text" class="form-control" placeholder="">
+                </div>
+              </div>
+              <div class="col-lg-5 col-md-6 col-sm-12">
+                <div class="form-group"><label>Ville</label>
+                  <input type="text" class="form-control" placeholder="">
+                </div>
+                <div class="form-group" ><label>Date Fin</label>
+                  <input type="text" class="form-control" placeholder="" value={{mStage.objetMission}}>
+                </div>
+                <div class="form-group" ><label>Date retour</label>
+                  <input type="text" class="form-control" placeholder="" value={{mStage.objetMission}}>
+                </div>
+
+
+              </div>
+
+              <h2 class="mb-1" style="padding-bottom: 20px;"  >Cadre de la mission ou de stage</h2>
+              <div class="col-lg-5 col-md-6 col-sm-12">
+                <div class="form-group"><label>Est ce que le projet est financé</label>
+                  <input type="text" class="form-control" placeholder="">
+                </div>
+                <div class="form-group"><label for="time">Intitulé du projet de coopération</label>
+                  <input type="text" class="form-control"  placeholder="">
+                </div>
+                <div class="form-group"><label for="time">Partenaire(s) étranger(s) impliqué(s) </label>
+                  <input type="text" class="form-control"  placeholder="">
+                </div>
+              </div>
+              <div class="col-lg-5 col-md-6 col-sm-12">
+                <div class="form-group"><label>Préciser le cadre</label>
+                  <input type="text" class="form-control" placeholder="">
+                </div>
+                <div class="form-group" ><label>Responsable marocain du projet</label>
+                  <input type="text" class="form-control" placeholder="" value={{mStage.objetMission}}>
+                </div>
+
+              </div>
+
+
+
                 <h2 class="mb-1" style="padding-bottom: 20px;"  >Informations sur le soutien</h2>
 
                 <div class="col-lg-5 col-md-6 col-sm-12">
@@ -111,8 +165,10 @@
                 <div class="col-md-3">
                   <button class="btn btn2-blue text-center mb-1 py-2"><i class="fas fa-address-card" style="padding-right: 10px"></i> Imprimer</button>
                 </div>
+                <div class="col-md-3" routerLink="/admin/demandes-Stage">
+                  <button class="btn btn3-blue text-center mb-1 py-2"  ><i  class="fa fa-xmark" style="padding-right: 10px"></i> Annuler</button>
+                </div>
               </div>
-
             </div>
           </div>
         </div>

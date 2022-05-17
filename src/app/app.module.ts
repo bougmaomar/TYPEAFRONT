@@ -49,7 +49,13 @@ import { MessageComponent } from './admin/message/message.component';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { DetailDemandeComponent } from './admin/detail-demande/detail-demande.component';
 import { DetailDemandeurComponent } from './admin/detail-demandeur/detail-demandeur.component';
+<<<<<<< HEAD
 import { HttpClientModule } from '@angular/common/http';
+=======
+import {HttpClientModule} from "@angular/common/http";
+import { DemandeManifComponent } from './admin/demande-manif/demande-manif.component';
+import { DetailManifComponent } from './admin/detail-manif/detail-manif.component';
+>>>>>>> e2ca47535abf211f28e4c331f849dd356920aac3
 
 @NgModule({
   declarations: [
@@ -76,6 +82,11 @@ import { HttpClientModule } from '@angular/common/http';
     MessageComponent,
     DetailDemandeComponent,
     DetailDemandeurComponent,
+<<<<<<< HEAD
+=======
+    DemandeManifComponent,
+    DetailManifComponent
+>>>>>>> e2ca47535abf211f28e4c331f849dd356920aac3
   ],
   imports: [
     BrowserModule,
