@@ -51,6 +51,7 @@ export class LoginComponent implements OnInit {
   addUser() {
     this.allusersService.loginUser(this.user).subscribe(data => {
       console.log(data);
+      console.log("here")
     })
   }
 
