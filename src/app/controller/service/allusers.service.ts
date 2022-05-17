@@ -5,30 +5,30 @@ import { messages } from '../model/messages.model';
 import { User } from '../model/user.model';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class AllusersService {
+  private baseUrl = 'http://localhost:8000/allusers';
 
-  private baseUrl = "http://localhost:8000/allusers"
+  constructor(private httpClient: HttpClient) {}
 
-  constructor(private httpClient: HttpClient) { }
-
-  loginUser(user: User): Observable<Object>{
-    return this.httpClient.post(`${this.baseUrl + "/login"}`, user,{withCredentials: true})
+  loginUser(user: User): Observable<Object> {
+    return this.httpClient.post(`${this.baseUrl + '/login'}`, user, {
+      withCredentials: true,
+    });
   }
 
-  logoutUser(): Observable<Object>{
-    return this.httpClient.get(`${this.baseUrl + "/logout"}`)
+  logoutUser(): Observable<Object> {
+    return this.httpClient.get(`${this.baseUrl + '/logout'}`);
   }
 
-  registerUser(user: User): Observable<Object>{
-    return this.httpClient.post(`${this.baseUrl + "/register"}`, user,{withCredentials: true})
+  registerUser(user: User): Observable<Object> {
+    return this.httpClient.post(`${this.baseUrl + '/register'}`, user, {
+      withCredentials: true,
+    });
   }
 
-  contactAdmin(mssg: messages): Observable<Object>{
-    return this.httpClient.post(`${this.baseUrl + "/contact"}`, mssg)
+  contactAdmin(mssg: messages): Observable<Object> {
+    return this.httpClient.post(`${this.baseUrl + '/contact'}`, mssg);
   }
-
-
-
 }

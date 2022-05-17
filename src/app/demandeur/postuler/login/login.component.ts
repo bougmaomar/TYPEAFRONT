@@ -2,7 +2,6 @@ import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { User } from 'src/app/controller/model/user.model';
 import { AllusersService } from 'src/app/controller/service/allusers.service';
-import { VarService } from 'src/app/controller/service/var.service';
 
 @Component({
   selector: 'app-login',
@@ -15,8 +14,7 @@ export class LoginComponent {
 
   constructor(
     private allusersService: AllusersService,
-    private router: Router,
-    private varService: VarService
+    private router: Router
   ) {}
   ngOnInit(): void {}
 
@@ -24,9 +22,9 @@ export class LoginComponent {
     this.allusersService.loginUser(this.user).subscribe((x: any) => {
       if (x == 1) {
         this.router.navigate(['/choisir-postuler']);
-        this.varService.setIsLogged(true);
+        this.isLogged = true;
+        localStorage.setItem('isLogged', `${this.isLogged}`);
       } else {
-        this.varService.setIsLogged(false);
       }
     });
   }

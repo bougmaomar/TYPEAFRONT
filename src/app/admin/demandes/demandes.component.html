@@ -18,8 +18,8 @@
         <td>{{missionStage.ville}}</td>
         <td>{{missionStage.pays}}</td>
         <td>
-          <a class="btn1"><i class="fa fa-check"  style="color: limegreen; "></i> </a>
-          <br>  <a class="btn2" ><i class="fa fa-xmark"  style="color: red; "></i> </a>
+          <a class="btn1" (click)="accepted()"><i class="fa fa-check"  style="color: limegreen; "></i> </a>
+          <br>  <a class="btn2" (click)="refused()"><i class="fa fa-xmark"  style="color: red; "></i> </a>
         </td>
         <td>
           <a class="btn btn-primary" (click)="viewDetails(missionStage.id)">Détails</a>
