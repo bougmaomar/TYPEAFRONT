@@ -26,6 +26,7 @@ export class PostulerMissionComponent implements OnInit {
   soutien: Soutien = new Soutien();
   documents: documents = new documents();
   num: number;
+  idm: number;
 
   constructor(private userService: UserService, private router: Router) {}
 
@@ -35,6 +36,7 @@ export class PostulerMissionComponent implements OnInit {
     this.userService
       .addAll(this.mstage, this.cadre, this.soutien)
       .subscribe((x: any) => {
+        this.idm=x;
         this.userService.addFiles(x, this.documents).subscribe((data) => {
           console.log(data);
         });
@@ -75,5 +77,11 @@ export class PostulerMissionComponent implements OnInit {
     let selectedFileE = (<HTMLInputElement>event.target).files![0];
     console.log(selectedFileE);
     this.documents.fileE = selectedFileE;
+  }
+  onSubmitt(){
+    this.userService.exportReportMission(this.idm).subscribe((data) => {
+      console.log(data);
+    });
+
   }
 }

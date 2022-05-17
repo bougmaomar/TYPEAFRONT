@@ -144,4 +144,12 @@ export class UserService {
       { withCredentials: true }
     );
   }
+  generateReport(id : number): Observable<Object> {
+    return this.httpClient.get(`${this.baseUrl + '/raport/' + id}`,{ withCredentials: true });
+  }
+  exportReportMission(id : number): Observable<Object> {
+    return this.httpClient.get(`${this.baseUrl + '/raportmission/' + id}`,{ withCredentials: true });
+
+  }
 }
+

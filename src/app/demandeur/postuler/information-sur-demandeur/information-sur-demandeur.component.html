@@ -10,12 +10,8 @@
               </div>
               <h2 class="mb-1" style="padding-bottom: 20px;"  >Informations générales sur le Demandeur</h2>
 
-              <div class="col-lg-5 col-md-6 col-sm-12">
-                <div class="form-group"><label for="first-name">Nom</label>
-                  <input type="text" class="form-control" id="first-name" placeholder="Entrer votre nom">
-                </div>
-                <div class="form-group"><label for="Mobile-Number">téléphone</label>
-                  <input type="number" class="form-control" id="Mobile-Number" placeholder=""></div>
+
+
                 <div class="form-group"><label>vous êtes
                 </label> <select class="form-control" [(ngModel)] ="donne.niveau">
                   <option>Enseignant chercheur</option>
@@ -29,12 +25,7 @@
                 </div>
               </div>
               <div class="col-lg-5 col-md-6 col-sm-12">
-                <div class="form-group"><label for="last-name">Prénom</label>
-                  <input type="text" class="form-control" id="last-name" placeholder="Entrer votre prénom">
-                </div>
-                <div class="form-group"><label>Email</label>
-                  <input type="email" class="form-control" id="email" placeholder="exemple@uca.ma">
-                </div>
+
                 <div class="form-group"><label>Grade</label> <select class="form-control" [(ngModel)] ="donne.grade">
                   <option>PES</option>
                   <option>PH</option>
@@ -69,7 +60,7 @@
               <div class="mb-2 mt-4">
                 <div class="text-right" style="width: 580px;padding-left: 420px;">
                   <button type="button" class="btn btn-primary btn-block" ><small
-                    class="font-weight-bold" (click)="onSubmit()">Sauvegarder</small></button>
+                    class="font-weight-bold"  routerLink="/choisir-postuler" (click)="onSubmit()">Sauvegarder</small></button>
                 </div>
               </div>
             </div>
@@ -78,4 +69,4 @@
       </div>
     </div>
   </div>
-</div>
+
