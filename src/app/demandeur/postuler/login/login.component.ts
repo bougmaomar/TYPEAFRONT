@@ -1,34 +1,33 @@
-import {Component, OnInit} from '@angular/core';
-import {Router} from '@angular/router';
-import {User} from 'src/app/controller/model/user.model';
-import {AllusersService} from 'src/app/controller/service/allusers.service';
+import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { User } from 'src/app/controller/model/user.model';
+import { AllusersService } from 'src/app/controller/service/allusers.service';
+import { VarService } from 'src/app/controller/service/var.service';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  styleUrls: ['./login.component.css'],
 })
-export class LoginComponent implements OnInit {
-
+export class LoginComponent {
+  isLogged: boolean = false;
   user: User = new User();
 
-  constructor(private allusersService: AllusersService,
-              private router: Router
-  ) {
-  }
-
-  ngOnInit(): void {
-  }
-
-  addUser() {
-    this.allusersService.loginUser(this.user).subscribe(data => {
-      console.log(data);
-    })
-  }
+  constructor(
+    private allusersService: AllusersService,
+    private router: Router,
+    private varService: VarService
+  ) {}
+  ngOnInit(): void {}
 
   onSubmit() {
-    console.log(this.user);
-    this.addUser();
+    this.allusersService.loginUser(this.user).subscribe((x: any) => {
+      if (x == 1) {
+        this.router.navigate(['/choisir-postuler']);
+        this.varService.setIsLogged(true);
+      } else {
+        this.varService.setIsLogged(false);
+      }
+    });
   }
-
 }

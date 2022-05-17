@@ -145,8 +145,4 @@ export class UserService {
       { withCredentials: true }
     );
   }
-
-  addMessage(mssg: messages): Observable<Object> {
-    return this.httpClient.post(`${this.baseUrl + '/contact'}`, mssg);
-  }
 }
