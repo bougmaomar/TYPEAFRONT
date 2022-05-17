@@ -2,9 +2,10 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Cadre } from '../model/cadre.model';
-import { documents } from '../../../../../testjasper/myfrontend/src/app/controller/model/documents.model';
+import { documents } from '../model/documents.model';
 import { DonneePro } from '../model/donnee-pro.model';
 import { Manifestation } from '../model/manifestation.model';
+import { messages } from '../model/messages.model';
 import { MissionStage } from '../model/mission-stage.model';
 import { Soutien } from '../model/soutien.model';
 

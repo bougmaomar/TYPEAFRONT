@@ -3,18 +3,18 @@
     <table class="table text-center">
       <thead>
       <tr>
-        <th>Nom complet </th>
         <th>Email</th>
+        <th>Subject</th>
         <th>Téléphone</th>
         <th>Message</th>
       </tr>
       </thead>
       <tbody>
-      <tr>
-        <td>M'RHAR Kaoutar</td>
-        <td>kaoutarmrhar@uca.ma</td>
-        <td>+212 651-117-970</td>
-        <td>bonjour, j'ai besoin d'un email academique</td>
+      <tr *ngFor = "let message of messages">
+        <td>{{message.email}}</td>
+        <td>{{message.subject}}</td>
+        <td>{{message.telephone}}</td>
+        <td>{{message.mssgContent}}</td>
 
       </tr>
       </tbody>

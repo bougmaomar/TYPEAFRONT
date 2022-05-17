@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import {AllusersService} from "../../controller/service/allusers.service";
+import {Router} from "@angular/router";
+import {User} from "../../controller/model/user.model";
 
 @Component({
   selector: 'app-home',
@@ -7,9 +10,28 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  menu: any;
+  user: User = new User();
 
-  ngOnInit(): void {
+
+  constructor(private router: Router, private allusersService:AllusersService) { }
+
+  ngOnInit() {}
+
+
+
+  home() {
+    this.router.navigateByUrl('/contact');
   }
 
+  onLogin():boolean{
+    this.allusersService.loginUser(this.user).subscribe((x: any) => {
+      if(x===1){
+
+      }else{
+
+      }
+    })
+    return true;
+  }
 }
