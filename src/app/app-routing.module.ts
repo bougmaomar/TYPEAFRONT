@@ -22,6 +22,8 @@ import { DemandesComponent } from './admin/demandes/demandes.component';
 import { DemandeurComponent } from './demandeur/demandeur.component';
 import { DetailDemandeComponent } from './admin/detail-demande/detail-demande.component';
 import { DetailDemandeurComponent } from './admin/detail-demandeur/detail-demandeur.component';
+import {DemandeManifComponent} from "./admin/demande-manif/demande-manif.component";
+import {DetailManifComponent} from "./admin/detail-manif/detail-manif.component";
 
 const routes: Routes = [
   {
@@ -42,20 +44,22 @@ const routes: Routes = [
       { path: 'historique', component: HistoriqueComponent },
     ],
   },
+  { path: 'admin', component: AuthentificationComponent },
 
   {
     path: 'admin',
     component: AdminComponent,
 
     children: [
-      { path: '', component: DashboardComponent },
       { path: 'dashboard', component: DashboardComponent },
       { path: 'demandeurs', component: DemandeursComponent },
-      { path: 'demandes', component: DemandesComponent },
+      { path: 'demandes-Stage', component: DemandesComponent },
+      { path: 'demandes-Manif', component: DemandeManifComponent },
       { path: 'message', component: MessageComponent },
     ],
   },
-  { path: 'detail-demande/:id', component: DetailDemandeComponent },
+  { path: 'detail-demande-Stage/:id', component: DetailDemandeComponent },
+  { path: 'detail-demande-Manif/:id', component: DetailManifComponent },
   { path: 'detail-demandeur/:id', component: DetailDemandeurComponent },
 ];
 

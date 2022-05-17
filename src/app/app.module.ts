@@ -55,6 +55,8 @@ import {MatSidenavModule} from "@angular/material/sidenav";
 import { DetailDemandeComponent } from './admin/detail-demande/detail-demande.component';
 import { DetailDemandeurComponent } from './admin/detail-demandeur/detail-demandeur.component';
 import {HttpClientModule} from "@angular/common/http";
+import { DemandeManifComponent } from './admin/demande-manif/demande-manif.component';
+import { DetailManifComponent } from './admin/detail-manif/detail-manif.component';
 
 @NgModule({
   declarations: [
@@ -80,7 +82,9 @@ import {HttpClientModule} from "@angular/common/http";
     DemandesComponent,
     MessageComponent,
     DetailDemandeComponent,
-    DetailDemandeurComponent
+    DetailDemandeurComponent,
+    DemandeManifComponent,
+    DetailManifComponent
   ],
   imports: [
     BrowserModule,
