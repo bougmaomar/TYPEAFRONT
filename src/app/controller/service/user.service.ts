@@ -94,7 +94,6 @@ export class UserService {
 
   addFiles(mStageId: number, documents: documents): Observable<Object> {
     const formData = new FormData();
-    console.log(typeof documents.filecin.name);
     formData.append('filecin', documents.filecin, documents.filecin.name);
     formData.append('fileA', documents.fileA, documents.fileA.name);
     formData.append('fileB', documents.fileB, documents.fileB.name);
@@ -145,12 +144,14 @@ export class UserService {
       { withCredentials: true }
     );
   }
-  generateReport(id : number): Observable<Object> {
-    return this.httpClient.get(`${this.baseUrl + '/raport/' + id}`,{ withCredentials: true });
+  generateReport(id: number): Observable<Object> {
+    return this.httpClient.get(`${this.baseUrl + '/raport/' + id}`, {
+      withCredentials: true,
+    });
   }
-  exportReportMission(id : number): Observable<Object> {
-    return this.httpClient.get(`${this.baseUrl + '/raportmission/' + id}`,{ withCredentials: true });
-
+  exportReportMission(id: number): Observable<Object> {
+    return this.httpClient.get(`${this.baseUrl + '/raportmission/' + id}`, {
+      withCredentials: true,
+    });
   }
 }
-

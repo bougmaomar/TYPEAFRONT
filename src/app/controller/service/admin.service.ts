@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { DonneePro } from '../model/donnee-pro.model';
+import { MailMessage } from '../model/mailmessages.model';
 import { Manifestation } from '../model/manifestation.model';
 import { messages } from '../model/messages.model';
 import { MissionStage } from '../model/mission-stage.model';
@@ -62,6 +63,19 @@ export class AdminService {
   getUserDonne(mStageId: number): Observable<DonneePro> {
     return this.httpClient.get<DonneePro>(
       `${this.baseUrl + '/userdonne/' + mStageId}`
+    );
+  }
+
+  RefuseMStage(mStageId: number): Observable<number> {
+    return this.httpClient.get<number>(
+      `${this.baseUrl + '/refusestage/' + mStageId}`
+    );
+  }
+
+  SendMail(mssgsMail: MailMessage): Observable<MailMessage> {
+    return this.httpClient.post<MailMessage>(
+      `${this.baseUrl + '/sendmail'}`,
+      mssgsMail
     );
   }
 }

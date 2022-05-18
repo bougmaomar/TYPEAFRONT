@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { User } from '../../../controller/model/user.model';
 import { AllusersService } from '../../../controller/service/allusers.service';
 import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-register',
@@ -22,7 +23,16 @@ export class RegisterComponent implements OnInit {
   addUser() {
     this.allusersService.registerUser(this.user).subscribe((data: number) => {
       if (data == 1) {
-        this.router.navigate(['/login']);
+        Swal.fire({
+          title: 'Creation de compte',
+          text: 'Ce compte a été creer avec success',
+          icon: 'success',
+          confirmButtonText: 'OK',
+        }).then((result) => {
+          if (result.isConfirmed) {
+            this.router.navigate(['/choisir-postuler']);
+          }
+        });
       } else if (data == -1) {
         this.erreur = 'Ce mail existe deja veuillez saisir un autre';
       } else if (data == -2) {
