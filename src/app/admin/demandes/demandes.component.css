@@ -65,4 +65,11 @@ td:nth-child(2n){
   background-color: #B0BEC5;
 
 }
-
+.scroller {
+  width: 1200px;
+  height: 500px;
+  display: flex;
+  overflow-y: scroll;
+  scrollbar-color: rebeccapurple green;
+  scrollbar-width: thin;
+}

@@ -1,6 +1,6 @@
 <div class="container">
-  <div class="table-responsive">
-    <table class="table text-center">
+  <div class="table-responsive"  class="scroller">
+    <table class="table text-center"  >
       <thead>
       <tr>
         <th>Objet</th>
@@ -11,7 +11,9 @@
         <th>détails</th>
       </tr>
       </thead>
-      <tbody>
+      <tbody  >
+
+
       <tr *ngFor = "let missionStage of mStages">
         <td>{{missionStage.objetMission}}</td>
         <td>{{missionStage.pays}}</td>
