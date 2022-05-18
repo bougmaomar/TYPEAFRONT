@@ -30,6 +30,7 @@
             <label class="mb-1"><h6 class="mb-0 text-sm">Mot de passe</h6></label>
             <input type="password" name="password" placeholder="Entrer votre Mot de passe" [(ngModel)] = "user.password">
           </div>
+          <span class="erreurSpan">{{erreur}}</span>
           <div class="row  mb-4 justify-content-end">
             <!--            <div class="col-md-7"></div>-->
             <div class="col-md-5"><a class="password">Mot de passe oublié?</a>

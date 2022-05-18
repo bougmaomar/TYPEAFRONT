@@ -22,8 +22,9 @@ import { DemandesComponent } from './admin/demandes/demandes.component';
 import { DemandeurComponent } from './demandeur/demandeur.component';
 import { DetailDemandeComponent } from './admin/detail-demande/detail-demande.component';
 import { DetailDemandeurComponent } from './admin/detail-demandeur/detail-demandeur.component';
-import {DemandeManifComponent} from "./admin/demande-manif/demande-manif.component";
-import {DetailManifComponent} from "./admin/detail-manif/detail-manif.component";
+import { DemandeManifComponent } from './admin/demande-manif/demande-manif.component';
+import { DetailManifComponent } from './admin/detail-manif/detail-manif.component';
+import { AuthGuard } from './controller/service/authGuard/auth-guard.service';
 
 const routes: Routes = [
   {
@@ -51,16 +52,48 @@ const routes: Routes = [
     component: AdminComponent,
 
     children: [
-      { path: 'dashboard', component: DashboardComponent },
-      { path: 'demandeurs', component: DemandeursComponent },
-      { path: 'demandes-Stage', component: DemandesComponent },
-      { path: 'demandes-Manif', component: DemandeManifComponent },
-      { path: 'message', component: MessageComponent },
+      {
+        path: 'dashboard',
+        component: DashboardComponent,
+        canActivate: [AuthGuard],
+      },
+      {
+        path: 'demandeurs',
+        component: DemandeursComponent,
+        canActivate: [AuthGuard],
+      },
+      {
+        path: 'demandes-Stage',
+        component: DemandesComponent,
+        canActivate: [AuthGuard],
+      },
+      {
+        path: 'demandes-Manif',
+        component: DemandeManifComponent,
+        canActivate: [AuthGuard],
+      },
+      {
+        path: 'message',
+        component: MessageComponent,
+        canActivate: [AuthGuard],
+      },
     ],
   },
-  { path: 'detail-demande-Stage/:id', component: DetailDemandeComponent },
-  { path: 'detail-demande-Manif/:id', component: DetailManifComponent },
-  { path: 'detail-demandeur/:id', component: DetailDemandeurComponent },
+  {
+    path: 'detail-demande-Stage/:id',
+    component: DetailDemandeComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'detail-demande-Manif/:id',
+    component: DetailManifComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'detail-demandeur/:id',
+    component: DetailDemandeurComponent,
+    canActivate: [AuthGuard],
+  },
 ];
 
 @NgModule({

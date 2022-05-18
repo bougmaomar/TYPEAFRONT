@@ -2,7 +2,6 @@ import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { User } from 'src/app/controller/model/user.model';
 import { AllusersService } from 'src/app/controller/service/allusers.service';
-import { VarService } from 'src/app/controller/service/var.service';
 
 @Component({
   selector: 'app-login',
@@ -11,12 +10,13 @@ import { VarService } from 'src/app/controller/service/var.service';
 })
 export class LoginComponent {
   isLogged: boolean = false;
+  erreur: string;
+
   user: User = new User();
 
   constructor(
     private allusersService: AllusersService,
-    private router: Router,
-    private varService: VarService
+    private router: Router
   ) {}
   ngOnInit(): void {}
 
@@ -24,9 +24,13 @@ export class LoginComponent {
     this.allusersService.loginUser(this.user).subscribe((x: any) => {
       if (x == 1) {
         this.router.navigate(['/choisir-postuler']);
-        this.varService.setIsLogged(true);
+        this.isLogged = true;
+        console.log(this.user.email);
+        localStorage.setItem('isLogged', `${this.isLogged}`);
+      } else if (x == -3 || x == -1) {
+        this.erreur = 'Email ou mot de passe sont invalide';
       } else {
-        this.varService.setIsLogged(false);
+        this.erreur = 'Email ou mot de passe sont incorrect';
       }
     });
   }
