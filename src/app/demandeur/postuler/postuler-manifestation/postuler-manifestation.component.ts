@@ -21,7 +21,7 @@ export class PostulerManifestationComponent implements OnInit {
   manif: Manifestation = new Manifestation();
   soutien: Soutien = new Soutien();
   documents: documents = new documents();
-
+  id: number;
   constructor(private userService: UserService) {}
 
   ngOnInit(): void {}
@@ -30,6 +30,7 @@ export class PostulerManifestationComponent implements OnInit {
     this.userService
       .addAllManif(this.manif, this.soutien)
       .subscribe((x: any) => {
+        this.id = x;
         this.userService.addFilesManif(x, this.documents).subscribe((data) => {
           console.log(data);
         });
@@ -70,5 +71,10 @@ export class PostulerManifestationComponent implements OnInit {
     let selectedFileE = (<HTMLInputElement>event.target).files![0];
     console.log(selectedFileE);
     this.documents.fileE = selectedFileE;
+  }
+  onSubmitt() {
+    this.userService.generateReport(this.id).subscribe((data) => {
+      console.log(data);
+    });
   }
 }

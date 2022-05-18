@@ -26,4 +26,8 @@ export class DemandesComponent implements OnInit {
   viewDetails(id: number) {
     this.router.navigate(['/detail-demande-Stage', id]);
   }
+
+  accepted() {}
+
+  refused() {}
 }

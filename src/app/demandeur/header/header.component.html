@@ -22,7 +22,10 @@
           <i class="fa-regular fa-address-card"></i>
         </li>
         <li class="nav-item">
-          <a routerLink="/login" class="nav-link" style="color: black">postuler</a>
+          <a *ngIf="isLogged == false; else loggedin" routerLink="/login" class="nav-link" style="color: black">postuler</a>
+          <ng-template #loggedin>
+            <a routerLink="/choisir-postuler" class="nav-link" style="color: black">postuler</a>
+          </ng-template>
         </li>
 
 
@@ -34,19 +37,21 @@
           <a routerLink="/contact" class="nav-link"  style="color: black">contacter</a>
         </li>
       </ul>
-      <div class="nav-item" style=" color: white" *ngIf="isLogged; else loginBtn">
+      <div class="nav-item" style=" color: white" *ngIf="isLogged == true; else loginBtn">
         <div class="nav-item dropdown">
           <a class="nav-link dropdown-toggle"  id="navbarDropdownMenuLink" data-toggle="dropdown"
              aria-haspopup="true" aria-expanded="false"  style="height: 30px;color:white ">
-            <i class="fa-solid fa-user-pen" style="padding-right: 10px"></i> User name
+            <i class="fa-solid fa-user-pen" style="padding-right: 10px">
+              Logged In
+            </i>
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <a class="dropdown-item" ><i class="fa-solid fa-arrow-right-from-bracket"></i> Logout</a>
+            <a class="dropdown-item" (click)="logoutUser()"><i class="fa-solid fa-arrow-right-from-bracket"></i> Logout</a>
           </div>
         </div>
       </div>
       <ng-template #loginBtn>
-        <button>Login</button>
+        <button (click)="goToLogin()">Login</button>
       </ng-template>
 
 
