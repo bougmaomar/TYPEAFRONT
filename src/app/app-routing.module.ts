@@ -76,12 +76,13 @@ const routes: Routes = [
         component: DemandeManifComponent,
         canActivate: [AuthGuard],
       },
-      {
-        path: 'message',
-        component: MessageComponent,
-        canActivate: [AuthGuard],
-      },
+
     ],
+  },
+  {
+    path: 'message',
+    component: MessageComponent,
+    canActivate: [AuthGuard],
   },
   {
     path: 'detail-demande-Stage/:id',
