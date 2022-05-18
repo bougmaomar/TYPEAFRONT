@@ -52,6 +52,7 @@ import { DetailDemandeurComponent } from './admin/detail-demandeur/detail-demand
 import { HttpClientModule } from '@angular/common/http';
 import { DemandeManifComponent } from './admin/demande-manif/demande-manif.component';
 import { DetailManifComponent } from './admin/detail-manif/detail-manif.component';
+import { AuthGuard } from './controller/service/authGuard/auth-guard.service';
 
 @NgModule({
   declarations: [
@@ -109,7 +110,7 @@ import { DetailManifComponent } from './admin/detail-manif/detail-manif.componen
     MatSidenavModule,
     HttpClientModule,
   ],
-  providers: [],
+  providers: [AuthGuard],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

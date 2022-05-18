@@ -1,15 +1,25 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { AllusersService } from 'src/app/controller/service/allusers.service';
 
 @Component({
   selector: 'app-headera',
   templateUrl: './headera.component.html',
-  styleUrls: ['./headera.component.css']
+  styleUrls: ['./headera.component.css'],
 })
 export class HeaderaComponent implements OnInit {
+  constructor(
+    private router: Router,
+    private allusersService: AllusersService
+  ) {}
 
-  constructor() { }
+  ngOnInit(): void {}
 
-  ngOnInit(): void {
+  onLogoutAdmin() {
+    this.allusersService.logoutUser().subscribe((data) => {
+      this.router.navigate(['/admin']);
+      localStorage.removeItem('isLogged');
+      localStorage.removeItem('isAdmin');
+    });
   }
-
 }

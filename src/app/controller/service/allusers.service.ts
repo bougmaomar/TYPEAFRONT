@@ -19,7 +19,9 @@ export class AllusersService {
   }
 
   logoutUser(): Observable<Object> {
-    return this.httpClient.get(`${this.baseUrl + '/logout'}`);
+    return this.httpClient.get(`${this.baseUrl + '/logout'}`, {
+      withCredentials: true,
+    });
   }
 
   registerUser(user: User): Observable<Object> {
@@ -30,5 +32,9 @@ export class AllusersService {
 
   contactAdmin(mssg: messages): Observable<Object> {
     return this.httpClient.post(`${this.baseUrl + '/contact'}`, mssg);
+  }
+
+  isAdmin(mail: string): Observable<Object> {
+    return this.httpClient.get<boolean>(`${this.baseUrl + '/isadmin/' + mail}`);
   }
 }

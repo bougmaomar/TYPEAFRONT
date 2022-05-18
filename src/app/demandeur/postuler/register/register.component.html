@@ -42,11 +42,7 @@
             <label class="mb-1"><h6 class="mb-0 text-sm"> Mot de passe</h6></label>
             <input type="password" name="password" placeholder="Entrer le mot de passe" [(ngModel)]="user.password">
           </div>
-          <div class="row px-3">
-            <label class="mb-1"><h6 class="mb-0 text-sm" style="padding-top: 20px">Confirmez le mot de passe</h6>
-            </label>
-            <input type="telephone" name="telephone" placeholder="Entrer votre telephone" >
-          </div>
+          <span class="erreurSpan">{{erreur}}</span>
           <div class="row  my-3">
             <div class="col-md-7"></div>
             <div class="col-md-5"><a class="password" routerLink="/contact">Mot de passe
@@ -54,7 +50,7 @@
             </div>
           </div>
           <div class="row mb-3 px-3" style="padding-top: 30px">
-            <button type="submit" class="btn btn-blue text-center" routerLink="/login" (click)="onSubmit()">Valider</button>
+            <button type="submit" class="btn btn-blue text-center" (click)="onSubmit()">Valider</button>
           </div>
 
         </div>

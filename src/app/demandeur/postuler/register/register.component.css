@@ -153,6 +153,10 @@ a {
   background-color: #c66b3d;
   height: 60px;
 }
+
+.erreurSpan{
+  color: red;
+}
 @media screen and (max-width: 991px) {
   .logo {
     margin-left: 0px;
@@ -171,4 +175,6 @@ a {
     border-top: 1px solid #EEEEEE !important;
     margin: 0px 15px;
   }
+
+  
 }

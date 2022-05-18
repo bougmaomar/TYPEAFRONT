@@ -10,6 +10,8 @@ import { AllusersService } from 'src/app/controller/service/allusers.service';
 })
 export class LoginComponent {
   isLogged: boolean = false;
+  erreur: string;
+
   user: User = new User();
 
   constructor(
@@ -23,8 +25,12 @@ export class LoginComponent {
       if (x == 1) {
         this.router.navigate(['/choisir-postuler']);
         this.isLogged = true;
+        console.log(this.user.email);
         localStorage.setItem('isLogged', `${this.isLogged}`);
+      } else if (x == -3 || x == -1) {
+        this.erreur = 'Email ou mot de passe sont invalide';
       } else {
+        this.erreur = 'Email ou mot de passe sont incorrect';
       }
     });
   }
