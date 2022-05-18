@@ -22,7 +22,10 @@
           <i class="fa-regular fa-address-card"></i>
         </li>
         <li class="nav-item">
-          <a routerLink="/login" class="nav-link" style="color: black">postuler</a>
+          <a *ngIf="isLogged == false; else loggedin" routerLink="/login" class="nav-link" style="color: black">postuler</a>
+          <ng-template #loggedin>
+            <a routerLink="/choisir-postuler" class="nav-link" style="color: black">postuler</a>
+          </ng-template>
         </li>
 
 

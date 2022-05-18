@@ -6,7 +6,7 @@ import { Cadre } from 'src/app/controller/model/cadre.model';
 import { MissionStage } from 'src/app/controller/model/mission-stage.model';
 import { Soutien } from 'src/app/controller/model/soutien.model';
 import { UserService } from 'src/app/controller/service/user.service';
-import {documents} from "../../../controller/model/documents.model";
+import { documents } from '../../../controller/model/documents.model';
 
 @Component({
   selector: 'app-postuler-mission',
@@ -36,7 +36,7 @@ export class PostulerMissionComponent implements OnInit {
     this.userService
       .addAll(this.mstage, this.cadre, this.soutien)
       .subscribe((x: any) => {
-        this.idm=x;
+        this.idm = x;
         this.userService.addFiles(x, this.documents).subscribe((data) => {
           console.log(data);
         });
@@ -78,10 +78,9 @@ export class PostulerMissionComponent implements OnInit {
     console.log(selectedFileE);
     this.documents.fileE = selectedFileE;
   }
-  onSubmitt(){
+  onSubmitt() {
     this.userService.exportReportMission(this.idm).subscribe((data) => {
       console.log(data);
     });
-
   }
 }

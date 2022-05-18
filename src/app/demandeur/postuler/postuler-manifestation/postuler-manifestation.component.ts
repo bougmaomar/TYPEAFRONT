@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { Manifestation } from 'src/app/controller/model/manifestation.model';
 import { Soutien } from 'src/app/controller/model/soutien.model';
 import { UserService } from 'src/app/controller/service/user.service';
-import {documents} from "../../../controller/model/documents.model";
+import { documents } from '../../../controller/model/documents.model';
 
 @Component({
   selector: 'app-postuler-manifestation',
@@ -20,8 +20,8 @@ export class PostulerManifestationComponent implements OnInit {
 
   manif: Manifestation = new Manifestation();
   soutien: Soutien = new Soutien();
-  documents: documents= new documents();
-id: number;
+  documents: documents = new documents();
+  id: number;
   constructor(private userService: UserService) {}
 
   ngOnInit(): void {}
@@ -30,7 +30,7 @@ id: number;
     this.userService
       .addAllManif(this.manif, this.soutien)
       .subscribe((x: any) => {
-        this.id=x;
+        this.id = x;
         this.userService.addFilesManif(x, this.documents).subscribe((data) => {
           console.log(data);
         });
@@ -72,12 +72,9 @@ id: number;
     console.log(selectedFileE);
     this.documents.fileE = selectedFileE;
   }
-  onSubmitt(){
+  onSubmitt() {
     this.userService.generateReport(this.id).subscribe((data) => {
       console.log(data);
     });
-
   }
-
-
 }
