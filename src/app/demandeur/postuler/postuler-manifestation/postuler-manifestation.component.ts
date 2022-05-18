@@ -29,7 +29,7 @@ id: number;
   onSubmit() {
     this.userService
       .addAllManif(this.manif, this.soutien)
-      .subscribe((x: any) => {
+      .subscribe((x: number) => {
         this.id=x;
         this.userService.addFilesManif(x, this.documents).subscribe((data) => {
           console.log(data);
