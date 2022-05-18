@@ -12,45 +12,45 @@
     <div class="col-lg-5 col-md-6 col-sm-12">
       <div class="form-group">
         <h3><label class="text">Nom :</label>
-          <label class="info">M'RHAR </label></h3>
+          <label class="info">{{user.nom}}</label></h3>
       </div>
       <div class="form-group">
         <h3><label class="text">Email :</label>
-          <label class="info"> kaoutar@uca.ma</label></h3>
+          <label class="info"> {{user.email}}</label></h3>
       </div>
       <div class="form-group">
         <h3><label class="text">Fonctionnalité :</label>
-          <label class="info"> Enseignant chercheur</label></h3>
+          <label class="info"> {{donnePro.niveau}}</label></h3>
       </div>
       <div class="form-group">
         <h3><label class="text">CED :</label>
-          <label class="info"> kkkk</label></h3>
+          <label class="info"> {{donnePro.ced}}</label></h3>
       </div>
       <div class="form-group">
         <h3><label class="text">Entité Recherche : </label>
-          <label class="info"> EGT</label></h3>
+          <label class="info"> {{donnePro.entiteRecherche}}</label></h3>
       </div>
     </div>
     <div class="col-lg-5 col-md-6 col-sm-12">
       <div class="form-group">
         <h3><label class="text">Prénom :</label>
-          <label class="info"> KAOUTAR</label></h3>
+          <label class="info"> {{user.prenom}}</label></h3>
       </div>
       <div class="form-group">
         <h3><label class="text">N° Téléphone :</label>
-          <label class="info"> 0651112970</label></h3>
+          <label class="info"> {{user.telephone}}</label></h3>
       </div>
       <div class="form-group">
         <h3><label class="text">Grade :</label>
-          <label class="info"> PH</label></h3>
+          <label class="info"> {{donnePro.grade}}</label></h3>
       </div>
       <div class="form-group">
         <h3><label class="text">Etablissement : </label>
-          <label class="info"> FSTG</label></h3>
+          <label class="info"> {{donnePro.etablissement}}</label></h3>
       </div>
       <div class="form-group">
         <h3><label class="text">Responsable Entité: </label>
-          <label class="info"> Ahmed</label></h3>
+          <label class="info"> {{donnePro.respoEntite}}</label></h3>
       </div>
     </div>
 
@@ -63,7 +63,7 @@
     <div class="col-lg-5 col-md-6 col-sm-12">
       <div class="form-group">
         <h3><label class="text">Objet de la Manifestation scientifique : </label>
-          <label class="info">Manifestation</label></h3>
+          <label class="info">{{manif.titreManifestation}}</label></h3>
       </div>
     </div>
     <div class="col-lg-5 col-md-6 col-sm-12">
@@ -75,37 +75,37 @@
     <div class="col-lg-5 col-md-6 col-sm-12">
       <div class="form-group">
         <h3><label class="text">Pays :</label>
-          <label class="info"> France</label></h3>
+          <label class="info"> {{manif.pays}}</label></h3>
       </div>
       <div class="form-group">
         <h3><label class="text">Date Début : </label>
-          <label class="info"> 2022-05-01</label></h3>
+          <label class="info"> {{manif.dateDebut}}</label></h3>
       </div>
       <div class="form-group">
         <h3><label class="text">Date Départ : </label>
-          <label class="info"> 2022-05-21</label></h3>
+          <label class="info"> {{manif.dateDepart}}</label></h3>
       </div>
       <div class="form-group">
         <h3><label class="text">Intitulé de la participation :</label>
-          <label class="info"> JJDYT</label></h3>
+          <label class="info"> {{manif.titreParticipation}}</label></h3>
       </div>
     </div>
     <div class="col-lg-5 col-md-6 col-sm-12">
       <div class="form-group">
         <h3><label class="text">Ville :</label>
-          <label class="info"> Blois</label></h3>
+          <label class="info"> {{manif.ville}}</label></h3>
       </div>
       <div class="form-group">
         <h3><label class="text">Date fin : </label>
-          <label class="info">2022-04-26</label></h3>
+          <label class="info">{{manif.dateFin}}</label></h3>
       </div>
       <div class="form-group">
         <h3><label class="text">Date Retour : </label>
-          <label class="info"> 2022-05-29</label></h3>
+          <label class="info"> {{manif.dateRetour}}</label></h3>
       </div>
       <div class="form-group">
         <h3><label class="text">Nature de la participation : </label>
-          <label class="info"> Conference</label></h3>
+          <label class="info"> {{manif.natureParticiaton}}</label></h3>
       </div>
 
     </div>
@@ -118,7 +118,7 @@
     <div class="col-lg-5 col-md-6 col-sm-12">
       <div class="form-group">
         <h3><label class="text">A-t-il déja bénéficié d'un soutien Type A cette année?:</label>
-          <label class="info">Oui </label></h3>
+          <label class="info">{{soutien.isBenfTypeA}} </label></h3>
       </div>
     </div>
     <div class="col-lg-5 col-md-6 col-sm-12">
@@ -130,30 +130,30 @@
     <div class="col-lg-5 col-md-6 col-sm-12">
       <div class="form-group" style="padding-bottom: 30px">
         <h3><label class="text">Montant de soutien précedent : </label>
-          <label class="info"> 30000 DH</label></h3>
+          <label class="info"> {{soutien.montant}} DH</label></h3>
       </div>
       <div class="form-group" style="padding-bottom: 30px">
         <h3><label class="text">Montant Titre Transport :</label>
-          <label class="info">10 DH</label></h3>
+          <label class="info">{{soutien.mTitreTransport}} DH</label></h3>
       </div>
       <div class="form-group" style="padding-bottom: 30px">
         <h3><label class="text">Montant Frais D'inscription :</label>
-          <label class="info">3000 DH</label></h3>
+          <label class="info">{{soutien.mFraisInscription}} DH</label></h3>
       </div>
       <div class="form-group" style="padding-bottom: 30px">
         <h3><label class="text">Montant Hébergement: </label>
-          <label class="info">1500 DH</label></h3>
+          <label class="info">{{soutien.mHebergement}} DH</label></h3>
       </div>
       <div class="form-group">
         <h3><label class="text">Autre Montant: </label>
-          <label class="info">340 DH</label></h3>
+          <label class="info">{{soutien.mAutre}} DH</label></h3>
       </div>
     </div>
     <div class="col-lg-5 col-md-6 col-sm-12">
       <div class="form-group">
         <h3><label class="text">
           Nature de soutien demandé :</label>
-          <label class="info"> Complementaire</label></h3>
+          <label class="info"> {{soutien.nature}}</label></h3>
       </div>
       <div class="form-group">
         <h4><label>Montant Titre Transport édité :</label></h4>

@@ -1,11 +1,13 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { Cadre } from '../model/cadre.model';
 import { DonneePro } from '../model/donnee-pro.model';
 import { MailMessage } from '../model/mailmessages.model';
 import { Manifestation } from '../model/manifestation.model';
 import { messages } from '../model/messages.model';
 import { MissionStage } from '../model/mission-stage.model';
+import { Soutien } from '../model/soutien.model';
 import { User } from '../model/user.model';
 
 @Injectable({
@@ -76,6 +78,42 @@ export class AdminService {
     return this.httpClient.post<MailMessage>(
       `${this.baseUrl + '/sendmail'}`,
       mssgsMail
+    );
+  }
+
+  getCadreByMStage(mStageId: number): Observable<Cadre> {
+    return this.httpClient.get<Cadre>(
+      `${this.baseUrl + '/getcadrebystage/' + mStageId}`
+    );
+  }
+
+  getSoutienByMStage(mStageId: number): Observable<Soutien> {
+    return this.httpClient.get<Soutien>(
+      `${this.baseUrl + '/getsoutienbystage/' + mStageId}`
+    );
+  }
+
+  getManifestationById(manifId: number): Observable<Manifestation> {
+    return this.httpClient.get<Manifestation>(
+      `${this.baseUrl + '/getmanifbyid/' + manifId}`
+    );
+  }
+
+  getUserByManifId(manifId: number): Observable<User> {
+    return this.httpClient.get<User>(
+      `${this.baseUrl + '/getuserbymanif/' + manifId}`
+    );
+  }
+
+  getUserDonneByManifId(manifId: number): Observable<DonneePro> {
+    return this.httpClient.get<DonneePro>(
+      `${this.baseUrl + '/getdonnebymanif/' + manifId}`
+    );
+  }
+
+  getSoutienByManifId(manifId: number): Observable<Soutien> {
+    return this.httpClient.get<Soutien>(
+      `${this.baseUrl + '/getsoutienbymanif/' + manifId}`
     );
   }
 }
