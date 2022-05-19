@@ -1,29 +1,28 @@
-<div class="container" >
+<div class="card shadow border-0 mb-7">
+  <div class="card-header"><h5 class="mb-0">Demandes de Manifestation</h5></div>
   <div class="table-responsive">
-    <table class="table text-center">
-      <thead>
+    <table class="table table-hover table-nowrap">
+      <thead class="thead-light">
       <tr>
-        <th>Nom</th>
-        <th>Prenom</th>
-        <th>Email</th>
-        <th>Téléphone</th>
-<!--        <th>Détails</th>-->
+        <th scope="col">Nom</th>
+        <th scope="col">Prénom</th>
+        <th scope="col">Email</th>
+        <th scope="col">Téléphone</th>
+        <th scope="col">Modifier</th>
       </tr>
       </thead>
       <tbody>
-      <tr *ngFor = "let user of users">
-        <td>{{user.nom}}</td>
-        <td>{{user.prenom}}</td>
-        <td>{{user.email}}</td>
-        <td>{{user.telephone}}</td>
-<!--        <td>-->
-<!--          <div class="btn btn-primary" (click)="viewUserDetails(user.id)">Détails</div>-->
-<!--        </td>-->
+      <tr>
+        <td>M'RHAR</td>
+        <td> KAOUTAR</td>
+        <td> Kaoutarmrhar@uca.ma</td>
+        <td>0651112970</td>
+        <td class="text-center"><a class="btn btn-sm btn-neutral" routerLink="/detail-demandeur/:id">Détails</a>
+        </td>
       </tr>
+
       </tbody>
     </table>
   </div>
+
 </div>
-
-
-
