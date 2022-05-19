@@ -185,9 +185,10 @@
                 class="mb-0 text-sm">Nature de la participation</h6></label>
               <select class="custom-select" [(ngModel)] = "manif.natureParticiaton">
                 <option selected>choisir votre participation</option>
-                <option value="1">One</option>
-                <option value="2">Two</option>
-                <option value="3">Three</option>
+                <option value="1">Conférence</option>
+                <option value="2">Communication orale</option>
+                <option value="3">Communication postale</option>
+                <option value="3">Autre</option>
               </select>
             </div>
             <h3 class="mb-1">Informations sur le Soutien</h3>
@@ -248,34 +249,34 @@
             <div class="row mt-3">
               <div class="col-md-5 me-2">
                 <input type="file" class="custom-file-input" id="inputGroupFile" (change)="onFileSelected($event)">
-                <label class="custom-file-label" for="inputGroupFile">Cin</label>
+                <label class="custom-file-label" for="inputGroupFile" id="cin">Cin</label>
 
               </div>
               <div class="col-md-5">
                 <input type="file" class="custom-file-input" id="inputGroupFile1" (change)="onFileSelectedA($event)">
-                <label class="custom-file-label" for="inputGroupFile1">Document1</label>
+                <label class="custom-file-label" for="inputGroupFile1" id="doc1">Document1</label>
               </div>
             </div>
             <div class="row mt-3">
               <div class="col-md-5 me-2">
                 <input type="file" class="custom-file-input" id="inputGroupFile2" (change)="onFileSelectedB($event)">
-                <label class="custom-file-label" for="inputGroupFile2">Document2</label>
+                <label class="custom-file-label" for="inputGroupFile2" id="doc2">Document2</label>
 
               </div>
               <div class="col-md-5">
                 <input type="file" class="custom-file-input" id="inputGroupFile3" (change)="onFileSelectedC($event)">
-                <label class="custom-file-label" for="inputGroupFile3">Document3</label>
+                <label class="custom-file-label" for="inputGroupFile3" id="doc3">Document3</label>
               </div>
             </div>
             <div class="row mt-3">
               <div class="col-md-5 me-2">
                 <input type="file" class="custom-file-input" id="inputGroupFile4" (change)="onFileSelectedD($event)">
-                <label class="custom-file-label" for="inputGroupFile4">Document4</label>
+                <label class="custom-file-label" for="inputGroupFile4" id="doc4">Document4</label>
 
               </div>
               <div class="col-md-5">
                 <input type="file" class="custom-file-input" id="inputGroupFile5" (change)="onFileSelectedE($event)">
-                <label class="custom-file-label" for="inputGroupFile5" placeholder="">Document5</label>
+                <label class="custom-file-label" for="inputGroupFile5" id="doc5">Document5</label>
               </div>
             </div>
 

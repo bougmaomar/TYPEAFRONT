@@ -1,23 +1,38 @@
-<div class="container" style="width: 1800px; padding-left: 100px; padding-top: 100px">
+<div class="container rounded mt-5 bg-white p-md-5">
+  <div class="h2 font-weight-bold text-center">Historique Demandes</div>
   <div class="table-responsive">
-    <table class="table text-center">
+  <button id="changebtn" class="changeBtn" (click)="changeList()">=> Manifestations <=</button>
+    <table class="table">
       <thead>
       <tr>
-        <th>Num demande</th>
-        <th>Type</th>
-        <th>Date</th>
-        <th>État</th>
-        <th>Détails</th>
+        <th scope="col">Titre/Objet de demande</th>
+        <th scope="col">Date debut</th>
+        <th scope="col">Date Fin</th>
+        <th scope="col">Status</th>
       </tr>
       </thead>
       <tbody>
-      <tr>
-        <td>1</td>
-        <td>Manifestation</td>
-        <td>14/05/2022</td>
-        <td>Acceptée</td>
-        <td><div class="btn btn-primary">Détails </div> </td>
-      </tr>
+      <ng-template [ngIf]="!isManif">
+        <tr *ngFor = "let mStage of missionStages" class="bg-brown">
+          <td class="pl-lg-5 pl-md-3 tabletd">{{mStage.objetMission}}</td>
+          <td class="pt-2 tabletd">{{mStage.dateDebut}}</td>
+          <td class="pt-2 tabletd">{{mStage.dateFin}}</td>
+          <td id="theState" class="pt-2 tabletd">{{mStage.state}}</td>
+        </tr>
+      </ng-template>
+
+      <ng-template [ngIf]="isManif">
+        <tr *ngFor = "let manif of manifestations" class="bg-brown">
+          <td class="pl-lg-5 pl-md-3 tabletd">{{manif.titreManifestation}}</td>
+          <td class="pt-2 tabletd">{{manif.dateDebut}}</td>
+          <td class="pt-2 tabletd">{{manif.dateFin}}</td>
+          <td class="pt-2 tabletd">{{manif.state}}</td>
+        </tr>
+      </ng-template>
+      
+      
+      
+
       </tbody>
     </table>
   </div>

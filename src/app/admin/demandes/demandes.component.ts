@@ -29,5 +29,7 @@ export class DemandesComponent implements OnInit {
 
   accepted() {}
 
-  refused() {}
+  refused(id: number) {
+    this.adminService.RefuseMStage(id).subscribe((data) => {});
+  }
 }

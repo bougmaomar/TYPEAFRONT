@@ -1,34 +1,76 @@
+@import url('https://fonts.googleapis.com/css2?family=PT+Sans:wght@700&family=Poppins:wght@600&display=swap');
 *{
-  margin: 0;
-  padding: 0;
   box-sizing: border-box;
 }
 body{
-  padding: 80px 10px 0 10px;
+  background-color: #d9ecf2;
+  font-family: 'Poppins', sans-serif;
+  color: #666;
+}
+.h2{
+  color: #444;
+  font-family: 'PT Sans', sans-serif;
+  margin-bottom: 80px;
+}
+thead{
+  font-family: 'Poppins', sans-serif;
+  font-weight: bolder;
+  font-size: 20px;
+  color: rgb(131, 77, 77);
+}
+img{
+  width: 40px;
+  height: 40px;
 }
 
-.container .table thead tr th{
-  background-color:#26495c;
-  padding: 30px 10px;
-  border: none;
+.table{
+  border-collapse:separate;
+                border-spacing:0 15px;
+}
+
+.tabletd{
+  font-size: 20px;
+}
+
+.changeBtn{
+  background-color: #633010;
   color: white;
+  height: 40px;
+  border-radius: 10px;
+  border: none;
 }
-td:nth-child(2n+1){
-  background-color: #e5e5dc;
+
+.changeBtn:hover{
+  background-color: #9e8b7e;
+  border: rgb(187, 162, 162) 2px solid;
 }
-td:nth-child(2n){
-  background-color: white;
+
+.bg-brown{
+  background-color: #a89e98;
+  border-radius: 8px;
+  border: rgb(230, 220, 200) solid 1px;
+
 }
-.container .table tbody tr td {
-  padding: 20px 10px;
-  font-weight: 600;
+.fa-check,.fa-minus{
+  color: green;
 }
-.btn.btn-primary{
-  background-color: #c66b3d;
-  padding: 10px;
-  width: 100px;
-  border: 1px solid #c25012 ;
+
+.bg-blue:hover .fa-check,
+.bg-blue:hover .fa-minus{
+  background-color: #3e64ff;
+  color: #eee;
 }
-.btn.btn-primary:hover{
-  background-color: #c4a35a;
+
+.table thead th,.table td{
+  border: none;
+}
+
+#spacing-row{
+  height: 10px;
+}
+@media(max-width:575px){
+  .container{
+    width: 125%;
+    padding: 20px 10px;
+  }
 }

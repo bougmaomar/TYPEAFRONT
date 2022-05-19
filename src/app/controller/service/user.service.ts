@@ -82,19 +82,20 @@ export class UserService {
 
   getMyMissionStages(): Observable<MissionStage[]> {
     return this.httpClient.get<MissionStage[]>(
-      `${this.baseUrl + '/getmStage'}`
+      `${this.baseUrl + '/getmStage'}`,
+      { withCredentials: true }
     );
   }
 
   getMyManifestations(): Observable<Manifestation[]> {
     return this.httpClient.get<Manifestation[]>(
-      `${this.baseUrl + '/getmanifestations'}`
+      `${this.baseUrl + '/getmanifestations'}`,
+      { withCredentials: true }
     );
   }
 
   addFiles(mStageId: number, documents: documents): Observable<Object> {
     const formData = new FormData();
-    console.log(typeof documents.filecin.name);
     formData.append('filecin', documents.filecin, documents.filecin.name);
     formData.append('fileA', documents.fileA, documents.fileA.name);
     formData.append('fileB', documents.fileB, documents.fileB.name);
@@ -145,12 +146,14 @@ export class UserService {
       { withCredentials: true }
     );
   }
-  generateReport(id : number): Observable<Object> {
-    return this.httpClient.get(`${this.baseUrl + '/raport/' + id}`,{ withCredentials: true });
+  generateReport(id: number): Observable<Object> {
+    return this.httpClient.get(`${this.baseUrl + '/raport/' + id}`, {
+      withCredentials: true,
+    });
   }
-  exportReportMission(id : number): Observable<Object> {
-    return this.httpClient.get(`${this.baseUrl + '/raportmission/' + id}`,{ withCredentials: true });
-
+  exportReportMission(id: number): Observable<Object> {
+    return this.httpClient.get(`${this.baseUrl + '/raportmission/' + id}`, {
+      withCredentials: true,
+    });
   }
 }
-

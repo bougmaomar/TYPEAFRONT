@@ -1,11 +1,10 @@
 export class Soutien {
-    id: number;
-    isBenfTypeA: boolean;
-    montant: number;
-    nature: boolean;
-    mTitreTransport: number;
-    mFraisInscription: number;
-    mHebergement: number;
-    mAutre: number;
-
+  id: number;
+  isBenfTypeA: string;
+  montant: number;
+  nature: string;
+  mTitreTransport: number;
+  mFraisInscription: number;
+  mHebergement: number;
+  mAutre: number;
 }
