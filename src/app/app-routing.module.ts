@@ -84,6 +84,11 @@ const routes: Routes = [
         component: DemandeManifComponent,
         canActivate: [AuthGuard],
       },
+      {
+        path: 'detail-demandeur/:id',
+        component: DetailDemandeurComponent,
+        canActivate: [AuthGuard],
+      },
 
     ],
   },
@@ -100,11 +105,7 @@ const routes: Routes = [
     canActivate: [AuthGuard],
   },
 
-  {
-    path: 'detail-demandeur/:id',
-    component: DetailDemandeurComponent,
-    canActivate: [AuthGuard],
-  },
+
 ];
 
 @NgModule({

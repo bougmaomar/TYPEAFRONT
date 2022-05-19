@@ -39,6 +39,9 @@ export class AdminService {
   getAllMStages(): Observable<MissionStage[]> {
     return this.httpClient.get<MissionStage[]>(`${this.baseUrl + '/missions'}`);
   }
+  getAllManifs(): Observable<Manifestation[]> {
+    return this.httpClient.get<Manifestation[]>(`${this.baseUrl + '/manifestations'}`);
+  }
 
   getMissionStageById(mStageId: number): Observable<MissionStage> {
     return this.httpClient.get<MissionStage>(

@@ -12,12 +12,12 @@
       </tr>
       </thead>
       <tbody>
-      <tr>
-        <td>M'RHAR</td>
-        <td> KAOUTAR</td>
-        <td> Kaoutarmrhar@uca.ma</td>
-        <td>0651112970</td>
-        <td class="text-center"><a class="btn btn-sm btn-neutral" routerLink="/detail-demandeur/:id">Détails</a>
+      <tr *ngFor="let user of users" >
+        <td>{{user.id}}</td>
+        <td> {{user.nom}} {{user.prenom}}</td>
+        <td> {{user.email}}</td>
+        <td>{{user.telephone}}</td>
+        <td class="text-center"><a class="btn btn-sm btn-neutral" [routerLink]="['../detail-demandeur/'+user.id]">Détails</a>
         </td>
       </tr>
 

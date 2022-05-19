@@ -1,4 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import {MissionStage} from "../../controller/model/mission-stage.model";
+import {User} from "../../controller/model/user.model";
+import {AdminService} from "../../controller/service/admin.service";
+import {Router} from "@angular/router";
+import {Manifestation} from "../../controller/model/manifestation.model";
 
 @Component({
   selector: 'app-demande-manif',
@@ -6,10 +11,30 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./demande-manif.component.css']
 })
 export class DemandeManifComponent implements OnInit {
+  manifs: Manifestation[];
 
-  constructor() { }
+
+
+  constructor(private adminService: AdminService, private router: Router) {}
 
   ngOnInit(): void {
+    this.getmanifs();
   }
 
+  private getmanifs() {
+    this.adminService.getAllManifs().subscribe((data) => {
+      this.manifs = data;
+
+    });
+  }
+
+  viewDetails(id: number) {
+    this.router.navigate(['/detail-demande-Stage', id]);
+  }
+
+  accepted() {}
+
+  refused(id: number) {
+    this.adminService.RefuseMStage(id).subscribe((data) => {});
+  }
 }

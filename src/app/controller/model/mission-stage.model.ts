@@ -3,6 +3,7 @@ import { Cadre } from './cadre.model';
 import { Soutien } from './soutien.model';
 import { documents } from './documents.model';
 import { State } from '../enums/state.service';
+import {User} from "./user.model";
 
 export class MissionStage {
   id: number;
@@ -14,6 +15,7 @@ export class MissionStage {
   dateDepart: string;
   dateRetour: string;
   state: State;
+  user : User;
 
   private cadre: Cadre;
 

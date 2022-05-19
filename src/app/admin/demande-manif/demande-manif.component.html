@@ -12,10 +12,11 @@
       </tr>
       </thead>
       <tbody>
-      <tr>
-        <td>3421567</td>
-        <td> M'RHAR KAOUTAR</td>
-        <td> 12/05/2022</td>
+      <tr *ngFor="let manif of manifs" >
+        <td>{{manif.id}}</td>
+        <td> {{manif.titreManifestation}} </td>
+        <td> {{manif.dateDebut}}</td>
+        <td> {{manif.dateFin}}</td>
         <td><span class="badge badge-lg badge-dot"> <i class="bg-warning"></i>En cours </span></td>
         <td class="text-center"><a class="btn btn-sm btn-neutral" routerLink="/detail-demande-Manif/:id">Détails</a>
         </td>
