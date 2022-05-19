@@ -45,13 +45,12 @@ export class PostulerMissionComponent implements OnInit {
           );
         } else {
           this.idm = x;
-          this.userService.addFiles(x, this.documents).subscribe((data) => {
-            Swal.fire(
-              'Ajout de mission',
-              'Ajout est fait avec success',
-              'success'
-            );
-          });
+          Swal.fire(
+            'Ajout de mission',
+            'Ajout est fait avec success',
+            'success'
+          );
+          this.userService.addFiles(x, this.documents).subscribe((data) => {});
         }
       });
   }

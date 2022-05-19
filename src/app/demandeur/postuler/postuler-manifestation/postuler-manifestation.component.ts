@@ -40,15 +40,14 @@ export class PostulerManifestationComponent implements OnInit {
           );
         } else {
           this.id = x;
+          Swal.fire(
+            'Ajout de manifestation',
+            'Ajout est fait avec success',
+            'success'
+          );
           this.userService
             .addFilesManif(x, this.documents)
-            .subscribe((data) => {
-              Swal.fire(
-                'Ajout de manifestation',
-                'Ajout est fait avec success',
-                'success'
-              );
-            });
+            .subscribe((data) => {});
         }
       });
   }
