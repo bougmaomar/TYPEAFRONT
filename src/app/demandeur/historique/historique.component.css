@@ -10,50 +10,61 @@ body{
 .h2{
   color: #444;
   font-family: 'PT Sans', sans-serif;
+  margin-bottom: 80px;
 }
 thead{
   font-family: 'Poppins', sans-serif;
   font-weight: bolder;
   font-size: 20px;
-  color: #666;
+  color: rgb(131, 77, 77);
 }
 img{
   width: 40px;
   height: 40px;
 }
-.name{
-  display: inline-block;
+
+.table{
+  border-collapse:separate;
+                border-spacing:0 15px;
 }
-.bg-blue{
-  background-color: #EBF5FB;
+
+.tabletd{
+  font-size: 20px;
+}
+
+.changeBtn{
+  background-color: #633010;
+  color: white;
+  height: 40px;
+  border-radius: 10px;
+  border: none;
+}
+
+.changeBtn:hover{
+  background-color: #9e8b7e;
+  border: rgb(187, 162, 162) 2px solid;
+}
+
+.bg-brown{
+  background-color: #a89e98;
   border-radius: 8px;
+  border: rgb(230, 220, 200) solid 1px;
+
 }
 .fa-check,.fa-minus{
-  color: blue;
+  color: green;
 }
-/*.bg-blue:hover{*/
-/*  background-color: #3e64ff;*/
-/*  color: #eee;*/
-/*  cursor: pointer;*/
-/*}*/
-/*.bg-blue:hover .fa-check,*/
-/*.bg-blue:hover .fa-minus{*/
-/*  background-color: #3e64ff;*/
-/*  color: #eee;*/
-/*}eee*/
+
+.bg-blue:hover .fa-check,
+.bg-blue:hover .fa-minus{
+  background-color: #3e64ff;
+  color: #eee;
+}
 
 .table thead th,.table td{
   border: none;
 }
 
-.table tbody td:first-child{
-  border-bottom-left-radius: 10px;
-  border-top-left-radius: 10px;
-}
-.table tbody td:last-child{
-  border-bottom-right-radius: 10px;
-  border-top-right-radius: 10px;
-}
 #spacing-row{
   height: 10px;
 }

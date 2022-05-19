@@ -1,3 +1,4 @@
+import { State } from '../enums/state.service';
 import { Soutien } from './soutien.model';
 
 export class Manifestation {
@@ -11,6 +12,7 @@ export class Manifestation {
   dateDepart: string;
   dateRetour: string;
   natureParticiaton: string;
+  state: State;
   private soutien: Soutien;
   public get getsoutien(): Soutien {
     return this.soutien;
