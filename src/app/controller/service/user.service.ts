@@ -82,13 +82,15 @@ export class UserService {
 
   getMyMissionStages(): Observable<MissionStage[]> {
     return this.httpClient.get<MissionStage[]>(
-      `${this.baseUrl + '/getmStage'}`
+      `${this.baseUrl + '/getmStage'}`,
+      { withCredentials: true }
     );
   }
 
   getMyManifestations(): Observable<Manifestation[]> {
     return this.httpClient.get<Manifestation[]>(
-      `${this.baseUrl + '/getmanifestations'}`
+      `${this.baseUrl + '/getmanifestations'}`,
+      { withCredentials: true }
     );
   }
 

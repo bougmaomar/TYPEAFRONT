@@ -1,7 +1,8 @@
 import { Cadre } from './cadre.model';
 
 import { Soutien } from './soutien.model';
-import {documents} from "./documents.model";
+import { documents } from './documents.model';
+import { State } from '../enums/state.service';
 
 export class MissionStage {
   id: number;
@@ -12,6 +13,8 @@ export class MissionStage {
   dateFin: string;
   dateDepart: string;
   dateRetour: string;
+  state: State;
+
   private cadre: Cadre;
 
   public get getcadre(): Cadre {
