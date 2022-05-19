@@ -18,6 +18,7 @@ export class InformationSurDemandeurComponent implements OnInit {
 
   onSubmit() {
     this.userService.saveDonnesPro(this.donne).subscribe((data: any) => {
+      console.log(data);
       if (data == -1) {
         Swal.fire(
           'Mise a jour données',

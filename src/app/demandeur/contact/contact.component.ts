@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { messages } from 'src/app/controller/model/messages.model';
 import { AllusersService } from 'src/app/controller/service/allusers.service';
 import { UserService } from 'src/app/controller/service/user.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-contact',
@@ -16,8 +17,20 @@ export class ContactComponent implements OnInit {
   ngOnInit(): void {}
 
   onSubmit() {
-    this.alluserService.contactAdmin(this.mssg).subscribe((data) => {
-      console.log(data);
+    this.alluserService.contactAdmin(this.mssg).subscribe((data: any) => {
+      if (data == 1) {
+        Swal.fire(
+          'Envoi Message',
+          'Message a été envoyer avec success',
+          'success'
+        );
+      } else {
+        Swal.fire(
+          'Envoi Message',
+          'Envoi du message a été interompu veuillez verifier que un ou plusieurs champs sont pas vide',
+          'error'
+        );
+      }
     });
   }
 }
