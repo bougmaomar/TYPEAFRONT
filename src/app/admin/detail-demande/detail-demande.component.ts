@@ -79,9 +79,7 @@ export class DetailDemandeComponent implements OnInit {
     });
   }
 
-  Imprimer() {
-    this.allusersService.exportReportMission(this.id).subscribe((data) => {});
-  }
+
 
   acceptMStage() {
     this.dialog.open(MailFormComponent, {
