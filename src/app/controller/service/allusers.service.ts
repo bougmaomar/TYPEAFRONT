@@ -37,4 +37,6 @@ export class AllusersService {
   isAdmin(mail: string): Observable<Object> {
     return this.httpClient.get<boolean>(`${this.baseUrl + '/isadmin/' + mail}`);
   }
+
+
 }

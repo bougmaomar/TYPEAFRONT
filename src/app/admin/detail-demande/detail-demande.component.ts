@@ -4,9 +4,11 @@ import { ActivatedRoute } from '@angular/router';
 import { Cadre } from 'src/app/controller/model/cadre.model';
 import { DonneePro } from 'src/app/controller/model/donnee-pro.model';
 import { MissionStage } from 'src/app/controller/model/mission-stage.model';
+import { NewMontant } from 'src/app/controller/model/montants.model';
 import { Soutien } from 'src/app/controller/model/soutien.model';
 import { User } from 'src/app/controller/model/user.model';
 import { AdminService } from 'src/app/controller/service/admin.service';
+import { AllusersService } from 'src/app/controller/service/allusers.service';
 import Swal from 'sweetalert2';
 import { MailFormComponent } from '../mail-form/mail-form.component';
 
@@ -22,10 +24,14 @@ export class DetailDemandeComponent implements OnInit {
   donnePro: DonneePro;
   cadre: Cadre;
   soutien: Soutien;
+  newMontant: NewMontant;
+  ismStage: boolean = true;
+  path: string;
   constructor(
     private route: ActivatedRoute,
     private adminService: AdminService,
-    public dialog: MatDialog
+    public dialog: MatDialog,
+    private allusersService: AllusersService
   ) {}
 
   ngOnInit(): void {
@@ -73,7 +79,31 @@ export class DetailDemandeComponent implements OnInit {
     });
   }
 
+  Imprimer() {
+    this.allusersService.exportReportMission(this.id).subscribe((data) => {});
+  }
+
   acceptMStage() {
-    this.dialog.open(MailFormComponent, {});
+    this.dialog.open(MailFormComponent, {
+      data: {
+        id: this.id,
+        email: this.user.email,
+        type: this.ismStage,
+      },
+    });
+  }
+
+  onSave() {
+    this.adminService
+      .ajoutNewMontantMS(this.id, this.newMontant)
+      .subscribe((data) => {
+        (document.getElementById('actions') as HTMLInputElement).disabled =
+          false;
+        Swal.fire(
+          'Montants Sauvegarde',
+          'Montants sauvegarder avec success',
+          'success'
+        );
+      });
   }
 }
