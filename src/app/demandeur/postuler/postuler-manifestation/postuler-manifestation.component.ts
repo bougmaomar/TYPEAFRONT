@@ -4,6 +4,7 @@ import { Manifestation } from 'src/app/controller/model/manifestation.model';
 import { Soutien } from 'src/app/controller/model/soutien.model';
 import { UserService } from 'src/app/controller/service/user.service';
 import { documents } from '../../../controller/model/documents.model';
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-postuler-manifestation',
@@ -22,7 +23,7 @@ export class PostulerManifestationComponent implements OnInit {
   soutien: Soutien = new Soutien();
   documents: documents = new documents();
   id: number;
-  constructor(private userService: UserService) {}
+  constructor(private userService: UserService , private  router: Router) {}
 
   ngOnInit(): void {}
 
@@ -76,5 +77,7 @@ export class PostulerManifestationComponent implements OnInit {
     this.userService.generateReport(this.id).subscribe((data) => {
       console.log(data);
     });
+    window.alert("votre fichier est enregistré");
+
   }
 }
