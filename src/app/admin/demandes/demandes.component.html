@@ -18,7 +18,7 @@
         <td> {{mission.dateDebut}}</td>
         <td> {{mission.dateFin}}</td>
         <td><span class="badge badge-lg badge-dot"> <i class="bg-warning"></i>En cours </span></td>
-        <td class=" td text-center"><a class="btn btn-sm btn-neutral" routerLink="/detail-demande-Stage/:id">Détails</a>
+        <td class=" td text-center"><a class="btn btn-sm btn-neutral" (click)="viewDetails(mission.id)">Détails</a>
         </td>
       </tr>
 
