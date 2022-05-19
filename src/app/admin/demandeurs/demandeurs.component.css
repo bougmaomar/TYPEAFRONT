@@ -1,41 +1,19 @@
-*{
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-body{
-  padding: 80px 10px 0 10px;
+@import url('https://fonts.googleapis.com/css?family=Assistant');
+
+body {
+  background: #eee;
+  font-family: Assistant, sans-serif;
 }
 
-.container{
-  display:flex;
-  justify-content: center;
-  align-items: center;
-  margin-top:100px;
+.cell-1 {
+  border-collapse: separate;
+  border-spacing: 0 4em;
+  background: #fff;
+  border-bottom: 5px solid transparent;
+  /*background-color: gold;*/
+  background-clip: padding-box;
 }
 
-.container .table thead tr th{
-  background-color: #c66b3d;
-  padding: 30px 10px;
-  border: none;
-  color: white;
-}
-td:nth-child(2n+1){
-  background-color: #e5e5dc;
-}
-td:nth-child(2n){
-  background-color: white;
-}
-.container .table tbody tr td {
-  padding: 20px 10px;
-  font-weight: 600;
-}
-.btn.btn-primary{
-  background-color: #26495c;
-  padding: 10px;
-  width: 100px;
-  border: 1px solid #26495c ;
-}
-.btn.btn-primary:hover{
-  background-color: #c4a35a;
+thead {
+  background: #dddcdc;
 }

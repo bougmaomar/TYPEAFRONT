@@ -32,7 +32,7 @@ export class AuthentificationComponent implements OnInit {
               this.isLogged = true;
               localStorage.setItem('isLogged', `${this.isLogged}`);
               localStorage.setItem('isAdmin', `${this.isAdmin}`);
-              this.router.navigate(['/admin/demandes-Stage']);
+              this.router.navigate(['/admin/dashboard']);
             } else {
               this.erreur =
                 'Vous etes pas un admin veuillez se connecter sur interface utilisateur';

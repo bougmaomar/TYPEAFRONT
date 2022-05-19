@@ -1,30 +1,28 @@
-<div class="container">
-  <div class="table-responsive"  >
-    <table class="table text-center">
-      <thead>
+<div class="card shadow border-0 mb-7">
+  <div class="card-header"><h5 class="mb-0">Demandes de Manifestation</h5></div>
+  <div class="table-responsive">
+    <table class="table table-hover table-nowrap">
+      <thead class="thead-light">
       <tr>
-        <th>Id</th>
-        <th>Email</th>
-        <th>état</th>
-        <th>détails</th>
+        <th scope="col">Code Demande</th>
+        <th scope="col">Demandeur</th>
+        <th scope="col">Date Création</th>
+        <th scope="col">Status</th>
+        <th scope="col">Modifier</th>
       </tr>
       </thead>
       <tbody>
-      <tr >
-        <td>1</td>
-        <td>kaoutar@uca.ma</td>
-        <td>
-          <a class="btn1"><i class="fa fa-check"  style="color: limegreen; "></i> </a>
-        <br>  <a class="btn2" ><i class="fa fa-xmark"  style="color: red; "></i> </a>
-        </td>
-        <td>
-          <a class="btn btn-primary" routerLink="/detail-demande-Manif/:id">Détails</a>
+      <tr>
+        <td>3421567</td>
+        <td> M'RHAR KAOUTAR</td>
+        <td> 12/05/2022</td>
+        <td><span class="badge badge-lg badge-dot"> <i class="bg-warning"></i>En cours </span></td>
+        <td class="text-center"><a class="btn btn-sm btn-neutral" routerLink="/detail-demande-Manif/:id">Détails</a>
         </td>
       </tr>
+
       </tbody>
     </table>
   </div>
+
 </div>
-
-
-
