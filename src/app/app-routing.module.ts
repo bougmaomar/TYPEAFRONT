@@ -62,6 +62,11 @@ const routes: Routes = [
         canActivate: [AuthGuard],
       },
       {
+        path: 'detail-demande-Stage/:id',
+        component: DetailDemandeComponent,
+        canActivate: [AuthGuard],
+      },
+      {
         path: 'demandeurs',
         component: DemandeursComponent,
         canActivate: [AuthGuard],
@@ -84,11 +89,7 @@ const routes: Routes = [
     component: MessageComponent,
     canActivate: [AuthGuard],
   },
-  {
-    path: 'detail-demande-Stage/:id',
-    component: DetailDemandeComponent,
-    canActivate: [AuthGuard],
-  },
+
   {
     path: 'detail-demande-Manif/:id',
     component: DetailManifComponent,

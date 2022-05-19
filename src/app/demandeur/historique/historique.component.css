@@ -31,16 +31,16 @@ img{
 .fa-check,.fa-minus{
   color: blue;
 }
-.bg-blue:hover{
-  background-color: #3e64ff;
-  color: #eee;
-  cursor: pointer;
-}
-.bg-blue:hover .fa-check,
-.bg-blue:hover .fa-minus{
-  background-color: #3e64ff;
-  color: #eee;
-}
+/*.bg-blue:hover{*/
+/*  background-color: #3e64ff;*/
+/*  color: #eee;*/
+/*  cursor: pointer;*/
+/*}*/
+/*.bg-blue:hover .fa-check,*/
+/*.bg-blue:hover .fa-minus{*/
+/*  background-color: #3e64ff;*/
+/*  color: #eee;*/
+/*}eee*/
 
 .table thead th,.table td{
   border: none;
