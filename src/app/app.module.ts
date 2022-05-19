@@ -53,6 +53,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { DemandeManifComponent } from './admin/demande-manif/demande-manif.component';
 import { DetailManifComponent } from './admin/detail-manif/detail-manif.component';
 import { AuthGuard } from './controller/service/authGuard/auth-guard.service';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MailFormComponent } from './admin/mail-form/mail-form.component';
 
 @NgModule({
   declarations: [
@@ -81,6 +83,7 @@ import { AuthGuard } from './controller/service/authGuard/auth-guard.service';
     DetailDemandeurComponent,
     DemandeManifComponent,
     DetailManifComponent,
+    MailFormComponent,
   ],
   imports: [
     BrowserModule,
@@ -109,6 +112,7 @@ import { AuthGuard } from './controller/service/authGuard/auth-guard.service';
     MatTableModule,
     MatSidenavModule,
     HttpClientModule,
+    MatDialogModule,
   ],
   providers: [AuthGuard],
   bootstrap: [AppComponent],
