@@ -1,10 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 
-import { Manifestation } from 'src/app/controller/model/manifestation.model';
-import { Soutien } from 'src/app/controller/model/soutien.model';
-import { UserService } from 'src/app/controller/service/user.service';
+import {Manifestation} from 'src/app/controller/model/manifestation.model';
+import {Soutien} from 'src/app/controller/model/soutien.model';
+import {UserService} from 'src/app/controller/service/user.service';
 import Swal from 'sweetalert2';
-import { documents } from '../../../controller/model/documents.model';
+import {documents} from '../../../controller/model/documents.model';
 
 @Component({
   selector: 'app-postuler-manifestation',
@@ -24,9 +24,12 @@ export class PostulerManifestationComponent implements OnInit {
   documents: documents = new documents();
   id: number;
   erreur: string;
-  constructor(private userService: UserService) {}
 
-  ngOnInit(): void {}
+  constructor(private userService: UserService) {
+  }
+
+  ngOnInit(): void {
+  }
 
   onSubmit() {
     this.userService
@@ -40,14 +43,15 @@ export class PostulerManifestationComponent implements OnInit {
           );
         } else {
           this.id = x;
-          Swal.fire(
-            'Ajout de manifestation',
-            'Ajout est fait avec success',
-            'success'
-          );
           this.userService
             .addFilesManif(x, this.documents)
-            .subscribe((data) => {});
+            .subscribe((data) => {
+              Swal.fire(
+                'Ajout de manifestation',
+                'Ajout est fait avec success',
+                'success'
+              );
+            });
         }
       });
   }
@@ -99,6 +103,7 @@ export class PostulerManifestationComponent implements OnInit {
       selectedFileE.name.toUpperCase();
     document.getElementById('doc5').style.color = 'red';
   }
+
   onSubmitt() {
     this.userService.generateReport(this.id).subscribe((data) => {
       console.log(data);
