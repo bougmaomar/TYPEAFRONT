@@ -4,6 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Cadre } from 'src/app/controller/model/cadre.model';
 import { DonneePro } from 'src/app/controller/model/donnee-pro.model';
 import { MissionStage } from 'src/app/controller/model/mission-stage.model';
+import { NewMontant } from 'src/app/controller/model/montants.model';
 import { Soutien } from 'src/app/controller/model/soutien.model';
 import { User } from 'src/app/controller/model/user.model';
 import { AdminService } from 'src/app/controller/service/admin.service';
@@ -23,6 +24,7 @@ export class DetailDemandeComponent implements OnInit {
   donnePro: DonneePro;
   cadre: Cadre;
   soutien: Soutien;
+  newMontant: NewMontant;
   ismStage: boolean = true;
   path: string;
   constructor(
@@ -91,5 +93,17 @@ export class DetailDemandeComponent implements OnInit {
     });
   }
 
-  onSave() {}
+  onSave() {
+    this.adminService
+      .ajoutNewMontantMS(this.id, this.newMontant)
+      .subscribe((data) => {
+        (document.getElementById('actions') as HTMLInputElement).disabled =
+          false;
+        Swal.fire(
+          'Montants Sauvegarde',
+          'Montants sauvegarder avec success',
+          'success'
+        );
+      });
+  }
 }

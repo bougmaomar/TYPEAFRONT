@@ -7,6 +7,7 @@ import { MailMessage } from '../model/mailmessages.model';
 import { Manifestation } from '../model/manifestation.model';
 import { messages } from '../model/messages.model';
 import { MissionStage } from '../model/mission-stage.model';
+import { NewMontant } from '../model/montants.model';
 import { Soutien } from '../model/soutien.model';
 import { User } from '../model/user.model';
 
@@ -132,6 +133,16 @@ export class AdminService {
   creationRapportMission(missionId: number): Observable<number> {
     return this.httpClient.get<number>(
       `${this.baseUrl + '/raportmission/' + missionId}`
+    );
+  }
+
+  ajoutNewMontantMS(
+    mStageId: number,
+    newMontant: NewMontant
+  ): Observable<NewMontant> {
+    return this.httpClient.post<NewMontant>(
+      `${this.baseUrl + '/addnewmontant/' + mStageId}`,
+      newMontant
     );
   }
 }
