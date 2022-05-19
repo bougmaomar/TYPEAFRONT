@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { Manifestation } from 'src/app/controller/model/manifestation.model';
 import { Soutien } from 'src/app/controller/model/soutien.model';
+import { AllusersService } from 'src/app/controller/service/allusers.service';
 import { UserService } from 'src/app/controller/service/user.service';
 import Swal from 'sweetalert2';
 import { documents } from '../../../controller/model/documents.model';
@@ -24,7 +25,10 @@ export class PostulerManifestationComponent implements OnInit {
   documents: documents = new documents();
   id: number;
   erreur: string;
-  constructor(private userService: UserService) {}
+  constructor(
+    private userService: UserService,
+    private allusersService: AllusersService
+  ) {}
 
   ngOnInit(): void {}
 
@@ -100,7 +104,7 @@ export class PostulerManifestationComponent implements OnInit {
     document.getElementById('doc5').style.color = 'red';
   }
   onSubmitt() {
-    this.userService.generateReport(this.id).subscribe((data) => {
+    this.allusersService.generateReport(this.id).subscribe((data) => {
       console.log(data);
     });
   }

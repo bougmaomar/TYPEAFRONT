@@ -37,4 +37,16 @@ export class AllusersService {
   isAdmin(mail: string): Observable<Object> {
     return this.httpClient.get<boolean>(`${this.baseUrl + '/isadmin/' + mail}`);
   }
+
+  exportReportMission(id: number): Observable<Object> {
+    return this.httpClient.get(`${this.baseUrl + '/raportmission/' + id}`, {
+      withCredentials: true,
+    });
+  }
+
+  generateReport(id: number): Observable<Object> {
+    return this.httpClient.get(`${this.baseUrl + '/raport/' + id}`, {
+      withCredentials: true,
+    });
+  }
 }

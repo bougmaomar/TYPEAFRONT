@@ -1,31 +1,31 @@
 <div mat-dialog-content >
-    <form class="form">
+    <div class="form">
         <div class="row">
             <div class="col-md-8 line">
                 <label>ToEmail :</label>
-                <input type="email" value="omarbgm@gmail.com" disabled/>
+                <input type="email" value={{mssgsMail.toEmail}} disabled/>
             </div>
         </div>
         <div class="row">
             <div class="col-md-8 line">
                 <label>Subject :</label>
-                <input type="text" placeholder="subject"/>
+                <input type="text" placeholder="subject" [(ngModel)] = "mssgsMail.subject"/>
             </div>
         </div>
         <div class="row">
             <div class="col-md-8 line">
             <label>Message Content :</label>
-            <textarea type="text" disabled></textarea>
+            <textarea type="text" value={{mssgsMail.body}} disabled></textarea>
             </div>
         </div>
         <div class="row">
             <div class="col-md-8 line">
-            <label>Message Content :</label>
-            <input type="text" placeholder="Chemin de l'attachement"/>
+            <label>Chemin de fichier a Envoyer :</label>
+            <input type="text" value={{mssgsMail.path}} placeholder="Chemin de l'attachement" disabled/>
             </div>
         </div>
-    </form>
-    <button>Valider</button>
+    </div>
+    <button (click)="Valider()">Valider</button>
 
 </div>
 

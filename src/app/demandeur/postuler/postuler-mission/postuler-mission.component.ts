@@ -5,6 +5,7 @@ import { Cadre } from 'src/app/controller/model/cadre.model';
 
 import { MissionStage } from 'src/app/controller/model/mission-stage.model';
 import { Soutien } from 'src/app/controller/model/soutien.model';
+import { AllusersService } from 'src/app/controller/service/allusers.service';
 import { UserService } from 'src/app/controller/service/user.service';
 import Swal from 'sweetalert2';
 import { documents } from '../../../controller/model/documents.model';
@@ -29,7 +30,11 @@ export class PostulerMissionComponent implements OnInit {
   num: number;
   idm: number;
 
-  constructor(private userService: UserService, private router: Router) {}
+  constructor(
+    private userService: UserService,
+    private router: Router,
+    private allusersService: AllusersService
+  ) {}
 
   ngOnInit(): void {}
 
@@ -103,7 +108,7 @@ export class PostulerMissionComponent implements OnInit {
     document.getElementById('doc5').style.color = 'red';
   }
   onSubmitt() {
-    this.userService.exportReportMission(this.idm).subscribe((data) => {
+    this.allusersService.exportReportMission(this.idm).subscribe((data) => {
       console.log(data);
     });
   }

@@ -116,4 +116,22 @@ export class AdminService {
       `${this.baseUrl + '/getsoutienbymanif/' + manifId}`
     );
   }
+
+  getLettreManif(manifId: number): Observable<string> {
+    return this.httpClient.get<string>(
+      `${this.baseUrl + '/raportlettremanif/' + manifId}`
+    );
+  }
+
+  getLettreMission(missionId: number): Observable<string> {
+    return this.httpClient.get<string>(
+      `${this.baseUrl + '/raportlettremission/' + missionId}`
+    );
+  }
+
+  creationRapportMission(missionId: number): Observable<number> {
+    return this.httpClient.get<number>(
+      `${this.baseUrl + '/raportmission/' + missionId}`
+    );
+  }
 }
