@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute } from '@angular/router';
 import { Cadre } from 'src/app/controller/model/cadre.model';
 import { DonneePro } from 'src/app/controller/model/donnee-pro.model';
@@ -7,6 +8,7 @@ import { Soutien } from 'src/app/controller/model/soutien.model';
 import { User } from 'src/app/controller/model/user.model';
 import { AdminService } from 'src/app/controller/service/admin.service';
 import Swal from 'sweetalert2';
+import { MailFormComponent } from '../mail-form/mail-form.component';
 
 @Component({
   selector: 'app-detail-demande',
@@ -22,7 +24,8 @@ export class DetailDemandeComponent implements OnInit {
   soutien: Soutien;
   constructor(
     private route: ActivatedRoute,
-    private adminService: AdminService
+    private adminService: AdminService,
+    public dialog: MatDialog
   ) {}
 
   ngOnInit(): void {
@@ -70,5 +73,7 @@ export class DetailDemandeComponent implements OnInit {
     });
   }
 
-  acceptMStage() {}
+  acceptMStage() {
+    this.dialog.open(MailFormComponent, {});
+  }
 }
