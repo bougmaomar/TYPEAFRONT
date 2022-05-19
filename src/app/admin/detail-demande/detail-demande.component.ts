@@ -24,7 +24,7 @@ export class DetailDemandeComponent implements OnInit {
   donnePro: DonneePro;
   cadre: Cadre;
   soutien: Soutien;
-  newMontant: NewMontant;
+  newMont: NewMontant;
   ismStage: boolean = true;
   path: string;
   constructor(
@@ -40,6 +40,7 @@ export class DetailDemandeComponent implements OnInit {
     this.user = new User();
     this.cadre = new Cadre();
     this.soutien = new Soutien();
+    this.newMont = new NewMontant();
     this.adminService.getMissionStageById(this.id).subscribe((stage) => {
       this.mStage = stage;
     });
@@ -79,8 +80,6 @@ export class DetailDemandeComponent implements OnInit {
     });
   }
 
-
-
   acceptMStage() {
     this.dialog.open(MailFormComponent, {
       data: {
@@ -93,9 +92,11 @@ export class DetailDemandeComponent implements OnInit {
 
   onSave() {
     this.adminService
-      .ajoutNewMontantMS(this.id, this.newMontant)
+      .ajoutNewMontantMS(this.id, this.newMont)
       .subscribe((data) => {
         (document.getElementById('actions') as HTMLInputElement).disabled =
+          false;
+        (document.getElementById('actions2') as HTMLInputElement).disabled =
           false;
         Swal.fire(
           'Montants Sauvegarde',
