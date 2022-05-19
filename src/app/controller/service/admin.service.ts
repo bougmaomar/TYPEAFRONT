@@ -144,4 +144,20 @@ export class AdminService {
       }
     );
   }
+
+  ajoutNewMontantM(missionId: number, nvMnt: NewMontant): Observable<number> {
+    return this.httpClient.post<number>(
+      `${this.baseUrl + '/addnewmontant/' + missionId}`,
+      nvMnt,
+      {
+        withCredentials: true,
+      }
+    );
+  }
+
+  manifRefused(mStageId: number): Observable<number> {
+    return this.httpClient.get<number>(
+      `${this.baseUrl + '/refusemanif/' + mStageId}`
+    );
+  }
 }
