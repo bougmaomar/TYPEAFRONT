@@ -219,15 +219,10 @@
           </div>
           <div class="row mt-3">
             <div class="col-md-6">
-              <label for="inputState" class="mb-0"><h6 class="mb-0 text-sm">Pays</h6></label>
-              <select id="inputState" class="form-control" [(ngModel)] = "mstage.pays">
-                <option selected>Maroc</option>
-                <option>Algérie</option>
-                <option>Soudan</option>
-                <option>Tunisie</option>
-                <input type="text" name="fname" placeholder="pays">
+              <label  class="mb-0"><h6 class="mb-0 text-sm">Pays</h6></label>
 
-              </select>
+                <input type="text" name="fname" placeholder="pays" [(ngModel)] = "mstage.pays">
+
             </div>
             <div class="col-md-6">
               <label class="mb-0"><h6 class="mb-0 text-sm">Ville</h6></label>
@@ -236,7 +231,7 @@
 
             <div class="row mt-3">
               <div class="col-md-6">
-                <label for="inputState" class="mb-0"><h6 class="mb-0 text-sm">Date début</h6></label><br>
+                <label  class="mb-0"><h6 class="mb-0 text-sm">Date début</h6></label><br>
                 <p-calendar [showIcon]="true" inputId="icon" [(ngModel)] = "mstage.dateDebut"></p-calendar>
               </div>
               <div class="col-md-6">
@@ -247,7 +242,7 @@
 
             <div class="row mt-3">
               <div class="col-md-6">
-                <label for="inputState" class="mb-0"><h6 class="mb-0 text-sm">Date départ</h6></label><br>
+                <label  class="mb-0"><h6 class="mb-0 text-sm">Date départ</h6></label><br>
                 <p-calendar  [showIcon]="true" inputId="icon" [(ngModel)] = "mstage.dateDepart"></p-calendar>
               </div>
               <div class="col-md-6">
@@ -316,7 +311,7 @@ Ce projet de coopération financé, mais le titre de transport ne fait pas parti
               <input type="number" name="intitulep" placeholder="" style="margin-bottom: 0px"  [(ngModel)] = "soutien.montant">
             </div>
             <div class="row px-3" style="padding-bottom: 20px ">
-              <label for="inputState" class="mb-0" style="padding-top: 20px; padding-bottom: 10px "><h6
+              <label  class="mb-0" style="padding-top: 20px; padding-bottom: 10px "><h6
                 class="mb-0 text-sm">Nature de soutien demandé</h6></label>
               <select class="custom-select"  [(ngModel)] = "soutien.nature">
                 <option selected>choisir votre soutien</option>
@@ -326,7 +321,7 @@ Ce projet de coopération financé, mais le titre de transport ne fait pas parti
             </div>
             <div class="row mt-3">
               <div class="col-md-6">
-                <label for="inputState" class="mb-0"><h6 class="mb-0 text-sm">Montant Titre de Transport</h6></label>
+                <label  class="mb-0"><h6 class="mb-0 text-sm">Montant Titre de Transport</h6></label>
                 <input type="number" name="intitulep" placeholder="" style="margin-bottom: 0px" [(ngModel)] = "soutien.mTitreTransport">
 
               </div>
@@ -337,7 +332,7 @@ Ce projet de coopération financé, mais le titre de transport ne fait pas parti
             </div>
             <div class="row mt-3">
               <div class="col-md-6">
-                <label for="inputState" class="mb-0"><h6 class="mb-0 text-sm">Montant hébergement</h6></label>
+                <label  class="mb-0"><h6 class="mb-0 text-sm">Montant hébergement</h6></label>
                 <input type="number" name="intitulep" placeholder="" style="margin-bottom: 30px" [(ngModel)] = "soutien.mHebergement">
 
               </div>
