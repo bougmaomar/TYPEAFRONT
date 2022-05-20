@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Cadre } from 'src/app/controller/model/cadre.model';
 import { DonneePro } from 'src/app/controller/model/donnee-pro.model';
 import { MissionStage } from 'src/app/controller/model/mission-stage.model';
@@ -31,7 +31,7 @@ export class DetailDemandeComponent implements OnInit {
     private route: ActivatedRoute,
     private adminService: AdminService,
     public dialog: MatDialog,
-    private allusersService: AllusersService
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -69,7 +69,11 @@ export class DetailDemandeComponent implements OnInit {
     }).then((result) => {
       if (result.isConfirmed) {
         this.adminService.RefuseMStage(this.id).subscribe(() => {});
-        Swal.fire('Refuser', 'La demande a ete refuser ', 'success');
+        Swal.fire('Refuser', 'La demande a ete refuser ', 'success').then(
+          () => {
+            this.router.navigate(['/demandes-Manif']);
+          }
+        );
       } else {
         Swal.fire(
           'Annuler',

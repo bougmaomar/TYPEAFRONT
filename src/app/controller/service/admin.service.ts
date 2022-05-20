@@ -145,6 +145,28 @@ export class AdminService {
     );
   }
 
+  ajoutNewMontantM(missionId: number, nvMnt: NewMontant): Observable<number> {
+    return this.httpClient.post<number>(
+      `${this.baseUrl + '/addnewmontant/' + missionId}`,
+      nvMnt,
+      {
+        withCredentials: true,
+      }
+    );
+  }
+
+  manifRefused(mStageId: number): Observable<number> {
+    return this.httpClient.get<number>(
+      `${this.baseUrl + '/refusemanif/' + mStageId}`
+    );
+  }
+
+  getdonnepro(id: number): Observable<DonneePro> {
+    return this.httpClient.get<DonneePro>(
+      `${this.baseUrl + '/getdonne/' + id}`
+    );
+  }
+
   exportNvmontantmanif(id: number): Observable<Object> {
     return this.httpClient.get(`${this.baseUrl + '/raportNVmontantmanif/' + id}`, {
       withCredentials: true,

@@ -3,7 +3,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { MissionStage } from 'src/app/controller/model/mission-stage.model';
 import { AdminService } from 'src/app/controller/service/admin.service';
-import {User} from "../../controller/model/user.model";
+import { User } from '../../controller/model/user.model';
 
 @Component({
   selector: 'app-demandes',
@@ -14,7 +14,6 @@ export class DemandesComponent implements OnInit {
   mStages: MissionStage[];
   user: User;
 
-
   constructor(private adminService: AdminService, private router: Router) {}
 
   ngOnInit(): void {
@@ -24,7 +23,6 @@ export class DemandesComponent implements OnInit {
   private getMStages() {
     this.adminService.getAllMStages().subscribe((data) => {
       this.mStages = data;
-
     });
   }
 

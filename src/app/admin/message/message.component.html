@@ -11,11 +11,11 @@
       </tr>
       </thead>
       <tbody>
-      <tr>
-        <td> Kaoutarmrhar@uca.ma</td>
-        <td>0651112970</td>
-        <td>mot de passe</td>
-        <td>j'ai oublié mon mot de passe et je voulais le récupérer </td>
+      <tr *ngFor="let message of messages">
+        <td>{{message.email}}</td>
+        <td>{{message.telephone}}</td>
+        <td>{{message.subject}}</td>
+        <td>{{message.mssgContent}} </td>
       </tr>
 
       </tbody>

@@ -6,9 +6,9 @@
       <tr>
         <th scope="col">Code Demande</th>
         <th scope="col">Objet de mission</th>
-        <th scope="col">pays</th>
+        <th scope="col">Date Debut</th>
+        <th scope="col">Date Fin</th>
         <th scope="col">Status</th>
-        <th scope="col">Modifier</th>
       </tr>
       </thead>
       <tbody>
@@ -17,7 +17,7 @@
         <td> {{mission.objetMission}} </td>
         <td> {{mission.dateDebut}}</td>
         <td> {{mission.dateFin}}</td>
-        <td><span class="badge badge-lg badge-dot"> <i class="bg-warning"></i>En cours </span></td>
+        <td> {{mission.state}}</td>
         <td class=" td text-center"><a class="btn btn-sm btn-neutral" (click)="viewDetails(mission.id)">Détails</a>
         </td>
       </tr>
