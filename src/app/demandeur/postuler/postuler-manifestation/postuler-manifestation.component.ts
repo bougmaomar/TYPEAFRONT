@@ -43,14 +43,16 @@ export class PostulerManifestationComponent implements OnInit {
           );
         } else {
           this.id = x;
+          Swal.fire(
+            'Ajout de manifestation',
+            'Ajout est fait avec success',
+            'success'
+          );
           this.userService
             .addFilesManif(x, this.documents)
             .subscribe((data) => {
-              Swal.fire(
-                'Ajout de manifestation',
-                'Ajout est fait avec success',
-                'success'
-              );
+
+              this.userService.addFiles(x, this.documents).subscribe((data) => {});
             });
         }
       });
@@ -108,5 +110,10 @@ export class PostulerManifestationComponent implements OnInit {
     this.userService.generateReport(this.id).subscribe((data) => {
       console.log(data);
     });
+    Swal.fire(
+      'Impression de manifestation',
+      'Impression est faite avec success',
+      'success'
+    );
   }
 }

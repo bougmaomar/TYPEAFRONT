@@ -166,4 +166,17 @@ export class AdminService {
       `${this.baseUrl + '/getdonne/' + id}`
     );
   }
+
+  exportNvmontantmanif(id: number): Observable<Object> {
+    return this.httpClient.get(`${this.baseUrl + '/raportNVmontantmanif/' + id}`, {
+      withCredentials: true,
+    });
+  }
+
+  exportNvmontantmission(id: number): Observable<Object> {
+    return this.httpClient.get(`${this.baseUrl + '/aportNvmontantmis/' + id}`, {
+      withCredentials: true,
+    });
+  }
+
 }

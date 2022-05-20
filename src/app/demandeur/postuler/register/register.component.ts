@@ -30,7 +30,7 @@ export class RegisterComponent implements OnInit {
           confirmButtonText: 'OK',
         }).then((result) => {
           if (result.isConfirmed) {
-            this.router.navigate(['/choisir-postuler']);
+            this.router.navigate(['/login']);
           }
         });
       } else if (data == -1) {

@@ -99,4 +99,15 @@ export class DetailManifComponent implements OnInit {
         );
       });
   }
+
+
+  onclick()
+  {
+    this.adminService.exportNvmontantmanif(this.id).subscribe((data) => {
+      console.log(data);
+    });
+  }
+
+
+
 }

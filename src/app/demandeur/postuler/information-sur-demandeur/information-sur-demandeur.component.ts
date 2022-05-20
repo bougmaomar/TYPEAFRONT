@@ -12,7 +12,7 @@ import Swal from 'sweetalert2';
 })
 export class InformationSurDemandeurComponent implements OnInit {
   donne: DonneePro = new DonneePro();
-  constructor(private userService: UserService) {}
+  constructor(private userService: UserService, private  router : Router) {}
 
   ngOnInit(): void {}
 
@@ -24,13 +24,21 @@ export class InformationSurDemandeurComponent implements OnInit {
           'Mise a jour données',
           'Vos données professionnels ont ete mise a jour',
           'success'
-        );
+        ).then((result) => {
+          if (result.isConfirmed) {
+            this.router.navigate(['/choisir-postuler']);
+          }
+        });
       } else if (data == 1) {
         Swal.fire(
           'Ajout données',
           'Vos données professionnels ont ete ajouter',
           'success'
-        );
+        ).then((result) => {
+          if (result.isConfirmed) {
+            this.router.navigate(['/choisir-postuler']);
+          }
+        });
       } else {
         Swal.fire(
           'Ajout données',
