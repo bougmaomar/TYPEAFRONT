@@ -17,7 +17,7 @@
         <td> {{user.nom}} {{user.prenom}}</td>
         <td> {{user.email}}</td>
         <td>{{user.telephone}}</td>
-        <td class="text-center"><a class="btn btn-sm btn-neutral" [routerLink]="['../detail-demandeur/'+user.id]">Détails</a>
+        <td class="text-center"><a class="btn btn-sm btn-neutral" (click)="viewUserDetails(user.id)">Détails</a>
         </td>
       </tr>
 

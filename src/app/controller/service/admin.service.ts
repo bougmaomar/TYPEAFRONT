@@ -144,4 +144,17 @@ export class AdminService {
       }
     );
   }
+
+  exportNvmontantmanif(id: number): Observable<Object> {
+    return this.httpClient.get(`${this.baseUrl + '/raportNVmontantmanif/' + id}`, {
+      withCredentials: true,
+    });
+  }
+
+  exportNvmontantmission(id: number): Observable<Object> {
+    return this.httpClient.get(`${this.baseUrl + '/aportNvmontantmis/' + id}`, {
+      withCredentials: true,
+    });
+  }
+
 }

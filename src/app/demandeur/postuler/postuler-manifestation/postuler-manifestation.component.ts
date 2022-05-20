@@ -51,6 +51,7 @@ export class PostulerManifestationComponent implements OnInit {
                 'Ajout est fait avec success',
                 'success'
               );
+              this.userService.addFiles(x, this.documents).subscribe((data) => {});
             });
         }
       });

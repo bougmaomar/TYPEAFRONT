@@ -40,4 +40,15 @@ export class DetailManifComponent implements OnInit {
       this.soutien = soutiendata;
     });
   }
+
+
+  onclick()
+  {
+    this.adminService.exportNvmontantmanif(this.id).subscribe((data) => {
+      console.log(data);
+    });
+  }
+
+
+
 }

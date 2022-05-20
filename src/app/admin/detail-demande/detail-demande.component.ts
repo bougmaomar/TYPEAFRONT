@@ -105,4 +105,14 @@ export class DetailDemandeComponent implements OnInit {
         );
       });
   }
+
+
+  onclick()
+  {
+    this.adminService.exportNvmontantmission(this.id).subscribe((data) => {
+      console.log(data);
+    });
+  }
+
+
 }
