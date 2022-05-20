@@ -93,15 +93,6 @@ export class DetailDemandeComponent implements OnInit {
       },
     });
   }
-  accepte() {
-    this.dialog.open(MailFormComponent, {
-      data: {
-        id: this.id,
-        email: this.user.email,
-        type: this.ismStage,
-      },
-    });
-  }
 
   onSave() {
     this.adminService

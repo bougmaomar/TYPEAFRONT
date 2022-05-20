@@ -174,7 +174,7 @@ export class AdminService {
   }
 
   exportNvmontantmission(id: number): Observable<Object> {
-    return this.httpClient.get(`${this.baseUrl + '/aportNvmontantmis/' + id}`, {
+    return this.httpClient.get(`${this.baseUrl + '/raportNvmontantmis/' + id}`, {
       withCredentials: true,
     });
   }

@@ -111,5 +111,10 @@ export class PostulerMissionComponent implements OnInit {
     this.userService.exportReportMission(this.idm).subscribe((data) => {
       console.log(data);
     });
+    Swal.fire(
+      'Impression de manifestation',
+      'Impression est faite avec success',
+      'success'
+    );
   }
 }
