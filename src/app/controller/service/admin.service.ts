@@ -7,6 +7,7 @@ import { MailMessage } from '../model/mailmessages.model';
 import { Manifestation } from '../model/manifestation.model';
 import { messages } from '../model/messages.model';
 import { MissionStage } from '../model/mission-stage.model';
+import { NewMontant } from '../model/montants.model';
 import { Soutien } from '../model/soutien.model';
 import { User } from '../model/user.model';
 
@@ -38,6 +39,11 @@ export class AdminService {
 
   getAllMStages(): Observable<MissionStage[]> {
     return this.httpClient.get<MissionStage[]>(`${this.baseUrl + '/missions'}`);
+  }
+  getAllManifs(): Observable<Manifestation[]> {
+    return this.httpClient.get<Manifestation[]>(
+      `${this.baseUrl + '/manifestations'}`
+    );
   }
 
   getMissionStageById(mStageId: number): Observable<MissionStage> {
@@ -114,6 +120,50 @@ export class AdminService {
   getSoutienByManifId(manifId: number): Observable<Soutien> {
     return this.httpClient.get<Soutien>(
       `${this.baseUrl + '/getsoutienbymanif/' + manifId}`
+    );
+  }
+
+  getLettreMission(missionId: number): Observable<string> {
+    return this.httpClient.get<string>(
+      `${this.baseUrl + '/raportlettremission/' + missionId}`
+    );
+  }
+
+  getLettreManif(manifId: number): Observable<string> {
+    return this.httpClient.get<string>(
+      `${this.baseUrl + '/raportlettremanif/' + manifId}`
+    );
+  }
+
+  ajoutNewMontantMS(mStageId: number, nvMnt: NewMontant): Observable<number> {
+    return this.httpClient.post<number>(
+      `${this.baseUrl + '/addnewmontantMS/' + mStageId}`,
+      nvMnt,
+      {
+        withCredentials: true,
+      }
+    );
+  }
+
+  ajoutNewMontantM(missionId: number, nvMnt: NewMontant): Observable<number> {
+    return this.httpClient.post<number>(
+      `${this.baseUrl + '/addnewmontant/' + missionId}`,
+      nvMnt,
+      {
+        withCredentials: true,
+      }
+    );
+  }
+
+  manifRefused(mStageId: number): Observable<number> {
+    return this.httpClient.get<number>(
+      `${this.baseUrl + '/refusemanif/' + mStageId}`
+    );
+  }
+
+  getdonnepro(id: number): Observable<DonneePro> {
+    return this.httpClient.get<DonneePro>(
+      `${this.baseUrl + '/getdonne/' + id}`
     );
   }
 }

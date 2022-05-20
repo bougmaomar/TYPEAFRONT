@@ -3,6 +3,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { MissionStage } from 'src/app/controller/model/mission-stage.model';
 import { AdminService } from 'src/app/controller/service/admin.service';
+import { User } from '../../controller/model/user.model';
 
 @Component({
   selector: 'app-demandes',
@@ -11,6 +12,7 @@ import { AdminService } from 'src/app/controller/service/admin.service';
 })
 export class DemandesComponent implements OnInit {
   mStages: MissionStage[];
+  user: User;
 
   constructor(private adminService: AdminService, private router: Router) {}
 

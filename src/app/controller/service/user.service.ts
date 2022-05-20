@@ -8,29 +8,33 @@ import { Manifestation } from '../model/manifestation.model';
 import { messages } from '../model/messages.model';
 import { MissionStage } from '../model/mission-stage.model';
 import { Soutien } from '../model/soutien.model';
+import { User } from '../model/user.model';
 
 @Injectable({
   providedIn: 'root',
 })
 export class UserService {
-  private baseUrl = 'http://localhost:8000/user';
+  private _baseUrl = 'http://localhost:8000/user';
 
   constructor(private httpClient: HttpClient) {}
 
   getByMail(email: string): Observable<Object> {
-    return this.httpClient.get(`${this.baseUrl + '/login/' + email}`);
+    return this.httpClient.get(`${this._baseUrl + '/login/' + email}`);
   }
 
   addManif(manif: Manifestation): Observable<Object> {
-    return this.httpClient.post(`${this.baseUrl + '/addmanifestation'}`, manif);
+    return this.httpClient.post(
+      `${this._baseUrl + '/addmanifestation'}`,
+      manif
+    );
   }
 
   addMissionStage(mStage: MissionStage): Observable<Object> {
-    return this.httpClient.post(`${this.baseUrl + '/addmission'}`, mStage);
+    return this.httpClient.post(`${this._baseUrl + '/addmission'}`, mStage);
   }
 
   saveDonnesPro(donne: DonneePro): Observable<Object> {
-    return this.httpClient.post(`${this.baseUrl + '/adddonéespro'}`, donne, {
+    return this.httpClient.post(`${this._baseUrl + '/adddonéespro'}`, donne, {
       withCredentials: true,
     });
   }
@@ -43,12 +47,12 @@ export class UserService {
   ): Observable<Object> {
     if (isManif) {
       return this.httpClient.post(
-        `${this.baseUrl + '/addsoutienmanif/' + manifId}`,
+        `${this._baseUrl + '/addsoutienmanif/' + manifId}`,
         soutien
       );
     } else {
       return this.httpClient.post(
-        `${this.baseUrl + '/addsoutienmission/' + missionId}`,
+        `${this._baseUrl + '/addsoutienmission/' + missionId}`,
         soutien
       );
     }
@@ -56,7 +60,7 @@ export class UserService {
 
   addCadre(cadre: Cadre, missionId: number): Observable<Object> {
     return this.httpClient.post(
-      `${this.baseUrl + '/addcadre/' + missionId}`,
+      `${this._baseUrl + '/addcadre/' + missionId}`,
       cadre
     );
   }
@@ -69,12 +73,12 @@ export class UserService {
   ): Observable<Object> {
     if (isManif) {
       return this.httpClient.post(
-        `${this.baseUrl + '/add_document/manifestation/' + manifId}`,
+        `${this._baseUrl + '/add_document/manifestation/' + manifId}`,
         file
       );
     } else {
       return this.httpClient.post(
-        `${this.baseUrl + '/add_document/missionstage/' + missionId}`,
+        `${this._baseUrl + '/add_document/missionstage/' + missionId}`,
         file
       );
     }
@@ -82,14 +86,14 @@ export class UserService {
 
   getMyMissionStages(): Observable<MissionStage[]> {
     return this.httpClient.get<MissionStage[]>(
-      `${this.baseUrl + '/getmStage'}`,
+      `${this._baseUrl + '/getmStage'}`,
       { withCredentials: true }
     );
   }
 
   getMyManifestations(): Observable<Manifestation[]> {
     return this.httpClient.get<Manifestation[]>(
-      `${this.baseUrl + '/getmanifestations'}`,
+      `${this._baseUrl + '/getmanifestations'}`,
       { withCredentials: true }
     );
   }
@@ -103,7 +107,7 @@ export class UserService {
     formData.append('fileD', documents.fileD, documents.fileD.name);
     formData.append('fileE', documents.fileE, documents.fileE.name);
     return this.httpClient.post(
-      `${this.baseUrl + '/add_documentMST/' + mStageId}`,
+      `${this._baseUrl + '/add_documentMST/' + mStageId}`,
       formData
     );
   }
@@ -118,7 +122,7 @@ export class UserService {
     formData.append('fileD', documents.fileD, documents.fileD.name);
     formData.append('fileE', documents.fileE, documents.fileE.name);
     return this.httpClient.post(
-      `${this.baseUrl + '/add_documentM/' + manifId}`,
+      `${this._baseUrl + '/add_documentM/' + manifId}`,
       formData
     );
   }
@@ -132,7 +136,7 @@ export class UserService {
     mStage.setsoutien = soutien;
 
     return this.httpClient.post(
-      `${this.baseUrl + '/missionstageadd'}`,
+      `${this._baseUrl + '/missionstageadd'}`,
       mStage,
       { withCredentials: true }
     );
@@ -141,18 +145,18 @@ export class UserService {
   addAllManif(manif: Manifestation, soutien: Soutien): Observable<Object> {
     manif.setsoutien = soutien;
     return this.httpClient.post(
-      `${this.baseUrl + '/manifestationadd'}`,
+      `${this._baseUrl + '/manifestationadd'}`,
       manif,
       { withCredentials: true }
     );
   }
   generateReport(id: number): Observable<Object> {
-    return this.httpClient.get(`${this.baseUrl + '/raport/' + id}`, {
+    return this.httpClient.get(`${this._baseUrl + '/raport/' + id}`, {
       withCredentials: true,
     });
   }
   exportReportMission(id: number): Observable<Object> {
-    return this.httpClient.get(`${this.baseUrl + '/raportmission/' + id}`, {
+    return this.httpClient.get(`${this._baseUrl + '/raportmission/' + id}`, {
       withCredentials: true,
     });
   }

@@ -179,34 +179,34 @@
       </div>
       <div class="form-group">
         <h4><label>Montant Titre Transport édité :</label></h4>
-        <input type="number" class="form-control" placeholder="">
+        <input type="number" class="form-control" placeholder="" [(ngModel)] = "newMont.newmTitre">
       </div>
       <div class="form-group">
         <h4><label>Montant Frais D'inscription édité :</label></h4>
-        <input type="number" class="form-control" placeholder="">
+        <input type="number" class="form-control" placeholder="" [(ngModel)] = "newMont.newmFraisInscription">
       </div>
       <div class="form-group">
         <h4><label>Montant Hébergement édité :</label></h4>
-        <input type="number" class="form-control" placeholder="">
+        <input type="number" class="form-control" placeholder="" [(ngModel)] = "newMont.newmHebergement">
       </div>
       <div class="form-group">
         <h4><label>Autre Montant édité :</label></h4>
-        <input type="number" class="form-control" placeholder="">
+        <input type="number" class="form-control" placeholder="" [(ngModel)] = "newMont.newMontant">
       </div>
     </div>
 
     <div class="row mb-4">
       <div class="col-md-3">
-        <button class="section2_btn btn22" type="button">Modifier Montant</button>
+        <button class="section2_btn btn22" (click)="onSave()" type="button">Modifier Montant</button>
       </div>
       <div class="col-md-3">
         <button class="section2_btn btn44" type="button">Imprimer</button>
       </div>
       <div class="col-md-3" >
-                    <button class="section2_btn btn33" type="button"(click)="acceptMStage()">Accepter</button>
+                    <button id="actions" class="section2_btn btn33" type="button"(click)="acceptMStage()" disabled>Accepter</button>
       </div>
       <div class="col-md-3" >
-                    <button class="section2_btn btn11" type="button" (click)="refuseMStage()">Refuser</button>
+                    <button id="actions2" class="section2_btn btn11" type="button" (click)="refuseMStage()" disabled>Refuser</button>
       </div>
     </div>
 

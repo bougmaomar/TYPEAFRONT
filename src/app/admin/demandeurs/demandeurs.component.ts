@@ -52,6 +52,6 @@ export class DemandeursComponent implements OnInit {
   }
 
   viewUserDetails(id: number) {
-    this.router.navigate(['/detail-demandeur', id]);
+    this.router.navigate(['/admin/detail-demandeur', id]);
   }
 }
