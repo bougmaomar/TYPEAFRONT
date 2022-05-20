@@ -40,10 +40,9 @@
       <div class="nav-item" style=" color: white" *ngIf="isLogged == true; else loginBtn">
         <div class="nav-item dropdown">
           <a class="nav-link dropdown-toggle"  id="navbarDropdownMenuLink" data-toggle="dropdown"
-             aria-haspopup="true" aria-expanded="false"  style="height: 30px;color:white ">
+              aria-expanded="false"  style="color:white ">
             <i class="fa-solid fa-user-pen" style="padding-right: 10px">
-              Logged In
-            </i>
+                       </i> CONNECTÉ
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
             <a class="dropdown-item" (click)="logoutUser()"><i class="fa-solid fa-arrow-right-from-bracket"></i> Logout</a>
@@ -51,7 +50,8 @@
         </div>
       </div>
       <ng-template #loginBtn>
-        <button (click)="goToLogin()">Login</button>
+        <i class="fa-solid fa-user-pen" style=" color:white "></i>
+        <a class="btn" (click)="goToLogin()" style=" color:white ">S'identifier</a>
       </ng-template>
 
 
