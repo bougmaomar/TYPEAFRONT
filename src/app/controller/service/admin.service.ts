@@ -160,4 +160,10 @@ export class AdminService {
       `${this.baseUrl + '/refusemanif/' + mStageId}`
     );
   }
+
+  getdonnepro(id: number): Observable<DonneePro> {
+    return this.httpClient.get<DonneePro>(
+      `${this.baseUrl + '/getdonne/' + id}`
+    );
+  }
 }

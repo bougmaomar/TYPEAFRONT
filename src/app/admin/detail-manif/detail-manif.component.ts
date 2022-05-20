@@ -61,7 +61,7 @@ export class DetailManifComponent implements OnInit {
         this.adminService.manifRefused(this.id).subscribe(() => {});
         Swal.fire('Refuser', 'La demande a ete refuser ', 'success').then(
           () => {
-            this.router.navigate(['/admin/demandes-Manif']);
+            this.router.navigate(['/demandes-Stage']);
           }
         );
       } else {

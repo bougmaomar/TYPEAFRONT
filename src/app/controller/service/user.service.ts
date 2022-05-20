@@ -8,7 +8,7 @@ import { Manifestation } from '../model/manifestation.model';
 import { messages } from '../model/messages.model';
 import { MissionStage } from '../model/mission-stage.model';
 import { Soutien } from '../model/soutien.model';
-import {User} from "../model/user.model";
+import { User } from '../model/user.model';
 
 @Injectable({
   providedIn: 'root',
@@ -23,7 +23,10 @@ export class UserService {
   }
 
   addManif(manif: Manifestation): Observable<Object> {
-    return this.httpClient.post(`${this._baseUrl + '/addmanifestation'}`, manif);
+    return this.httpClient.post(
+      `${this._baseUrl + '/addmanifestation'}`,
+      manif
+    );
   }
 
   addMissionStage(mStage: MissionStage): Observable<Object> {
@@ -34,9 +37,6 @@ export class UserService {
     return this.httpClient.post(`${this._baseUrl + '/adddonéespro'}`, donne, {
       withCredentials: true,
     });
-  }
-  getdonnepro(id : number): Observable<Object> {
-    return this.httpClient.get<DonneePro>(`${this._baseUrl + '/getdonne/'+id}`);
   }
 
   addSoutien(
@@ -160,5 +160,4 @@ export class UserService {
       withCredentials: true,
     });
   }
-
 }
