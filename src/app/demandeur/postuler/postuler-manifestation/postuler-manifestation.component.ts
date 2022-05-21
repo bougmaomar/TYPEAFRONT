@@ -41,18 +41,28 @@ export class PostulerManifestationComponent implements OnInit {
           );
         } else {
           this.id = x;
-          Swal.fire(
-            'Ajout de manifestation',
-            'Ajout est fait avec success',
-            'success'
-          );
-          this.userService
-            .addFilesManif(x, this.documents)
-            .subscribe((data) => {
-              this.userService
-                .addFiles(x, this.documents)
-                .subscribe((data) => {});
-            });
+          if (this.userService.addFilesManif(x, this.documents) == null) {
+            Swal.fire(
+              'Ajout de mission',
+              'Veuillez remplire tous les fichier demander',
+              'error'
+            );
+          } else {
+            this.userService
+              .addFilesManif(x, this.documents)
+              .subscribe((data) => {
+                (<HTMLInputElement>(
+                  document.getElementById('impbtnM')
+                )).disabled = false;
+
+                Swal.fire(
+                  'Ajout de mission',
+                  'Ajout est fait avec success',
+                  'success'
+                );
+              });
+            this.id = x;
+          }
         }
       });
   }

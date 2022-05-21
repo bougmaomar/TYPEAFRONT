@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { State } from '../enums/state.service';
 import { Cadre } from '../model/cadre.model';
 import { DonneePro } from '../model/donnee-pro.model';
 import { MailMessage } from '../model/mailmessages.model';
@@ -190,6 +191,18 @@ export class AdminService {
         withCredentials: true,
         responseType: 'text' as 'json',
       }
+    );
+  }
+
+  findAllStagesByState(state: State): Observable<MissionStage[]> {
+    return this.httpClient.get<MissionStage[]>(
+      `${this.baseUrl + '/findallmstages/' + state}`
+    );
+  }
+
+  findAllManifsByState(state: State): Observable<Manifestation[]> {
+    return this.httpClient.get<Manifestation[]>(
+      `${this.baseUrl + '/findallmanifs/' + state}`
     );
   }
 }

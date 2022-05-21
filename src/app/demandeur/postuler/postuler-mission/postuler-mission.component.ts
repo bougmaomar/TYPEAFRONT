@@ -49,15 +49,25 @@ export class PostulerMissionComponent implements OnInit {
             'error'
           );
         } else {
-          this.idm = x;
-          (<HTMLInputElement>document.getElementById('impbtnS')).disabled =
-            false;
-          Swal.fire(
-            'Ajout de mission',
-            'Ajout est fait avec success',
-            'success'
-          );
-          this.userService.addFiles(x, this.documents).subscribe((data) => {});
+          if (this.userService.addFiles(x, this.documents) == null) {
+            Swal.fire(
+              'Ajout de mission',
+              'Veuillez remplire tous les fichier demander',
+              'error'
+            );
+          } else {
+            this.userService.addFiles(x, this.documents).subscribe((data) => {
+              (<HTMLInputElement>document.getElementById('impbtnS')).disabled =
+                false;
+
+              Swal.fire(
+                'Ajout de mission',
+                'Ajout est fait avec success',
+                'success'
+              );
+            });
+            this.idm = x;
+          }
         }
       });
   }

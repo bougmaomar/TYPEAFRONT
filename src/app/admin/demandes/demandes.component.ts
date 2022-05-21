@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
+import { State } from 'src/app/controller/enums/state.service';
 import { MissionStage } from 'src/app/controller/model/mission-stage.model';
 import { AdminService } from 'src/app/controller/service/admin.service';
 import { User } from '../../controller/model/user.model';
@@ -21,7 +22,7 @@ export class DemandesComponent implements OnInit {
   }
 
   private getMStages() {
-    this.adminService.getAllMStages().subscribe((data) => {
+    this.adminService.findAllStagesByState(State.IDLE).subscribe((data) => {
       this.mStages = data;
     });
   }
