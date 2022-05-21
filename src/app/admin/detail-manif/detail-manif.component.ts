@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
 import { DonneePro } from 'src/app/controller/model/donnee-pro.model';
 import { Manifestation } from 'src/app/controller/model/manifestation.model';
@@ -21,11 +22,12 @@ export class DetailManifComponent implements OnInit {
   donnePro: DonneePro;
   soutien: Soutien;
   newMont: NewMontant;
-  dialog: any;
+  ismStage: boolean = false;
   constructor(
     private route: ActivatedRoute,
     private adminService: AdminService,
-    private router: Router
+    private router: Router,
+    public dialog: MatDialog
   ) {}
 
   ngOnInit(): void {
@@ -79,7 +81,7 @@ export class DetailManifComponent implements OnInit {
       data: {
         id: this.id,
         email: this.user.email,
-        type: this.manif,
+        type: this.ismStage,
       },
     });
   }
@@ -87,27 +89,40 @@ export class DetailManifComponent implements OnInit {
   onSave() {
     this.adminService
       .ajoutNewMontantM(this.id, this.newMont)
-      .subscribe((data) => {
-        (document.getElementById('actions') as HTMLInputElement).disabled =
-          false;
-        (document.getElementById('actions2') as HTMLInputElement).disabled =
-          false;
-        Swal.fire(
-          'Montants Sauvegarde',
-          'Montants sauvegarder avec success',
-          'success'
-        );
+      .subscribe((data: number) => {
+        if (data == 1) {
+          Swal.fire(
+            'Montants Sauvegarde',
+            'Montants sauvegarder avec success',
+            'success'
+          );
+        } else {
+          Swal.fire(
+            'Montants Sauvegarde',
+            'Montats sont deja sauvegarder',
+            'error'
+          );
+        }
       });
   }
 
-
-  onclick()
-  {
-    this.adminService.exportNvmontantmanif(this.id).subscribe((data) => {
-      console.log(data);
-    });
+  onclick() {
+    this.adminService
+      .exportNvmontantmanif(this.id)
+      .subscribe((data: string) => {
+        if (data == 'erreur') {
+          Swal.fire(
+            'Impression',
+            'Impression Erreur veuillez ressayer',
+            'error'
+          );
+        } else {
+          Swal.fire(
+            'Impression',
+            'Impression effectuée avec success',
+            'success'
+          );
+        }
+      });
   }
-
-
-
 }

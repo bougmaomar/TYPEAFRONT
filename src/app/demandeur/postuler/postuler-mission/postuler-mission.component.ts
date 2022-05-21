@@ -50,6 +50,8 @@ export class PostulerMissionComponent implements OnInit {
           );
         } else {
           this.idm = x;
+          (<HTMLInputElement>document.getElementById('impbtnS')).disabled =
+            false;
           Swal.fire(
             'Ajout de mission',
             'Ajout est fait avec success',
@@ -108,13 +110,20 @@ export class PostulerMissionComponent implements OnInit {
     document.getElementById('doc5').style.color = 'red';
   }
   onSubmitt() {
-    this.userService.exportReportMission(this.idm).subscribe((data) => {
-      console.log(data);
+    this.userService.exportReportMission(this.idm).subscribe((data: string) => {
+      if (data === 'erreur') {
+        Swal.fire(
+          'Inmpression',
+          'L impression a fail veuillez verifier que vous avez sauvegarder votre demande',
+          'error'
+        );
+      } else {
+        Swal.fire(
+          'Inmpression',
+          'L impression a ete fait avec success',
+          'success'
+        );
+      }
     });
-    Swal.fire(
-      'Impression de manifestation',
-      'Impression est faite avec success',
-      'success'
-    );
   }
 }
