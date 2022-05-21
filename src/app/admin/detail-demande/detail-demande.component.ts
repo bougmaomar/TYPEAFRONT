@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Cadre } from 'src/app/controller/model/cadre.model';
+import { documents } from 'src/app/controller/model/documents.model';
 import { DonneePro } from 'src/app/controller/model/donnee-pro.model';
 import { MissionStage } from 'src/app/controller/model/mission-stage.model';
 import { NewMontant } from 'src/app/controller/model/montants.model';
@@ -25,8 +26,10 @@ export class DetailDemandeComponent implements OnInit {
   cadre: Cadre;
   soutien: Soutien;
   newMont: NewMontant;
+  documents: documents;
   ismStage: boolean = true;
   path: string;
+
   constructor(
     private route: ActivatedRoute,
     private adminService: AdminService,
@@ -41,6 +44,7 @@ export class DetailDemandeComponent implements OnInit {
     this.cadre = new Cadre();
     this.soutien = new Soutien();
     this.newMont = new NewMontant();
+    this.documents = new documents();
     this.adminService.getMissionStageById(this.id).subscribe((stage) => {
       this.mStage = stage;
     });
@@ -55,6 +59,9 @@ export class DetailDemandeComponent implements OnInit {
     });
     this.adminService.getSoutienByMStage(this.id).subscribe((soutiendata) => {
       this.soutien = soutiendata;
+    });
+    this.adminService.readDocsMStage(this.id).subscribe((datadocs) => {
+      this.documents = datadocs;
     });
   }
 
@@ -132,5 +139,9 @@ export class DetailDemandeComponent implements OnInit {
           );
         }
       });
+  }
+
+  openFile() {
+    window.open(this.documents.filecin);
   }
 }

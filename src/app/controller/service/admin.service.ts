@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { State } from '../enums/state.service';
 import { Cadre } from '../model/cadre.model';
+import { documents } from '../model/documents.model';
 import { DonneePro } from '../model/donnee-pro.model';
 import { MailMessage } from '../model/mailmessages.model';
 import { Manifestation } from '../model/manifestation.model';
@@ -203,6 +204,12 @@ export class AdminService {
   findAllManifsByState(state: State): Observable<Manifestation[]> {
     return this.httpClient.get<Manifestation[]>(
       `${this.baseUrl + '/findallmanifs/' + state}`
+    );
+  }
+
+  readDocsMStage(mStageId: number): Observable<documents> {
+    return this.httpClient.get<documents>(
+      `${this.baseUrl + '/viewdocs/' + mStageId}`
     );
   }
 }
