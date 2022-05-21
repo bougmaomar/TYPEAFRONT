@@ -9,7 +9,8 @@
         <div class="row">
             <div class="col-md-8 line">
                 <label>Subject :</label>
-                <input type="text" placeholder="subject" [(ngModel)] = "mssgsMail.subject"/>
+                <input type="text" placeholder="subject" [(ngModel)] = "mssgsMail.subject"/><br>
+                <span id="sujet"></span>
             </div>
         </div>
         <div class="row">
@@ -21,7 +22,7 @@
         <div class="row">
             <div class="col-md-8 line">
             <label>Chemin de fichier a Envoyer :</label>
-            <input type="text" value={{mssgsMail.path}} placeholder="Chemin de l'attachement" disabled/>
+            <input type="text" value={{mssgsMail.pathToAttachement}} placeholder="Chemin de l'attachement" disabled/>
             </div>
         </div>
     </div>

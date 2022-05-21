@@ -1,10 +1,10 @@
-import {Component, OnInit} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
-import {Manifestation} from 'src/app/controller/model/manifestation.model';
-import {Soutien} from 'src/app/controller/model/soutien.model';
-import {UserService} from 'src/app/controller/service/user.service';
+import { Manifestation } from 'src/app/controller/model/manifestation.model';
+import { Soutien } from 'src/app/controller/model/soutien.model';
+import { UserService } from 'src/app/controller/service/user.service';
 import Swal from 'sweetalert2';
-import {documents} from '../../../controller/model/documents.model';
+import { documents } from '../../../controller/model/documents.model';
 
 @Component({
   selector: 'app-postuler-manifestation',
@@ -25,11 +25,9 @@ export class PostulerManifestationComponent implements OnInit {
   id: number;
   erreur: string;
 
-  constructor(private userService: UserService) {
-  }
+  constructor(private userService: UserService) {}
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   onSubmit() {
     this.userService
@@ -51,8 +49,9 @@ export class PostulerManifestationComponent implements OnInit {
           this.userService
             .addFilesManif(x, this.documents)
             .subscribe((data) => {
-
-              this.userService.addFiles(x, this.documents).subscribe((data) => {});
+              this.userService
+                .addFiles(x, this.documents)
+                .subscribe((data) => {});
             });
         }
       });
@@ -108,12 +107,20 @@ export class PostulerManifestationComponent implements OnInit {
 
   onSubmitt() {
     this.userService.generateReport(this.id).subscribe((data) => {
-      console.log(data);
+      if (data === 'erreur') {
+        Swal.fire(
+          'Inmpression',
+          'L impression a fail veuillez verifier que vous avez sauvegarder votre demande',
+          'error'
+        );
+      } else {
+        (<HTMLInputElement>document.getElementById('impbtnM')).disabled = false;
+        Swal.fire(
+          'Inmpression',
+          'L impression a ete fait avec success',
+          'success'
+        );
+      }
     });
-    Swal.fire(
-      'Impression de manifestation',
-      'Impression est faite avec success',
-      'success'
-    );
   }
 }

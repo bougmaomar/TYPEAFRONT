@@ -98,25 +98,39 @@ export class DetailDemandeComponent implements OnInit {
     this.adminService
       .ajoutNewMontantMS(this.id, this.newMont)
       .subscribe((data) => {
-        (document.getElementById('actions') as HTMLInputElement).disabled =
-          false;
-        (document.getElementById('actions2') as HTMLInputElement).disabled =
-          false;
-        Swal.fire(
-          'Montants Sauvegarde',
-          'Montants sauvegarder avec success',
-          'success'
-        );
+        if (data == 1) {
+          Swal.fire(
+            'Montants Sauvegarde',
+            'Montants sauvegarder avec success',
+            'success'
+          );
+        } else {
+          Swal.fire(
+            'Montants Sauvegarde',
+            'Montats sont deja sauvegarder',
+            'error'
+          );
+        }
       });
   }
 
-
-  onclick()
-  {
-    this.adminService.exportNvmontantmission(this.id).subscribe((data) => {
-      console.log(data);
-    });
+  onclick() {
+    this.adminService
+      .exportNvmontantmission(this.id)
+      .subscribe((data: string) => {
+        if (data == 'erreur') {
+          Swal.fire(
+            'Impression',
+            'Impression Erreur veuillez ressayer',
+            'error'
+          );
+        } else {
+          Swal.fire(
+            'Impression',
+            'Impression effectuée avec success',
+            'success'
+          );
+        }
+      });
   }
-
-
 }

@@ -123,15 +123,21 @@ export class AdminService {
     );
   }
 
-  getLettreMission(missionId: number): Observable<string> {
-    return this.httpClient.get<string>(
-      `${this.baseUrl + '/raportlettremission/' + missionId}`
+  getLettreMission(missionId: number): Observable<any> {
+    return this.httpClient.get<any>(
+      `${this.baseUrl + '/raportlettremission/' + missionId}`,
+      {
+        responseType: 'text' as 'json',
+      }
     );
   }
 
-  getLettreManif(manifId: number): Observable<string> {
-    return this.httpClient.get<string>(
-      `${this.baseUrl + '/raportlettremanif/' + manifId}`
+  getLettreManif(manifId: number): Observable<any> {
+    return this.httpClient.get<any>(
+      `${this.baseUrl + '/raportlettremanif/' + manifId}`,
+      {
+        responseType: 'text' as 'json',
+      }
     );
   }
 
@@ -168,15 +174,22 @@ export class AdminService {
   }
 
   exportNvmontantmanif(id: number): Observable<Object> {
-    return this.httpClient.get(`${this.baseUrl + '/raportNVmontantmanif/' + id}`, {
-      withCredentials: true,
-    });
+    return this.httpClient.get(
+      `${this.baseUrl + '/raportNVmontantmanif/' + id}`,
+      {
+        withCredentials: true,
+        responseType: 'text' as 'json',
+      }
+    );
   }
 
   exportNvmontantmission(id: number): Observable<Object> {
-    return this.httpClient.get(`${this.baseUrl + '/raportNvmontantmis/' + id}`, {
-      withCredentials: true,
-    });
+    return this.httpClient.get(
+      `${this.baseUrl + '/raportNvmontantmis/' + id}`,
+      {
+        withCredentials: true,
+        responseType: 'text' as 'json',
+      }
+    );
   }
-
 }
