@@ -4,6 +4,7 @@ import { User } from '../../controller/model/user.model';
 import { AdminService } from '../../controller/service/admin.service';
 import { Router } from '@angular/router';
 import { Manifestation } from '../../controller/model/manifestation.model';
+import { State } from 'src/app/controller/enums/state.service';
 
 @Component({
   selector: 'app-demande-manif',
@@ -20,7 +21,7 @@ export class DemandeManifComponent implements OnInit {
   }
 
   private getmanifs() {
-    this.adminService.getAllManifs().subscribe((data) => {
+    this.adminService.findAllManifsByState(State.IDLE).subscribe((data) => {
       this.manifs = data;
     });
   }
