@@ -22,18 +22,23 @@ export class MailFormComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+
     this.mssgsMail.toEmail = this.data.email;
     this.mssgsMail.body = this.body;
     if (this.data.type) {
-      this.adminService.getLettreMission(this.data.id).subscribe((pathdata) => {
-        this.path = pathdata;
+      this.adminService.getLettreMission(this.data.id).subscribe((data) => {
+        console.log(data);
+      }, error => {
+        console.log(error.message)
       });
+
+
     } else {
       this.adminService.getLettreManif(this.data.id).subscribe((pathdata) => {
         this.path = pathdata;
       });
     }
-    this.mssgsMail.path = this.path;
+
   }
 
   Valider() {

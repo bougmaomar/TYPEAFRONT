@@ -125,7 +125,7 @@ export class AdminService {
 
   getLettreMission(missionId: number): Observable<string> {
     return this.httpClient.get<string>(
-      `${this.baseUrl + '/raportlettremission/' + missionId}`
+      `${this.baseUrl + '/raportlettremission/' + missionId}`,
     );
   }
 
