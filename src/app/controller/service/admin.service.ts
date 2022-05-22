@@ -212,4 +212,10 @@ export class AdminService {
       `${this.baseUrl + '/viewdocs/' + mStageId}`
     );
   }
+
+  readDocsManif(manifId: number): Observable<documents> {
+    return this.httpClient.get<documents>(
+      `${this.baseUrl + '/viewdocsmanif/' + manifId}`
+    );
+  }
 }
