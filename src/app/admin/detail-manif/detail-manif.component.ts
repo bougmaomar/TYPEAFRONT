@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
+import { documents } from 'src/app/controller/model/documents.model';
 import { DonneePro } from 'src/app/controller/model/donnee-pro.model';
 import { Manifestation } from 'src/app/controller/model/manifestation.model';
 import { NewMontant } from 'src/app/controller/model/montants.model';
@@ -22,6 +23,7 @@ export class DetailManifComponent implements OnInit {
   donnePro: DonneePro;
   soutien: Soutien;
   newMont: NewMontant;
+  documents: documents;
   ismStage: boolean = false;
   constructor(
     private route: ActivatedRoute,
@@ -36,6 +38,7 @@ export class DetailManifComponent implements OnInit {
     this.user = new User();
     this.soutien = new Soutien();
     this.newMont = new NewMontant();
+    this.documents = new documents();
     this.adminService.getManifestationById(this.id).subscribe((manifdonne) => {
       this.manif = manifdonne;
     });
@@ -47,6 +50,9 @@ export class DetailManifComponent implements OnInit {
     });
     this.adminService.getSoutienByManifId(this.id).subscribe((soutiendata) => {
       this.soutien = soutiendata;
+    });
+    this.adminService.readDocsManif(this.id).subscribe((datadocs) => {
+      this.documents = datadocs;
     });
   }
 
@@ -126,4 +132,22 @@ export class DetailManifComponent implements OnInit {
       });
   }
 
+  openFile1() {
+    window.open(this.documents.filecin);
+  }
+  openFile2() {
+    window.open(this.documents.fileA);
+  }
+  openFile3() {
+    window.open(this.documents.fileB);
+  }
+  openFile4() {
+    window.open(this.documents.fileC);
+  }
+  openFile5() {
+    window.open(this.documents.fileD);
+  }
+  openFile6() {
+    window.open(this.documents.fileE);
+  }
 }

@@ -76,6 +76,13 @@
   background-color: rgba(239, 130, 142, 0.94);
 ;
 }
+
+.paddingx{
+  display: flex;
+  justify-items: left;
+justify-content: center;
+  margin-bottom:50px;
+}
 .btn44{
   color: #1ad571;
   border-color: #40e448

@@ -141,7 +141,22 @@ export class DetailDemandeComponent implements OnInit {
       });
   }
 
-  openFile() {
+  openFile1() {
     window.open(this.documents.filecin);
+  }
+  openFile2() {
+    window.open(this.documents.fileA);
+  }
+  openFile3() {
+    window.open(this.documents.fileB);
+  }
+  openFile4() {
+    window.open(this.documents.fileC);
+  }
+  openFile5() {
+    window.open(this.documents.fileD);
+  }
+  openFile6() {
+    window.open(this.documents.fileE);
   }
 }
