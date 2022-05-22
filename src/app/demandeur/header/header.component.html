@@ -1,61 +1,33 @@
 
-
-<nav class="navbar navbar-expand-lg navbar-red navbar-dark" style="padding: 0">
-  <div class="wrapper" style="height: 90px ; top: 0px;">
-  </div>
   <div class="container-fluid all-show">
-
-    <img class="img-card" src="assets/images/img_2.png" height="90px" width="80px">
-
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav mr-auto mb-2 mb-lg-0">
-        <li class="nav-item"
-            style="width: 20px ; height: 20px ; padding-bottom: 10px ; padding-top: 7px;padding-left: 50px ; padding-right: 20px">
-          <i class="fa-solid fa-house"></i>
-        </li>
-        <li class="nav-item">
-          <a [routerLink]="['']" class="nav-link active" aria-current="page"  style="color: black">Accueil</a>
-        </li>
-
-        <li class="nav-item"
-            style="width: 20px ; height: 20px ; padding-bottom: 10px ; padding-top: 7px;padding-left: 10px ; padding-right: 20px">
-          <i class="fa-regular fa-address-card"></i>
-        </li>
-        <li class="nav-item">
-          <a *ngIf="isLogged == false; else loggedin" routerLink="/login" class="nav-link" style="color: black">postuler</a>
+  <div class="navbar">
+    <div class="icon">
+      <img class="img" src="http://type-adev.uca.ma/assets/uca.png"></div>
+    <div class="menu" >
+      <ul>
+        <li><a [routerLink]="['']" style="color: #ff7200">ACCUEIL</a></li>
+        <li> <a *ngIf="isLogged == false; else loggedin" routerLink="/login" class="nav-link" style="color: #ff7200">POSTULER</a>
           <ng-template #loggedin>
-            <a routerLink="/choisir-postuler" class="nav-link" style="color: black">postuler</a>
-          </ng-template>
-        </li>
-
-
-        <li class="nav-item"
-            style="width: 20px ; height: 20px ; padding-bottom: 10px ; padding-top: 7px;padding-left: 10px ; padding-right: 20px">
-          <i class="fa-solid fa-message"></i>
-        </li>
-        <li class="nav-item">
-          <a routerLink="/contact" class="nav-link"  style="color: black">contacter</a>
-        </li>
+            <a routerLink="/choisir-postuler" style="color: #ff7200">POSTULER</a>
+          </ng-template></li>
+        <li><a routerLink="/contact" style="color: #ff7200">CONTACTER</a></li>
       </ul>
-      <div class="nav-item" style=" color: white" *ngIf="isLogged == true; else loginBtn">
-        <div class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle"  id="navbarDropdownMenuLink" data-toggle="dropdown"
-              aria-expanded="false"  style="color:white ">
-            <i class="fa-solid fa-user-pen" style="padding-right: 10px">
-                       </i> CONNECTÉ
-          </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <a class="dropdown-item" (click)="logoutUser()"><i class="fa-solid fa-arrow-right-from-bracket"></i> Logout</a>
-          </div>
-        </div>
-      </div>
+    </div>
+
+    <div class="search">
       <ng-template #loginBtn>
-        <i class="fa-solid fa-user-pen" style=" color:white "></i>
-        <a class="btn" (click)="goToLogin()" style=" color:white ">S'identifier</a>
+        <a>
+          <button class="btn" (click)="goToLogin()">S'IDENTIFIER</button>
+        </a>
       </ng-template>
 
-
+    </div>
+    <div class="nav-item"   *ngIf="isLogged == true; else loginBtn">
+      <a >
+        <button  class="buttonn" (click)="logoutUser()" >
+          Se déconnecter</button>
+      </a>
     </div>
 
   </div>
-</nav>
+  </div>
