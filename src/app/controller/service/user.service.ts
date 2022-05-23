@@ -100,52 +100,54 @@ export class UserService {
 
   addFiles(mStageId: number, documents: documents): Observable<Object> {
     const formData = new FormData();
-    if (
-      documents.filecin === undefined ||
-      documents.fileA === undefined ||
-      documents.fileB === undefined ||
-      documents.fileC === undefined ||
-      documents.fileD === undefined ||
-      documents.fileE === undefined
-    ) {
-      return null;
-    } else {
+    if (documents.filecin !== undefined) {
       formData.append('filecin', documents.filecin, documents.filecin.name);
-      formData.append('fileA', documents.fileA, documents.fileA.name);
-      formData.append('fileB', documents.fileB, documents.fileB.name);
-      formData.append('fileC', documents.fileC, documents.fileC.name);
-      formData.append('fileD', documents.fileD, documents.fileD.name);
-      formData.append('fileE', documents.fileE, documents.fileE.name);
-      return this.httpClient.post<Object>(
-        `${this._baseUrl + '/add_documentMST/' + mStageId}`,
-        formData
-      );
     }
+    if (documents.fileA !== undefined) {
+      formData.append('fileA', documents.fileA, documents.fileA.name);
+    }
+    if (documents.fileB !== undefined) {
+      formData.append('fileB', documents.fileB, documents.fileB.name);
+    }
+    if (documents.fileC !== undefined) {
+      formData.append('fileC', documents.fileC, documents.fileC.name);
+    }
+    if (documents.fileD !== undefined) {
+      formData.append('fileD', documents.fileD, documents.fileD.name);
+    }
+    if (documents.fileE !== undefined) {
+      formData.append('fileE', documents.fileE, documents.fileE.name);
+    }
+    return this.httpClient.post<Object>(
+      `${this._baseUrl + '/add_documentMST/' + mStageId}`,
+      formData
+    );
   }
 
   addFilesManif(manifId: number, documents: documents): Observable<Object> {
     const formData = new FormData();
-    if (
-      documents.filecin === undefined ||
-      documents.fileA === undefined ||
-      documents.fileB === undefined ||
-      documents.fileC === undefined ||
-      documents.fileD === undefined ||
-      documents.fileE === undefined
-    ) {
-      return null;
-    } else {
+    if (documents.filecin !== undefined) {
       formData.append('filecin', documents.filecin, documents.filecin.name);
-      formData.append('fileA', documents.fileA, documents.fileA.name);
-      formData.append('fileB', documents.fileB, documents.fileB.name);
-      formData.append('fileC', documents.fileC, documents.fileC.name);
-      formData.append('fileD', documents.fileD, documents.fileD.name);
-      formData.append('fileE', documents.fileE, documents.fileE.name);
-      return this.httpClient.post(
-        `${this._baseUrl + '/add_documentM/' + manifId}`,
-        formData
-      );
     }
+    if (documents.fileA !== undefined) {
+      formData.append('fileA', documents.fileA, documents.fileA.name);
+    }
+    if (documents.fileB !== undefined) {
+      formData.append('fileB', documents.fileB, documents.fileB.name);
+    }
+    if (documents.fileC !== undefined) {
+      formData.append('fileC', documents.fileC, documents.fileC.name);
+    }
+    if (documents.fileD !== undefined) {
+      formData.append('fileD', documents.fileD, documents.fileD.name);
+    }
+    if (documents.fileE !== undefined) {
+      formData.append('fileE', documents.fileE, documents.fileE.name);
+    }
+    return this.httpClient.post(
+      `${this._baseUrl + '/add_documentM/' + manifId}`,
+      formData
+    );
   }
 
   addAll(

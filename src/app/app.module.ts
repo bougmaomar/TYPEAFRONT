@@ -55,6 +55,7 @@ import { DetailManifComponent } from './admin/detail-manif/detail-manif.componen
 import { AuthGuard } from './controller/service/authGuard/auth-guard.service';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MailFormComponent } from './admin/mail-form/mail-form.component';
+import { AuthGuardUser } from './controller/service/authGuard/auth-guarduser.service';
 
 @NgModule({
   declarations: [
@@ -114,7 +115,7 @@ import { MailFormComponent } from './admin/mail-form/mail-form.component';
     HttpClientModule,
     MatDialogModule,
   ],
-  providers: [AuthGuard],
+  providers: [AuthGuard, AuthGuardUser],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

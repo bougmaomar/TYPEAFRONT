@@ -30,41 +30,53 @@ export class PostulerManifestationComponent implements OnInit {
   ngOnInit(): void {}
 
   onSubmit() {
-    this.userService
-      .addAllManif(this.manif, this.soutien)
-      .subscribe((x: any) => {
-        if (x == '-1') {
-          Swal.fire(
-            'Ajout de manifestation',
-            'Un ou plusieurs champs sont invalide',
-            'error'
-          );
-        } else {
-          this.id = x;
-          if (this.userService.addFilesManif(x, this.documents) == null) {
+    if (
+      this.documents.filecin !== undefined ||
+      this.documents.fileA !== undefined ||
+      this.documents.fileB !== undefined ||
+      this.documents.fileC !== undefined ||
+      this.documents.fileD !== undefined ||
+      this.documents.fileE !== undefined
+    ) {
+      this.userService
+        .addAllManif(this.manif, this.soutien)
+        .subscribe((x: any) => {
+          if (x == '-1') {
             Swal.fire(
-              'Ajout de mission',
-              'Veuillez remplire tous les fichier demander',
+              'Ajout de manifestation',
+              'Un ou plusieurs champs sont invalide',
+              'error'
+            );
+          } else if (x == '-2') {
+            Swal.fire(
+              'Ajout de manifestation',
+              'Vous pouvez pas postuler sans remplir vos données profesionnels',
               'error'
             );
           } else {
+            this.id = x;
             this.userService
               .addFilesManif(x, this.documents)
               .subscribe((data) => {
                 (<HTMLInputElement>(
                   document.getElementById('impbtnM')
                 )).disabled = false;
-
                 Swal.fire(
-                  'Ajout de mission',
+                  'Ajout de manifestation',
                   'Ajout est fait avec success',
                   'success'
                 );
               });
             this.id = x;
           }
-        }
-      });
+        });
+    } else {
+      Swal.fire(
+        'Ajout de manifestation',
+        'Veuillez remplire tous les fichier demander',
+        'error'
+      );
+    }
   }
 
   onFileSelected(event: Event) {
