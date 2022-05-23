@@ -19,13 +19,6 @@ export class PostulerManifestationComponent implements OnInit {
   selectedFileD = {} as HTMLInputElement;
   selectedFileE = {} as HTMLInputElement;
 
-  FileCIN: boolean = false;
-  FileA: boolean = false;
-  FileB: boolean = false;
-  FileC: boolean = false;
-  FileD: boolean = false;
-  FileE: boolean = false;
-
   manif: Manifestation = new Manifestation();
   soutien: Soutien = new Soutien();
   documents: documents = new documents();
@@ -38,12 +31,12 @@ export class PostulerManifestationComponent implements OnInit {
 
   onSubmit() {
     if (
-      this.FileCIN == true ||
-      this.FileA == true ||
-      this.FileB == true ||
-      this.FileC == true ||
-      this.FileD == true ||
-      this.FileE == true
+      this.documents.filecin !== undefined ||
+      this.documents.fileA !== undefined ||
+      this.documents.fileB !== undefined ||
+      this.documents.fileC !== undefined ||
+      this.documents.fileD !== undefined ||
+      this.documents.fileE !== undefined
     ) {
       this.userService
         .addAllManif(this.manif, this.soutien)
@@ -52,6 +45,12 @@ export class PostulerManifestationComponent implements OnInit {
             Swal.fire(
               'Ajout de manifestation',
               'Un ou plusieurs champs sont invalide',
+              'error'
+            );
+          } else if (x == '-2') {
+            Swal.fire(
+              'Ajout de manifestation',
+              'Vous pouvez pas postuler sans remplir vos données profesionnels',
               'error'
             );
           } else {
@@ -63,7 +62,7 @@ export class PostulerManifestationComponent implements OnInit {
                   document.getElementById('impbtnM')
                 )).disabled = false;
                 Swal.fire(
-                  'Ajout de mission',
+                  'Ajout de manifestation',
                   'Ajout est fait avec success',
                   'success'
                 );
@@ -73,7 +72,7 @@ export class PostulerManifestationComponent implements OnInit {
         });
     } else {
       Swal.fire(
-        'Ajout de mission',
+        'Ajout de manifestation',
         'Veuillez remplire tous les fichier demander',
         'error'
       );
@@ -86,7 +85,6 @@ export class PostulerManifestationComponent implements OnInit {
     document.getElementById('cin').textContent =
       selectedFile.name.toUpperCase();
     document.getElementById('cin').style.color = 'red';
-    this.FileCIN = true;
   }
 
   onFileSelectedA(event: Event) {
@@ -95,7 +93,6 @@ export class PostulerManifestationComponent implements OnInit {
     document.getElementById('doc1').textContent =
       selectedFileA.name.toUpperCase();
     document.getElementById('doc1').style.color = 'red';
-    this.FileA = true;
   }
 
   onFileSelectedB(event: Event) {
@@ -104,7 +101,6 @@ export class PostulerManifestationComponent implements OnInit {
     document.getElementById('doc2').textContent =
       selectedFileB.name.toUpperCase();
     document.getElementById('doc2').style.color = 'red';
-    this.FileB = true;
   }
 
   onFileSelectedC(event: Event) {
@@ -113,7 +109,6 @@ export class PostulerManifestationComponent implements OnInit {
     document.getElementById('doc3').textContent =
       selectedFileC.name.toUpperCase();
     document.getElementById('doc3').style.color = 'red';
-    this.FileC = true;
   }
 
   onFileSelectedD(event: Event) {
@@ -122,7 +117,6 @@ export class PostulerManifestationComponent implements OnInit {
     document.getElementById('doc4').textContent =
       selectedFileD.name.toUpperCase();
     document.getElementById('doc4').style.color = 'red';
-    this.FileD = true;
   }
 
   onFileSelectedE(event: Event) {
@@ -131,7 +125,6 @@ export class PostulerManifestationComponent implements OnInit {
     document.getElementById('doc5').textContent =
       selectedFileE.name.toUpperCase();
     document.getElementById('doc5').style.color = 'red';
-    this.FileE = true;
   }
 
   onSubmitt() {

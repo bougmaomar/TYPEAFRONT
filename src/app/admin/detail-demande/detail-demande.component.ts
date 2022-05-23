@@ -62,6 +62,29 @@ export class DetailDemandeComponent implements OnInit {
     });
     this.adminService.readDocsMStage(this.id).subscribe((datadocs) => {
       this.documents = datadocs;
+      if (this.documents.filecin === undefined) {
+        (<HTMLInputElement>document.getElementById('cinbtn')).disabled = true;
+      }
+      if (this.documents.fileA === undefined) {
+        (<HTMLInputElement>document.getElementById('document1btn')).disabled =
+          true;
+      }
+      if (this.documents.fileB === undefined) {
+        (<HTMLInputElement>document.getElementById('document2btn')).disabled =
+          true;
+      }
+      if (this.documents.fileC === undefined) {
+        (<HTMLInputElement>document.getElementById('document3btn')).disabled =
+          true;
+      }
+      if (this.documents.fileD === undefined) {
+        (<HTMLInputElement>document.getElementById('document4btn')).disabled =
+          true;
+      }
+      if (this.documents.fileE === undefined) {
+        (<HTMLInputElement>document.getElementById('document5btn')).disabled =
+          true;
+      }
     });
   }
 
@@ -159,4 +182,6 @@ export class DetailDemandeComponent implements OnInit {
   openFile6() {
     window.open(this.documents.fileE);
   }
+
+  sendMail() {}
 }

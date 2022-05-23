@@ -39,37 +39,59 @@ export class PostulerMissionComponent implements OnInit {
   ngOnInit(): void {}
 
   onSubmit() {
-    this.userService
-      .addAll(this.mstage, this.cadre, this.soutien)
-      .subscribe((x: any) => {
-        if (x == '-1') {
-          Swal.fire(
-            'Ajout de mission',
-            'Un ou plusieurs champs sont invalide',
-            'error'
-          );
-        } else {
-          if (this.userService.addFiles(x, this.documents) == null) {
+    if (
+      this.documents.filecin !== undefined ||
+      this.documents.fileA !== undefined ||
+      this.documents.fileB !== undefined ||
+      this.documents.fileC !== undefined ||
+      this.documents.fileD !== undefined ||
+      this.documents.fileE !== undefined
+    ) {
+      this.userService
+        .addAll(this.mstage, this.cadre, this.soutien)
+        .subscribe((x: any) => {
+          if (x == '-1') {
             Swal.fire(
               'Ajout de mission',
-              'Veuillez remplire tous les fichier demander',
+              'Un ou plusieurs champs sont invalide',
+              'error'
+            );
+          } else if (x == '-2') {
+            Swal.fire(
+              'Ajout de manifestation',
+              'Vous pouvez pas postuler sans remplir vos données profesionnels',
               'error'
             );
           } else {
-            this.userService.addFiles(x, this.documents).subscribe((data) => {
-              (<HTMLInputElement>document.getElementById('impbtnS')).disabled =
-                false;
-
+            if (this.userService.addFiles(x, this.documents) == null) {
               Swal.fire(
                 'Ajout de mission',
-                'Ajout est fait avec success',
-                'success'
+                'Veuillez remplire tous les fichier demander',
+                'error'
               );
-            });
-            this.idm = x;
+            } else {
+              this.userService.addFiles(x, this.documents).subscribe((data) => {
+                (<HTMLInputElement>(
+                  document.getElementById('impbtnS')
+                )).disabled = false;
+
+                Swal.fire(
+                  'Ajout de mission',
+                  'Ajout est fait avec success',
+                  'success'
+                );
+              });
+              this.idm = x;
+            }
           }
-        }
-      });
+        });
+    } else {
+      Swal.fire(
+        'Ajout de mission',
+        'Veuillez remplire tous les fichier demander',
+        'error'
+      );
+    }
   }
 
   onFileSelected(event: Event) {
