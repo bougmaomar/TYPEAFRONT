@@ -179,7 +179,15 @@
             <div class="row px-3" style="padding-bottom: 20px ">
               <label  class="mb-0" style="padding-top: 20px; padding-bottom: 10px "><h6
                 class="mb-0 text-sm">Nature de la participation</h6></label>
-              <input type="text"  [(ngModel)] = "manif.natureParticiaton"/>
+              <select class="form-control" [(ngModel)] = "manif.natureParticiaton">
+                <option>conférence</option>
+                <option>Communication Orale</option>
+                <option>Communication affichée</option>
+                <option>Autre</option>
+              </select>
+
+
+<br>
             <h3 class="mb-1">Informations sur le Soutien</h3>
             <label><h6 class="mb-0 text-sm" style="padding-top:10px ">Avez-vous déja bénéficié d'un soutien Type A au
               cours de cette année</h6></label>
@@ -199,14 +207,17 @@
             >
     <label style="margin-bottom: 20px; margin-top:10px; padding: 0px">Non</label></span>
             </div>
-            <div class="row px-3">
-              <label class="mb-0"><h6 class="mb-0 text-sm">Préciser le montant</h6></label>
-              <input type="number" name="intitulep" placeholder="" style="margin-bottom: 0px" [(ngModel)]="soutien.montant">
-            </div>
+<!--            <div class="row px-3">-->
+<!--              <label class="mb-0"><h6 class="mb-0 text-sm">Préciser le montant</h6></label>-->
+<!--              <input type="number" name="intitulep" placeholder="" style="margin-bottom: 0px" [(ngModel)]="soutien.montant">-->
+<!--            </div>-->
             <div class="row px-3" style="padding-bottom: 20px ">
               <label  class="mb-0" style="padding-top: 20px; padding-bottom: 10px "><h6
                 class="mb-0 text-sm">Nature de soutien demandé</h6></label>
-              <input type="text" [(ngModel)] = "soutien.nature"/>
+              <select class="form-control"[(ngModel)] = "soutien.nature">
+                <option>Soutien Total</option>
+                <option>Soutien Complémentaire</option>
+              </select>
             </div>
             <div class="row mt-3">
               <div class="col-md-6">
