@@ -19,6 +19,13 @@ export class PostulerManifestationComponent implements OnInit {
   selectedFileD = {} as HTMLInputElement;
   selectedFileE = {} as HTMLInputElement;
 
+  FileCIN: boolean = false;
+  FileA: boolean = false;
+  FileB: boolean = false;
+  FileC: boolean = false;
+  FileD: boolean = false;
+  FileE: boolean = false;
+
   manif: Manifestation = new Manifestation();
   soutien: Soutien = new Soutien();
   documents: documents = new documents();
@@ -30,31 +37,31 @@ export class PostulerManifestationComponent implements OnInit {
   ngOnInit(): void {}
 
   onSubmit() {
-    this.userService
-      .addAllManif(this.manif, this.soutien)
-      .subscribe((x: any) => {
-        if (x == '-1') {
-          Swal.fire(
-            'Ajout de manifestation',
-            'Un ou plusieurs champs sont invalide',
-            'error'
-          );
-        } else {
-          this.id = x;
-          if (this.userService.addFilesManif(x, this.documents) == null) {
+    if (
+      this.FileCIN == true ||
+      this.FileA == true ||
+      this.FileB == true ||
+      this.FileC == true ||
+      this.FileD == true ||
+      this.FileE == true
+    ) {
+      this.userService
+        .addAllManif(this.manif, this.soutien)
+        .subscribe((x: any) => {
+          if (x == '-1') {
             Swal.fire(
-              'Ajout de mission',
-              'Veuillez remplire tous les fichier demander',
+              'Ajout de manifestation',
+              'Un ou plusieurs champs sont invalide',
               'error'
             );
           } else {
+            this.id = x;
             this.userService
               .addFilesManif(x, this.documents)
               .subscribe((data) => {
                 (<HTMLInputElement>(
                   document.getElementById('impbtnM')
                 )).disabled = false;
-
                 Swal.fire(
                   'Ajout de mission',
                   'Ajout est fait avec success',
@@ -63,8 +70,14 @@ export class PostulerManifestationComponent implements OnInit {
               });
             this.id = x;
           }
-        }
-      });
+        });
+    } else {
+      Swal.fire(
+        'Ajout de mission',
+        'Veuillez remplire tous les fichier demander',
+        'error'
+      );
+    }
   }
 
   onFileSelected(event: Event) {
@@ -73,6 +86,7 @@ export class PostulerManifestationComponent implements OnInit {
     document.getElementById('cin').textContent =
       selectedFile.name.toUpperCase();
     document.getElementById('cin').style.color = 'red';
+    this.FileCIN = true;
   }
 
   onFileSelectedA(event: Event) {
@@ -81,6 +95,7 @@ export class PostulerManifestationComponent implements OnInit {
     document.getElementById('doc1').textContent =
       selectedFileA.name.toUpperCase();
     document.getElementById('doc1').style.color = 'red';
+    this.FileA = true;
   }
 
   onFileSelectedB(event: Event) {
@@ -89,6 +104,7 @@ export class PostulerManifestationComponent implements OnInit {
     document.getElementById('doc2').textContent =
       selectedFileB.name.toUpperCase();
     document.getElementById('doc2').style.color = 'red';
+    this.FileB = true;
   }
 
   onFileSelectedC(event: Event) {
@@ -97,6 +113,7 @@ export class PostulerManifestationComponent implements OnInit {
     document.getElementById('doc3').textContent =
       selectedFileC.name.toUpperCase();
     document.getElementById('doc3').style.color = 'red';
+    this.FileC = true;
   }
 
   onFileSelectedD(event: Event) {
@@ -105,6 +122,7 @@ export class PostulerManifestationComponent implements OnInit {
     document.getElementById('doc4').textContent =
       selectedFileD.name.toUpperCase();
     document.getElementById('doc4').style.color = 'red';
+    this.FileD = true;
   }
 
   onFileSelectedE(event: Event) {
@@ -113,6 +131,7 @@ export class PostulerManifestationComponent implements OnInit {
     document.getElementById('doc5').textContent =
       selectedFileE.name.toUpperCase();
     document.getElementById('doc5').style.color = 'red';
+    this.FileE = true;
   }
 
   onSubmitt() {
