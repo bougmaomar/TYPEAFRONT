@@ -1,17 +1,24 @@
-
-
-* {
-  margin: 0;
-  padding: 0;
-}
-
 .main {
   width: 100%;
-  background: linear-gradient(to top, rgba(0, 0, 0, 0.5) 50%, rgba(0, 0, 0, 0.5) 50%), url(src/assets/images/manif.jpg);
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.5) 50%, rgba(0, 0, 0, 0.5) 50%),
+  url(src/assets/images/manif.jpg) fixed center center no-repeat;
+  /*background: #181015 url(src/assets/images/manif.jpg) fixed center center no-repeat;*/
   background-position: center;
   background-size: cover;
   height: 100vh;
 }
+
+@media screen and (max-width: 1200px) {
+  .main {
+    display:none
+  }
+
+  .menu {
+    display: none;
+  }
+
+}
+
 
 .navbar {
   width: 1300px;
@@ -102,6 +109,7 @@ ul li a:hover {
   transition: 0.2s ease;
   cursor: pointer;
 }
+
 .buttonn {
   width: 120px;
   height: 40px;
@@ -121,6 +129,7 @@ ul li a:hover {
 .btn:hover {
   color: #000;
 }
+
 .buttonn:hover {
   color: #000;
 }
@@ -176,6 +185,7 @@ ul li a:hover {
   color: #fff;
   transition: .3s ease;
 }
+
 .content .cn:hover a {
   text-decoration: none;
   color: #000;
@@ -314,25 +324,16 @@ ul li a:hover {
 }
 
 
-body {
-  background-color: rgba(225, 152, 68, 0.98);
-
-}
-
-.container {
-
-  height: 40vh;
-}
 
 .card {
   background-color: rgba(227, 201, 173, 0.98);
-  width: 600px;
+  /*width: 600px;*/
   padding: 10px;
   border: 1px solid #eee;
-  margin: 0px;
+  /*margin: 0px;*/
   margin-bottom: 50px;
   display: flex;
-  justify-items: center;
+  justify-content: center;
 }
 
 .inner-card {
@@ -386,20 +387,12 @@ img {
   justify-content: center;
   color: inherit;
   background-color: #F7F5F4;
-  padding-top: 30px;
-  padding-bottom: 30px;
-  margin-top: 200px;
-  margin-left: 70px;
-  margin-right: 60px;
-  width: 90%;
+  margin-top: 140px;
+  width: 100%;
+  padding: 30px 20px;
 
 }
 
-.div-categoryContainer {
-  display: flex;
-  justify-items: center;
-  justify-content: center;
-}
 
 .picture-left {
   width: 360px;
@@ -407,23 +400,12 @@ img {
   padding-left: 10px;
 }
 
-
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-body {
-  background-image: linear-gradient(to right, #000428, #004e92);
-}
-
-.container {
-  margin-top: 40px;
-  margin-left: 40px;
-
-
-}
 
 .carousel-item img {
   width: 100%;
@@ -457,3 +439,4 @@ body {
   margin-left: 50px;
   margin-right: 50px;
 }
+
