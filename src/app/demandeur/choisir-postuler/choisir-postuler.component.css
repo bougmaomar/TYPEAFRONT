@@ -17,11 +17,7 @@ body
   align-items: center;
   background: #16384c;
 }
-.row{
-  display:flex;
-  justify-content: center;
-  align-items: center;
-}
+
 
 .container .card
 {
