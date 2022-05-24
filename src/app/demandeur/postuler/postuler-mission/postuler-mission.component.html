@@ -321,6 +321,16 @@ Ce projet de coopération financé, mais le titre de transport ne fait pas parti
               </select>
             </div>
             <div class="row mt-3">
+              <div>
+                <label  class="mb-0" style="padding-top: 20px; padding-bottom: 10px "><h6
+                  class="mb-0 text-sm">Devise</h6></label>
+                <select class="form-control" [(ngModel)] = "soutien.devise">
+                  <option>DH</option>
+                  <option>EUR</option>
+                  <option>$</option>
+
+                </select>
+              </div>
               <div class="col-md-6">
                 <label  class="mb-0"><h6 class="mb-0 text-sm">Montant Titre de Transport</h6></label>
                 <input type="number" name="intitulep" placeholder="" style="margin-bottom: 0px" [(ngModel)] = "soutien.mTitreTransport">
