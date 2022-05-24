@@ -36,7 +36,6 @@ img{
   background-color: #633010;
   color: white;
   height: 40px;
-  border-radius: 10px;
   border: none;
 }
 
@@ -68,6 +67,20 @@ img{
 #spacing-row{
   height: 10px;
 }
+
+.changeBtn1{
+  margin-left: 15px;
+  background-color: #633010;
+  color: white;
+  height: 40px;
+  border: none;
+}
+
+.changeBtn1:hover{
+  background-color: #9e8b7e;
+  border: rgb(187, 162, 162) 2px solid;
+}
+
 @media(max-width:575px){
   .container{
     width: 125%;
