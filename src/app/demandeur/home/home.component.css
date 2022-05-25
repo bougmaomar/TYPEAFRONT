@@ -6,16 +6,32 @@
   background-position: center;
   background-size: cover;
   height: 100vh;
+  display: flex;
+  flex-direction: column;
+
 }
 
 @media screen and (max-width: 1200px) {
-  .main {
-    display:none
+  .header-text {
+    margin-top: 15px;
+    align-items: center;
   }
 
-  .menu {
-    display: none;
+  .header-text h1 {
+    font-size: 24px !important;
+
   }
+
+  .header-text .par {
+    font-size: 15px !important;
+  }
+
+
+
+
+  /*.menu {*/
+  /*  display: none;*/
+  /*}*/
 
 }
 
@@ -86,7 +102,6 @@ ul li a:hover {
   height: 40px;
   background: transparent;
   border: 1px solid #ff7200;
-  margin-top: 13px;
   color: #fff;
   border-right: none;
   font-size: 16px;
@@ -101,7 +116,6 @@ ul li a:hover {
   height: 40px;
   background: #ff7200;
   border: 2px solid #ff7200;
-  margin-top: 13px;
   color: #fff;
   font-size: 15px;
   border-bottom-right-radius: 5px;
@@ -115,7 +129,6 @@ ul li a:hover {
   height: 40px;
   background: #ff7200;
   border: 2px solid #ff7200;
-  margin-top: 13px;
   color: #fff;
   font-size: 15px;
   border-top-right-radius: 5px;
@@ -142,7 +155,7 @@ ul li a:hover {
   outline: none;
 }
 
-.content {
+.header-text {
   width: 1200px;
   height: auto;
   margin: auto;
@@ -150,29 +163,29 @@ ul li a:hover {
   position: relative;
 }
 
-.content .par {
-  padding-left: 200px;
+.header-text .par {
+  text-align: center;
   padding-bottom: 25px;
   font-family: Arial;
   letter-spacing: 1.2px;
   line-height: 30px;
 }
 
-.content h1 {
+.header-text h1 {
+  text-align: center;
   font-family: "Open sans", Helvetica, Arial;
   font-size: 40px;
-  padding-left: 400px;
   margin-top: 13%;
   letter-spacing: 2px;
 }
 
-.content .cn {
+.header-text .cn {
+  text-align: center;
   width: 160px;
   height: 40px;
   background: #ff7200;
   border: none;
   margin-bottom: 10px;
-  margin-left: 495px;
   font-size: 18px;
   border-radius: 10px;
   cursor: pointer;
@@ -180,13 +193,13 @@ ul li a:hover {
 
 }
 
-.content .cn a {
+.header-text .cn a {
   text-decoration: none;
   color: #fff;
   transition: .3s ease;
 }
 
-.content .cn:hover a {
+.header-text .cn:hover a {
   text-decoration: none;
   color: #000;
   transition: .3s ease;
@@ -196,10 +209,6 @@ ul li a:hover {
   background-color: #fff;
 }
 
-.content span {
-  color: #ff7200;
-  font-size: 65px
-}
 
 .form {
   width: 250px;
@@ -324,7 +333,6 @@ ul li a:hover {
 }
 
 
-
 .card {
   background-color: rgba(227, 201, 173, 0.98);
   /*width: 600px;*/
@@ -440,3 +448,153 @@ img {
   margin-right: 50px;
 }
 
+
+@import url('https://fonts.googleapis.com/css?family=Roboto+Slab');
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Roboto Slab', serif;
+}
+
+a {
+  cursor: pointer;
+}
+
+header {
+  position: fixed;
+  top: 0;
+  z-index: 1000;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.8);
+}
+
+.nav-container {
+  width: 1280px;
+  margin: auto;
+}
+
+.nav-checkbox {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  padding: 10px 0;
+}
+
+.logo {
+  text-decoration: none;
+  color: #fff;
+  padding-left: 10px;
+}
+
+.tab-nav {
+  outline: none;
+  display: none;
+}
+
+.tab-nav-label {
+  display: none;
+  color: #fff;
+}
+
+.tab-content {
+  grid-column: 3;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.tab-content li {
+  display: inline-block;
+  padding-right: 10px;
+}
+
+.tab-content li a {
+  text-decoration: none;
+  color: #fff;
+  position: relative;
+}
+
+.tab-content li a::before {
+  content: '';
+  display: block;
+  height: 3px;
+  background: #fff;
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  right: 0;
+  transform-origin: left;
+  transform: scale(0, 1);
+  transition: transform ease-in-out 500ms;
+}
+
+.tab-content li a:hover::before {
+  transform: scale(1, 1);
+}
+
+.tab-content li a::after {
+  content: '';
+  display: block;
+  height: 3px;
+  background: #fff;
+  position: absolute;
+  top: -5px;
+  left: 0;
+  right: 0;
+  transform-origin: right;
+  transform: scale(0, 1);
+  transition: transform ease-in-out 500ms;
+}
+
+.tab-content li a:hover::after {
+  transform: scale(1, 1);
+}
+
+@media screen and (max-width: 1280px) {
+  .nav-container {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .tab-nav-label {
+    display: grid;
+    cursor: pointer;
+    grid-column: 3;
+    padding-right: 10px;
+  }
+
+  .tab-content {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-column: 1/4;
+    text-align: center;
+    max-height: 0;
+    overflow: hidden;
+    transition: all ease-in-out 0.4s;
+    -o-transition: all ease-in-out 0.4s;
+    -webkit-transition: all ease-in-out 0.4s;
+  }
+
+  .nav-checkbox input:checked ~ .tab-content {
+    max-height: 400px;
+  }
+
+  .tab-content li {
+    padding: 10px 0;
+  }
+}
+
+
+.header-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+
+footer{
+  margin-top:26px;
+}

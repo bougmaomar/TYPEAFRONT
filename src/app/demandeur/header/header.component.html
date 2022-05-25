@@ -1,33 +1,36 @@
+<div class="nav-container">
+  <nav class="nav-checkbox">
+    <a> <img class="img" src="http://type-adev.uca.ma/assets/uca.png">
+    </a>
+    <input id="tab-nav" type="checkbox" class="tab-nav" name="tabs">
+    <label for="tab-nav" class="tab-nav-label">Menu</label>
+    <ul class="tab-content">
+      <li><a [routerLink]="['']">Accueil</a></li>
+      <li><a *ngIf="isLogged == false; else loggedin" routerLink="/login" class="nav-link">Postuler</a>
+        <ng-template #loggedin>
+          <a routerLink="/choisir-postuler">Postuler</a>
+        </ng-template>
+      </li>
 
-  <div class="container-fluid all-show">
-  <div class="navbar">
-    <div class="icon">
-      <img class="img" src="http://type-adev.uca.ma/assets/uca.png"></div>
-    <div class="menu" >
-      <ul>
-        <li><a [routerLink]="['']" style="color: #ff7200">ACCUEIL</a></li>
-        <li> <a *ngIf="isLogged == false; else loggedin" routerLink="/login" class="nav-link" style="color: #ff7200">POSTULER</a>
-          <ng-template #loggedin>
-            <a routerLink="/choisir-postuler" style="color: #ff7200">POSTULER</a>
-          </ng-template></li>
-        <li><a routerLink="/contact" style="color: #ff7200">CONTACTER</a></li>
-      </ul>
-    </div>
+      <li>
+        <a routerLink="/historique">Historique</a>
+      </li>
+      <li><a routerLink="/contact">Contacter</a></li>
+      <li>
+        <ng-template #loginBtn>
+          <a>
+            <button class="btn" (click)="goToLogin()">S'identifier</button>
+          </a>
+        </ng-template>
 
-    <div class="search">
-      <ng-template #loginBtn>
-        <a>
-          <button class="btn" (click)="goToLogin()">S'IDENTIFIER</button>
-        </a>
-      </ng-template>
-
-    </div>
-    <div class="nav-item"   *ngIf="isLogged == true; else loginBtn">
-      <a >
-        <button  class="buttonn" (click)="logoutUser()" >
-          Se déconnecter</button>
-      </a>
-    </div>
-
-  </div>
-  </div>
+        <div class="nav-item" *ngIf="isLogged == true; else loginBtn">
+          <a>
+            <button class="buttonn" (click)="logoutUser()">
+              Se déconnecter
+            </button>
+          </a>
+        </div>
+      </li>
+    </ul>
+  </nav>
+</div>
