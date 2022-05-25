@@ -15,24 +15,24 @@
 
 
                 <div class="form-group"><label>vous êtes
-                </label> <select class="form-control" [(ngModel)] ="donne.niveau">
+                </label> <select class="form-control" [(ngModel)] ="donne.niveau" value={{donneData.niveau}}>
                   <option>Enseignant chercheur</option>
                   <option>Doctorant</option>
                 </select></div>
                 <div class="form-group"><label for="time">CED</label>
-                  <select class="form-control" [(ngModel)] = "donne.ced">
+                  <select class="form-control" [(ngModel)] = "donne.ced" value={{donneData.ced}}>
                     <option>STSD</option>
                     <option>FLSH</option>
                     <option>FSJES</option>
                   </select>
                 </div>
                 <div class="form-group"><label for="Evaluate Budget">Entite de Recherche</label>
-                  <input type="text" class="form-control" id="Evaluate Budget" placeholder="" [(ngModel)] ="donne.entiteRecherche">
+                  <input type="text" class="form-control" id="Evaluate Budget" value={{donneData.entiteRecherche}} placeholder="" [(ngModel)] ="donne.entiteRecherche"> 
                 </div>
               </div>
               <div class="col-lg-5 col-md-6 col-sm-12">
 
-                <div class="form-group"><label>Grade</label> <select class="form-control" [(ngModel)] ="donne.grade">
+                <div class="form-group"><label>Grade</label> <select class="form-control" value={{donneData.grade}} [(ngModel)] ="donne.grade">
                   <option>PES</option>
                   <option>PH</option>
                   <option>PA</option>
@@ -41,8 +41,7 @@
 
                 <div class="form-group" style="padding-top: 4px"><label
                   style="padding-bottom: 3px">Etablissement</label>
-                  <select class="form-control" [(ngModel)] ="donne.etablissement">
-                    <option></option>
+                  <select class="form-control" [(ngModel)] ="donne.etablissement" value={{donneData.etablissement}}>
                     <option>FSTG</option>
                     <option>FSSM</option>
                     <option>FSJES</option>
@@ -59,7 +58,7 @@
                   </select></div>
 
                 <div class="form-group"><label for="Company-Name">Responsable de l'entite de recherche</label>
-                  <input type="text" class="form-control" id="Company-Name" placeholder="" [(ngModel)] = "donne.respoEntite"></div>
+                  <input type="text" class="form-control" id="Company-Name" value={{donneData.respoEntite}} placeholder="" [(ngModel)] = "donne.respoEntite"></div>
 
 
               </div>

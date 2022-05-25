@@ -105,7 +105,7 @@ export class HistoriqueComponent implements OnInit {
   }
 
   imprimerManif(id: number) {
-    this.userService.exportReportMission(id).subscribe((data: string) => {
+    this.userService.generateReport(id).subscribe((data: string) => {
       Swal.fire(
         'Inmpression',
         'L impression de la demande mission stage a ete fait avec success',
@@ -115,7 +115,7 @@ export class HistoriqueComponent implements OnInit {
   }
 
   imprimerMStage(id: number) {
-    this.userService.generateReport(id).subscribe((data) => {
+    this.userService.exportReportMission(id).subscribe((data) => {
       Swal.fire(
         'Inmpression',
         'L impression de la demande manifestation a ete fait avec success',

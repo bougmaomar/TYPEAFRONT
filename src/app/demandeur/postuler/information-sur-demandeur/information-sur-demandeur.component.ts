@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { DonneePro } from 'src/app/controller/model/donnee-pro.model';
 import { AllusersService } from 'src/app/controller/service/allusers.service';
 import { UserService } from 'src/app/controller/service/user.service';
+import { AdminService } from 'src/app/controller/service/admin.service';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -12,9 +13,20 @@ import Swal from 'sweetalert2';
 })
 export class InformationSurDemandeurComponent implements OnInit {
   donne: DonneePro = new DonneePro();
-  constructor(private userService: UserService, private  router : Router) {}
+  donneData: DonneePro = new DonneePro();
+  constructor(
+    private userService: UserService,
+    private router: Router,
+    private adminService: AdminService
+  ) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.userService.getThisUserId().subscribe((theid: number) => {
+      this.adminService.getdonnepro(theid).subscribe((incoming) => {
+        this.donneData = incoming;
+      });
+    });
+  }
 
   onSubmit() {
     this.userService.saveDonnesPro(this.donne).subscribe((data: any) => {
