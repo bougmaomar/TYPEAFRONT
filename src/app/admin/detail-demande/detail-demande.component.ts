@@ -183,5 +183,11 @@ export class DetailDemandeComponent implements OnInit {
     window.open(this.documents.fileE);
   }
 
-  sendMail() {}
+  sendMail() {
+    this.dialog.open(MailFormComponent, {
+      data: {
+        email: this.user.email,
+      },
+    });
+  }
 }

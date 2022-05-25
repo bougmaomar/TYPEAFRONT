@@ -2,7 +2,8 @@
 <div class="container rounded mt-5 bg-white p-md-5">
   <div class="h2 font-weight-bold text-center">Historique Demandes</div>
   <div class="table-responsive">
-  <button id="changebtn" class="changeBtn" (click)="changeList()">=> Manifestations <=</button>
+  <button id="changebtn" class="changeBtn" (click)="manifestationBtn()">=> Manifestations <=</button>
+  <button id="changebtn1" class="changeBtn1" (click)="missionStageBtn()">=> MissionStages <=</button>
     <table class="table">
       <thead>
       <tr>
@@ -19,6 +20,7 @@
           <td class="pt-2 tabletd">{{mStage.dateDebut}}</td>
           <td class="pt-2 tabletd">{{mStage.dateFin}}</td>
           <td id="theState" class="pt-2 tabletd">{{mStage.state}}</td>
+          <td id="imprimer" class="pt-2 tabletd" (click)="viewDetailsMStage(mStage.id)" ><button>Imprimer</button></td>
         </tr>
       </ng-template>
 
@@ -28,6 +30,7 @@
           <td class="pt-2 tabletd">{{manif.dateDebut}}</td>
           <td class="pt-2 tabletd">{{manif.dateFin}}</td>
           <td class="pt-2 tabletd">{{manif.state}}</td>
+          <td id="imprimer" class="pt-2 tabletd" (click)="viewDetailsManif(manif.id)" ><button>Imprimer</button></td>
         </tr>
       </ng-template>
 

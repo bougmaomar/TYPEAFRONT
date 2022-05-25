@@ -188,4 +188,10 @@ export class UserService {
       }
     );
   }
+
+  getThisUserId(): Observable<number> {
+    return this.httpClient.get<number>(`${this._baseUrl + '/getthisuserid'}`, {
+      withCredentials: true,
+    });
+  }
 }

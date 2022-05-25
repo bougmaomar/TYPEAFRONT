@@ -29,6 +29,9 @@ export class LoginComponent {
         localStorage.setItem('isLogged', `${this.isLogged}`);
       } else if (x == -3 || x == -1) {
         this.erreur = 'Email ou mot de passe sont invalide';
+      } else if (x == -4) {
+        this.erreur =
+          'Veuillez confirmer votre compte en cliquant sur le lien dans votre email';
       } else {
         this.erreur = 'Email ou mot de passe sont incorrect';
       }
