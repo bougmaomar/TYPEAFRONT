@@ -56,6 +56,8 @@ import { AuthGuard } from './controller/service/authGuard/auth-guard.service';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MailFormComponent } from './admin/mail-form/mail-form.component';
 import { AuthGuardUser } from './controller/service/authGuard/auth-guarduser.service';
+import { NgChartsModule } from 'ng2-charts';
+
 
 @NgModule({
   declarations: [
@@ -89,6 +91,7 @@ import { AuthGuardUser } from './controller/service/authGuard/auth-guarduser.ser
   imports: [
     BrowserModule,
     AppRoutingModule,
+    NgChartsModule,
     BrowserAnimationsModule,
     MatMenuModule,
     RouterModule,

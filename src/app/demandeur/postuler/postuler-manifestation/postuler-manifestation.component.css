@@ -226,3 +226,6 @@ button:focus {
     border-top-right-radius: 0px;
   }
 }
+.hide {
+  display: none;
+}

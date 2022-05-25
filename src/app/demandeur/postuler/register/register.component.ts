@@ -25,7 +25,7 @@ export class RegisterComponent implements OnInit {
       if (data == 1) {
         Swal.fire({
           title: 'Creation de compte',
-          text: 'Ce compte a été creer avec success',
+          text: 'Ce compte a été creer avec success veuillez confrimer votre compte en cliquant sur le lien envoyer sur votre email',
           icon: 'success',
           confirmButtonText: 'OK',
         }).then((result) => {
