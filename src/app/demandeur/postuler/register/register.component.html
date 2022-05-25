@@ -31,6 +31,11 @@
             <label class="mb-1"><h6 class="mb-0 text-sm">Prenom</h6></label>
             <input class="mb-4" type="text" name="prenom" placeholder="Entrer votre prenom" [(ngModel)]="user.prenom" >
           </div>
+          <div class="row" style="padding-bottom: 20px">
+            <input type="radio" name="gender" value="male" style="width: 50px" [(ngModel)]="user.gender"> Male
+            <input type="radio" name="gender" value="female" style="width: 40px" [(ngModel)]="user.gender"> Female
+
+          </div>
           <div class="row px-3">
             <label class="mb-1"><h6 class="mb-0 text-sm">telephone</h6></label>
             <input class="mb-4" type="text" name="telephone" placeholder="numero telephone" [(ngModel)]="user.telephone" >
