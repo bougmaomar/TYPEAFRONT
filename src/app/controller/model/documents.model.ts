@@ -5,4 +5,5 @@ export class documents {
   fileC: any;
   fileD: any;
   fileE: any;
+  fileF: any;
 }

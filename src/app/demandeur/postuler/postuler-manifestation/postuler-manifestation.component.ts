@@ -18,12 +18,15 @@ export class PostulerManifestationComponent implements OnInit {
   selectedFileC = {} as HTMLInputElement;
   selectedFileD = {} as HTMLInputElement;
   selectedFileE = {} as HTMLInputElement;
+  selectedFileF = {} as HTMLInputElement;
 
   manif: Manifestation = new Manifestation();
   soutien: Soutien = new Soutien();
   documents: documents = new documents();
   id: number;
   erreur: string;
+
+
 
   constructor(private userService: UserService) {}
 
@@ -36,7 +39,8 @@ export class PostulerManifestationComponent implements OnInit {
       this.documents.fileB !== undefined ||
       this.documents.fileC !== undefined ||
       this.documents.fileD !== undefined ||
-      this.documents.fileE !== undefined
+      this.documents.fileE !== undefined ||
+      this.documents.fileF !== undefined
     ) {
       this.userService
         .addAllManif(this.manif, this.soutien)
@@ -126,6 +130,14 @@ export class PostulerManifestationComponent implements OnInit {
       selectedFileE.name.toUpperCase();
     document.getElementById('doc5').style.color = 'red';
   }
+  onFileSelectedF(event: Event) {
+    let selectedFileF = (<HTMLInputElement>event.target).files![0];
+    this.documents.fileF = selectedFileF;
+    document.getElementById('doc5').textContent =
+      selectedFileF.name.toUpperCase();
+    document.getElementById('doc5').style.color = 'red';
+  }
+
 
   onSubmitt() {
     this.userService.generateReport(this.id).subscribe((data) => {
@@ -144,5 +156,14 @@ export class PostulerManifestationComponent implements OnInit {
         );
       }
     });
+  }
+
+  show2() {
+    document.getElementById('div1').style.display = 'block';
+  }
+
+  show1() {
+
+    document.getElementById('div1').style.display ='none';
   }
 }

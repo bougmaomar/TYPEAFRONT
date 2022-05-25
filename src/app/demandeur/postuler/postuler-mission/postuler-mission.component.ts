@@ -1,14 +1,14 @@
-import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { map } from 'rxjs';
-import { Cadre } from 'src/app/controller/model/cadre.model';
+import {Component, OnInit} from '@angular/core';
+import {Router} from '@angular/router';
+import {map} from 'rxjs';
+import {Cadre} from 'src/app/controller/model/cadre.model';
 
-import { MissionStage } from 'src/app/controller/model/mission-stage.model';
-import { Soutien } from 'src/app/controller/model/soutien.model';
-import { AllusersService } from 'src/app/controller/service/allusers.service';
-import { UserService } from 'src/app/controller/service/user.service';
+import {MissionStage} from 'src/app/controller/model/mission-stage.model';
+import {Soutien} from 'src/app/controller/model/soutien.model';
+import {AllusersService} from 'src/app/controller/service/allusers.service';
+import {UserService} from 'src/app/controller/service/user.service';
 import Swal from 'sweetalert2';
-import { documents } from '../../../controller/model/documents.model';
+import {documents} from '../../../controller/model/documents.model';
 
 @Component({
   selector: 'app-postuler-mission',
@@ -22,6 +22,7 @@ export class PostulerMissionComponent implements OnInit {
   selectedFileC = {} as HTMLInputElement;
   selectedFileD = {} as HTMLInputElement;
   selectedFileE = {} as HTMLInputElement;
+  selectedFileF = {} as HTMLInputElement;
 
   mstage: MissionStage = new MissionStage();
   cadre: Cadre = new Cadre();
@@ -30,13 +31,16 @@ export class PostulerMissionComponent implements OnInit {
   num: number;
   idm: number;
 
+
   constructor(
     private userService: UserService,
     private router: Router,
     private allusersService: AllusersService
-  ) {}
+  ) {
+  }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+  }
 
   onSubmit() {
     if (
@@ -45,7 +49,8 @@ export class PostulerMissionComponent implements OnInit {
       this.documents.fileB !== undefined ||
       this.documents.fileC !== undefined ||
       this.documents.fileD !== undefined ||
-      this.documents.fileE !== undefined
+      this.documents.fileE !== undefined||
+      this.documents.fileF !== undefined
     ) {
       this.userService
         .addAll(this.mstage, this.cadre, this.soutien)
@@ -141,6 +146,15 @@ export class PostulerMissionComponent implements OnInit {
       selectedFileE.name.toUpperCase();
     document.getElementById('doc5').style.color = 'red';
   }
+  onFileSelectedF(event: Event) {
+    let selectedFileF = (<HTMLInputElement>event.target).files![0];
+    this.documents.fileF = selectedFileF;
+    document.getElementById('doc5').textContent =
+      selectedFileF.name.toUpperCase();
+    document.getElementById('doc5').style.color = 'red';
+  }
+
+
   onSubmitt() {
     this.userService.exportReportMission(this.idm).subscribe((data: string) => {
       if (data === 'erreur') {
@@ -157,5 +171,14 @@ export class PostulerMissionComponent implements OnInit {
         );
       }
     });
+  }
+
+  show2() {
+    document.getElementById('div1').style.display = 'block';
+  }
+
+  show1() {
+
+    document.getElementById('div1').style.display ='none';
   }
 }
