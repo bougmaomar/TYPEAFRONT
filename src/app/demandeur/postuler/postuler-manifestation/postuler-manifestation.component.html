@@ -276,24 +276,24 @@
                           [(ngModel)]="soutien.isBenfTypeA"
                           name="isVisible"
                           (click)="show2()"
-                          checked="show2()">
+                          checked="show2()"
+                          >
 
                        <label style="padding-bottom: 0px;">Oui</label></span>
 
                 <div class="  hide" id="div1">
                   <div class="col-md-6 ">
                     <label class="mb-0"><h6 class="mb-0 text-sm">Date de dernier soutien</h6></label><br>
-                    <p-calendar [showIcon]="true" inputId="icon" [(ngModel)]="soutien.datederniersoutien"></p-calendar>
+                    <p-calendar id="datedernier" [showIcon]="true" inputId="icon" [(ngModel)]="soutien.datederniersoutien"></p-calendar>
                   </div>
                   <div class="col-md-6 ">
                     <label class="mb-0"><h6 class="mb-0 text-sm">Montant</h6></label>
-                    <input type="number" name="intitulep" placeholder="" style="margin-bottom: 0px"
+                    <input id="montant" type="number" name="intitulep" placeholder="" style="margin-bottom: 0px"
                            [(ngModel)]="soutien.montantderniersoutien">
                   </div>
                   <div class="col-md-5 me-2" style="margin-top: 15px; margin-left :15px;">
-                    <input type="file" class="custom-file-input" id="inputGroupFile7" (change)="onFileSelectedF($event)">
-                    <label class="custom-file-label" for="inputGroupFile4" id="doc7">Rapport</label>
-
+                    <input type="file" class="custom-file-input" id="inputGroupFile6" (change)="onFileSelectedF($event)">
+                    <label class="custom-file-label" for="inputGroupFile6" id="doc6">Rapport</label>
                   </div>
                 </div>
               </div>
@@ -308,7 +308,8 @@
                            value="non"
                            [(ngModel)]="soutien.isBenfTypeA"
                            (click)="show1()"
-                           checked="show1();">
+                           checked="show1();"
+                           >
     <label style="margin-bottom: 20px; margin-top:10px; padding: 0px">Non</label></span>
               </div>
 

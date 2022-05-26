@@ -55,26 +55,51 @@ export class DetailManifComponent implements OnInit {
       this.documents = datadocs;
       if (this.documents.filecin === undefined) {
         (<HTMLInputElement>document.getElementById('cinbtn')).disabled = true;
+      } else {
+        (<HTMLInputElement>document.getElementById('cinbtn')).textContent =
+          this.documents.filecin.name;
       }
       if (this.documents.fileA === undefined) {
         (<HTMLInputElement>document.getElementById('document1btn')).disabled =
           true;
+      } else {
+        (<HTMLInputElement>document.getElementById('cinbtn')).textContent =
+          this.documents.fileA.name;
       }
       if (this.documents.fileB === undefined) {
         (<HTMLInputElement>document.getElementById('document2btn')).disabled =
           true;
+      } else {
+        (<HTMLInputElement>document.getElementById('cinbtn')).textContent =
+          this.documents.fileB.name;
       }
       if (this.documents.fileC === undefined) {
         (<HTMLInputElement>document.getElementById('document3btn')).disabled =
           true;
+      } else {
+        (<HTMLInputElement>document.getElementById('cinbtn')).textContent =
+          this.documents.fileC.name;
       }
       if (this.documents.fileD === undefined) {
         (<HTMLInputElement>document.getElementById('document4btn')).disabled =
           true;
+      } else {
+        (<HTMLInputElement>document.getElementById('cinbtn')).textContent =
+          this.documents.fileD.name;
       }
       if (this.documents.fileE === undefined) {
         (<HTMLInputElement>document.getElementById('document5btn')).disabled =
           true;
+      } else {
+        (<HTMLInputElement>document.getElementById('cinbtn')).textContent =
+          this.documents.fileE.name;
+      }
+      if (this.documents.fileF === undefined) {
+        (<HTMLInputElement>document.getElementById('document6btn')).disabled =
+          true;
+      } else {
+        (<HTMLInputElement>document.getElementById('cinbtn')).textContent =
+          this.documents.fileF.name;
       }
     });
   }
@@ -151,6 +176,7 @@ export class DetailManifComponent implements OnInit {
             'Impression effectuée avec success',
             'success'
           );
+          window.open(data);
         }
       });
   }
@@ -172,6 +198,9 @@ export class DetailManifComponent implements OnInit {
   }
   openFile6() {
     window.open(this.documents.fileE);
+  }
+  openFile7() {
+    window.open(this.documents.fileF);
   }
 
   sendMail() {

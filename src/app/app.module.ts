@@ -58,7 +58,6 @@ import { MailFormComponent } from './admin/mail-form/mail-form.component';
 import { AuthGuardUser } from './controller/service/authGuard/auth-guarduser.service';
 import { NgChartsModule } from 'ng2-charts';
 
-
 @NgModule({
   declarations: [
     AppComponent,

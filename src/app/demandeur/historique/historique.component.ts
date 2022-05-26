@@ -111,6 +111,7 @@ export class HistoriqueComponent implements OnInit {
         'L impression de la demande mission stage a ete fait avec success',
         'success'
       );
+      window.open(data);
     });
   }
 
@@ -121,6 +122,7 @@ export class HistoriqueComponent implements OnInit {
         'L impression de la demande manifestation a ete fait avec success',
         'success'
       );
+      window.open(data);
     });
   }
 }

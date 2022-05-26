@@ -118,6 +118,9 @@ export class UserService {
     if (documents.fileE !== undefined) {
       formData.append('fileE', documents.fileE, documents.fileE.name);
     }
+    if (documents.fileF !== undefined) {
+      formData.append('fileF', documents.fileF, documents.fileF.name);
+    }
     return this.httpClient.post<Object>(
       `${this._baseUrl + '/add_documentMST/' + mStageId}`,
       formData
@@ -143,6 +146,9 @@ export class UserService {
     }
     if (documents.fileE !== undefined) {
       formData.append('fileE', documents.fileE, documents.fileE.name);
+    }
+    if (documents.fileF !== undefined) {
+      formData.append('fileF', documents.fileF, documents.fileF.name);
     }
     return this.httpClient.post(
       `${this._baseUrl + '/add_documentM/' + manifId}`,
