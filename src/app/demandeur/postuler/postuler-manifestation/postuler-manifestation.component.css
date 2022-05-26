@@ -129,12 +129,12 @@ button:focus {
 }
 
 .btn-blue:hover {
-  background-color:  #edbb00;
+  background-color: #4c8fda;
   color: #fff;
   cursor: pointer;
 }
 .btn2-blue:hover {
-  background-color: #80bdff;
+  background-color: rgba(225, 152, 68, 0.98);
   color: #fff;
   cursor: pointer;
 }
