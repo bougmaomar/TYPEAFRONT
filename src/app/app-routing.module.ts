@@ -115,6 +115,11 @@ const routes: Routes = [
     component: DetailManifComponent,
     canActivate: [AuthGuard],
   },
+  {
+    path: 'historique',
+    component: HistoriqueComponent,
+    canActivate: [AuthGuardUser],
+  },
 ];
 
 @NgModule({

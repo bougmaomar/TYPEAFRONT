@@ -57,6 +57,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MailFormComponent } from './admin/mail-form/mail-form.component';
 import { AuthGuardUser } from './controller/service/authGuard/auth-guarduser.service';
 import { NgChartsModule } from 'ng2-charts';
+import {MatTabsModule} from "@angular/material/tabs";
 
 @NgModule({
   declarations: [
@@ -116,6 +117,7 @@ import { NgChartsModule } from 'ng2-charts';
     MatSidenavModule,
     HttpClientModule,
     MatDialogModule,
+    MatTabsModule,
   ],
   providers: [AuthGuard, AuthGuardUser],
   bootstrap: [AppComponent],
