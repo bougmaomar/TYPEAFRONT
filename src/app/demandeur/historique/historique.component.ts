@@ -33,6 +33,7 @@ export class HistoriqueComponent implements OnInit {
 
   ngOnInit(): void {
     this.getMStages();
+    this.getManifs();
   }
 
   private getMStages() {

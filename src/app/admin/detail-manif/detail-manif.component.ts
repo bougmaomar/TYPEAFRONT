@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
+import { State } from 'src/app/controller/enums/state.service';
 import { documents } from 'src/app/controller/model/documents.model';
 import { DonneePro } from 'src/app/controller/model/donnee-pro.model';
 import { Manifestation } from 'src/app/controller/model/manifestation.model';
@@ -39,6 +40,7 @@ export class DetailManifComponent implements OnInit {
     this.soutien = new Soutien();
     this.newMont = new NewMontant();
     this.documents = new documents();
+
     this.adminService.getManifestationById(this.id).subscribe((manifdonne) => {
       this.manif = manifdonne;
     });
@@ -51,55 +53,41 @@ export class DetailManifComponent implements OnInit {
     this.adminService.getSoutienByManifId(this.id).subscribe((soutiendata) => {
       this.soutien = soutiendata;
     });
+    if (
+      this.manif.state == State.APPROVED ||
+      this.manif.state == State.REFUSED
+    ) {
+      (<HTMLInputElement>document.getElementById('btna')).disabled = true;
+      (<HTMLInputElement>document.getElementById('btnR')).disabled = true;
+    }
     this.adminService.readDocsManif(this.id).subscribe((datadocs) => {
       this.documents = datadocs;
       if (this.documents.filecin === undefined) {
         (<HTMLInputElement>document.getElementById('cinbtn')).disabled = true;
-      } else {
-        (<HTMLInputElement>document.getElementById('cinbtn')).textContent =
-          this.documents.filecin.name;
       }
       if (this.documents.fileA === undefined) {
         (<HTMLInputElement>document.getElementById('document1btn')).disabled =
           true;
-      } else {
-        (<HTMLInputElement>document.getElementById('cinbtn')).textContent =
-          this.documents.fileA.name;
       }
       if (this.documents.fileB === undefined) {
         (<HTMLInputElement>document.getElementById('document2btn')).disabled =
           true;
-      } else {
-        (<HTMLInputElement>document.getElementById('cinbtn')).textContent =
-          this.documents.fileB.name;
       }
       if (this.documents.fileC === undefined) {
         (<HTMLInputElement>document.getElementById('document3btn')).disabled =
           true;
-      } else {
-        (<HTMLInputElement>document.getElementById('cinbtn')).textContent =
-          this.documents.fileC.name;
       }
       if (this.documents.fileD === undefined) {
         (<HTMLInputElement>document.getElementById('document4btn')).disabled =
           true;
-      } else {
-        (<HTMLInputElement>document.getElementById('cinbtn')).textContent =
-          this.documents.fileD.name;
       }
       if (this.documents.fileE === undefined) {
         (<HTMLInputElement>document.getElementById('document5btn')).disabled =
           true;
-      } else {
-        (<HTMLInputElement>document.getElementById('cinbtn')).textContent =
-          this.documents.fileE.name;
       }
       if (this.documents.fileF === undefined) {
         (<HTMLInputElement>document.getElementById('document6btn')).disabled =
           true;
-      } else {
-        (<HTMLInputElement>document.getElementById('cinbtn')).textContent =
-          this.documents.fileF.name;
       }
     });
   }

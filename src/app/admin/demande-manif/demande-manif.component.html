@@ -46,7 +46,7 @@
           </tr>
           </thead>
           <tbody>
-          <tr *ngFor="let manif of manifs" >
+          <tr *ngFor="let manif of manifsIdle" >
             <td>{{manif.id}}</td>
             <td> {{manif.titreManifestation}} </td>
             <td> {{manif.dateDebut}}</td>
@@ -79,7 +79,7 @@
           </tr>
           </thead>
           <tbody>
-          <tr *ngFor="let manif of manifs" >
+          <tr *ngFor="let manif of manifsAccepted" >
             <td>{{manif.id}}</td>
             <td> {{manif.titreManifestation}} </td>
             <td> {{manif.dateDebut}}</td>
@@ -112,7 +112,7 @@
           </tr>
           </thead>
           <tbody>
-          <tr *ngFor="let manif of manifs" >
+          <tr *ngFor="let manif of manifsRefused" >
             <td>{{manif.id}}</td>
             <td> {{manif.titreManifestation}} </td>
             <td> {{manif.dateDebut}}</td>
