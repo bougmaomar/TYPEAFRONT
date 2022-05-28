@@ -39,6 +39,12 @@ export class UserService {
     });
   }
 
+  updateDonnesPro(donne: DonneePro): Observable<Object> {
+    return this.httpClient.post(`${this._baseUrl + '/updatedonnepro'}`, donne, {
+      withCredentials: true,
+    });
+  }
+
   addSoutien(
     soutien: Soutien,
     isManif: Boolean,
