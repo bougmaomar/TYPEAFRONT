@@ -12,6 +12,7 @@ import { MissionStage } from '../model/mission-stage.model';
 import { NewMontant } from '../model/montants.model';
 import { Soutien } from '../model/soutien.model';
 import { User } from '../model/user.model';
+import {Etablissement} from "../model/Etablissement.model";
 
 @Injectable({
   providedIn: 'root',
@@ -216,6 +217,11 @@ export class AdminService {
   readDocsManif(manifId: number): Observable<documents> {
     return this.httpClient.get<documents>(
       `${this.baseUrl + '/viewdocsmanif/' + manifId}`
+    );
+  }
+  getetablissement(etabId: number): Observable<Etablissement> {
+    return this.httpClient.get<Etablissement>(
+      `${this.baseUrl + '/getetab/' + etabId}`
     );
   }
 }
