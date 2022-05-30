@@ -13,17 +13,32 @@ import { User } from '../../controller/model/user.model';
 })
 export class DemandesComponent implements OnInit {
   mStages: MissionStage[];
+  mStagesA: MissionStage[];
+  mStagesR: MissionStage[];
   user: User;
 
   constructor(private adminService: AdminService, private router: Router) {}
 
   ngOnInit(): void {
     this.getMStages();
+    this.getMStagesA();
+    this.getMStagesR();
   }
 
   private getMStages() {
     this.adminService.findAllStagesByState(State.IDLE).subscribe((data) => {
       this.mStages = data;
+    });
+  }
+
+  private getMStagesA() {
+    this.adminService.findAllStagesByState(State.APPROVED).subscribe((data) => {
+      this.mStagesA = data;
+    });
+  }
+  private getMStagesR() {
+    this.adminService.findAllStagesByState(State.REFUSED).subscribe((data) => {
+      this.mStagesR = data;
     });
   }
 

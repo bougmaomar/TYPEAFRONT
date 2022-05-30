@@ -53,13 +53,23 @@ export class InformationSurDemandeurComponent implements OnInit {
           }
         });
       } else if (data == 1) {
-        Swal.fire(
-          'Ajout données',
-          'Vos données professionnels ont ete ajouter',
-          'success'
-        ).then((result) => {
-          if (result.isConfirmed) {
-            this.router.navigate(['/choisir-postuler']);
+        this.userService.saveDonnesPro(this.donne).subscribe((updated: any) => {
+          if (updated == 1) {
+            Swal.fire(
+              'Ajout données',
+              'Vos données professionnels ont ete ajouter',
+              'success'
+            ).then((result) => {
+              if (result.isConfirmed) {
+                this.router.navigate(['/choisir-postuler']);
+              }
+            });
+          } else {
+            Swal.fire(
+              'Ajout données',
+              'Vos données professionnels ont ete pas ajouter',
+              'error'
+            );
           }
         });
       } else {
