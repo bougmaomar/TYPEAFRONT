@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
+import { State } from 'src/app/controller/enums/state.service';
 import { documents } from 'src/app/controller/model/documents.model';
 import { DonneePro } from 'src/app/controller/model/donnee-pro.model';
 import { Manifestation } from 'src/app/controller/model/manifestation.model';
@@ -39,6 +40,7 @@ export class DetailManifComponent implements OnInit {
     this.soutien = new Soutien();
     this.newMont = new NewMontant();
     this.documents = new documents();
+
     this.adminService.getManifestationById(this.id).subscribe((manifdonne) => {
       this.manif = manifdonne;
     });
@@ -51,6 +53,13 @@ export class DetailManifComponent implements OnInit {
     this.adminService.getSoutienByManifId(this.id).subscribe((soutiendata) => {
       this.soutien = soutiendata;
     });
+    if (
+      this.manif.state == State.APPROVED ||
+      this.manif.state == State.REFUSED
+    ) {
+      (<HTMLInputElement>document.getElementById('btna')).disabled = true;
+      (<HTMLInputElement>document.getElementById('btnR')).disabled = true;
+    }
     this.adminService.readDocsManif(this.id).subscribe((datadocs) => {
       this.documents = datadocs;
       if (this.documents.filecin === undefined) {
@@ -74,6 +83,10 @@ export class DetailManifComponent implements OnInit {
       }
       if (this.documents.fileE === undefined) {
         (<HTMLInputElement>document.getElementById('document5btn')).disabled =
+          true;
+      }
+      if (this.documents.fileF === undefined) {
+        (<HTMLInputElement>document.getElementById('document6btn')).disabled =
           true;
       }
     });
@@ -151,6 +164,7 @@ export class DetailManifComponent implements OnInit {
             'Impression effectuée avec success',
             'success'
           );
+          window.open(data);
         }
       });
   }
@@ -172,6 +186,9 @@ export class DetailManifComponent implements OnInit {
   }
   openFile6() {
     window.open(this.documents.fileE);
+  }
+  openFile7() {
+    window.open(this.documents.fileF);
   }
 
   sendMail() {

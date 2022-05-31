@@ -59,7 +59,6 @@ import { AuthGuardUser } from './controller/service/authGuard/auth-guarduser.ser
 import { NgChartsModule } from 'ng2-charts';
 import {MatTabsModule} from "@angular/material/tabs";
 
-
 @NgModule({
   declarations: [
     AppComponent,

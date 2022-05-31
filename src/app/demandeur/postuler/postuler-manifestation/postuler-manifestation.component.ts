@@ -26,60 +26,85 @@ export class PostulerManifestationComponent implements OnInit {
   id: number;
   erreur: string;
 
-
-
   constructor(private userService: UserService) {}
 
   ngOnInit(): void {}
 
   onSubmit() {
     if (
-      this.documents.filecin !== undefined ||
-      this.documents.fileA !== undefined ||
-      this.documents.fileB !== undefined ||
-      this.documents.fileC !== undefined ||
-      this.documents.fileD !== undefined ||
-      this.documents.fileE !== undefined ||
-      this.documents.fileF !== undefined
+      this.soutien.isBenfTypeA == 'oui' &&
+      this.documents.fileF === undefined &&
+      (this.soutien.montantderniersoutien === undefined ||
+        this.soutien.datederniersoutien === undefined)
     ) {
-      this.userService
-        .addAllManif(this.manif, this.soutien)
-        .subscribe((x: any) => {
-          if (x == '-1') {
-            Swal.fire(
-              'Ajout de manifestation',
-              'Un ou plusieurs champs sont invalide',
-              'error'
-            );
-          } else if (x == '-2') {
-            Swal.fire(
-              'Ajout de manifestation',
-              'Vous pouvez pas postuler sans remplir vos données profesionnels',
-              'error'
-            );
-          } else {
-            this.id = x;
-            this.userService
-              .addFilesManif(x, this.documents)
-              .subscribe((data) => {
-                (<HTMLInputElement>(
-                  document.getElementById('impbtnM')
-                )).disabled = false;
-                Swal.fire(
-                  'Ajout de manifestation',
-                  'Ajout est fait avec success',
-                  'success'
-                );
-              });
-            this.id = x;
-          }
-        });
-    } else {
       Swal.fire(
         'Ajout de manifestation',
-        'Veuillez remplire tous les fichier demander',
+        'Rapport peut pas etre vide si vous avez deja beinificez d un type A',
         'error'
       );
+    } else {
+      if (
+        this.documents.filecin !== undefined ||
+        this.documents.fileA !== undefined ||
+        this.documents.fileB !== undefined ||
+        this.documents.fileC !== undefined ||
+        this.documents.fileD !== undefined ||
+        this.documents.fileE !== undefined
+      ) {
+        let newDateDebut = new Date(this.manif.dateDebut);
+        let newDateFin = new Date(this.manif.dateFin);
+        let newDateDepart = new Date(this.manif.dateDepart);
+        let newDateRetour = new Date(this.manif.dateRetour);
+        if (
+          newDateDebut.getTime() > newDateFin.getTime() ||
+          newDateDepart.getTime() > newDateRetour.getTime()
+        ) {
+          Swal.fire(
+            'Ajout de manifestation',
+            'Veuillez verifiez les dates saisies (debut/fin/depart/retour)',
+            'error'
+          );
+        } else {
+          this.userService
+            .addAllManif(this.manif, this.soutien)
+            .subscribe((x: any) => {
+              if (x == '-1') {
+                Swal.fire(
+                  'Ajout de manifestation',
+                  'Un ou plusieurs champs sont invalide',
+                  'error'
+                );
+              } else if (x == '-2') {
+                Swal.fire(
+                  'Ajout de manifestation',
+                  'Vous pouvez pas postuler sans remplir vos données profesionnels',
+                  'error'
+                );
+              } else {
+                this.id = x;
+                this.userService
+                  .addFilesManif(x, this.documents)
+                  .subscribe((data) => {
+                    (<HTMLInputElement>(
+                      document.getElementById('impbtnM')
+                    )).disabled = false;
+                    Swal.fire(
+                      'Ajout de manifestation',
+                      'Ajout est fait avec success',
+                      'success'
+                    );
+                  });
+                this.id = x;
+              }
+            });
+        }
+      } else {
+        Swal.fire(
+          'Ajout de manifestation',
+          'Veuillez remplire tous les fichier demander',
+          'error'
+        );
+      }
     }
   }
 
@@ -133,11 +158,10 @@ export class PostulerManifestationComponent implements OnInit {
   onFileSelectedF(event: Event) {
     let selectedFileF = (<HTMLInputElement>event.target).files![0];
     this.documents.fileF = selectedFileF;
-    document.getElementById('doc5').textContent =
+    document.getElementById('doc6').textContent =
       selectedFileF.name.toUpperCase();
-    document.getElementById('doc5').style.color = 'red';
+    document.getElementById('doc6').style.color = 'red';
   }
-
 
   onSubmitt() {
     this.userService.generateReport(this.id).subscribe((data) => {
@@ -154,6 +178,7 @@ export class PostulerManifestationComponent implements OnInit {
           'L impression a ete fait avec success',
           'success'
         );
+        window.open(data);
       }
     });
   }
@@ -163,7 +188,6 @@ export class PostulerManifestationComponent implements OnInit {
   }
 
   show1() {
-
-    document.getElementById('div1').style.display ='none';
+    document.getElementById('div1').style.display = 'none';
   }
 }

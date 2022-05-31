@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
+import { State } from 'src/app/controller/enums/state.service';
 import { Cadre } from 'src/app/controller/model/cadre.model';
 import { documents } from 'src/app/controller/model/documents.model';
 import { DonneePro } from 'src/app/controller/model/donnee-pro.model';
@@ -60,6 +61,13 @@ export class DetailDemandeComponent implements OnInit {
     this.adminService.getSoutienByMStage(this.id).subscribe((soutiendata) => {
       this.soutien = soutiendata;
     });
+    if (
+      this.mStage.state == State.APPROVED ||
+      this.mStage.state == State.REFUSED
+    ) {
+      (<HTMLInputElement>document.getElementById('btna')).disabled = true;
+      (<HTMLInputElement>document.getElementById('btnR')).disabled = true;
+    }
     this.adminService.readDocsMStage(this.id).subscribe((datadocs) => {
       this.documents = datadocs;
       if (this.documents.filecin === undefined) {
@@ -83,6 +91,10 @@ export class DetailDemandeComponent implements OnInit {
       }
       if (this.documents.fileE === undefined) {
         (<HTMLInputElement>document.getElementById('document5btn')).disabled =
+          true;
+      }
+      if (this.documents.fileF === undefined) {
+        (<HTMLInputElement>document.getElementById('document6btn')).disabled =
           true;
       }
     });
@@ -160,6 +172,7 @@ export class DetailDemandeComponent implements OnInit {
             'Impression effectuée avec success',
             'success'
           );
+          window.open(data);
         }
       });
   }
@@ -181,6 +194,9 @@ export class DetailDemandeComponent implements OnInit {
   }
   openFile6() {
     window.open(this.documents.fileE);
+  }
+  openFile7() {
+    window.open(this.documents.fileF);
   }
 
   sendMail() {

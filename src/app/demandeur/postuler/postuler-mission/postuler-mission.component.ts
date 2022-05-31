@@ -1,14 +1,14 @@
-import {Component, OnInit} from '@angular/core';
-import {Router} from '@angular/router';
-import {map} from 'rxjs';
-import {Cadre} from 'src/app/controller/model/cadre.model';
+import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { map } from 'rxjs';
+import { Cadre } from 'src/app/controller/model/cadre.model';
 
-import {MissionStage} from 'src/app/controller/model/mission-stage.model';
-import {Soutien} from 'src/app/controller/model/soutien.model';
-import {AllusersService} from 'src/app/controller/service/allusers.service';
-import {UserService} from 'src/app/controller/service/user.service';
+import { MissionStage } from 'src/app/controller/model/mission-stage.model';
+import { Soutien } from 'src/app/controller/model/soutien.model';
+import { AllusersService } from 'src/app/controller/service/allusers.service';
+import { UserService } from 'src/app/controller/service/user.service';
 import Swal from 'sweetalert2';
-import {documents} from '../../../controller/model/documents.model';
+import { documents } from '../../../controller/model/documents.model';
 
 @Component({
   selector: 'app-postuler-mission',
@@ -31,71 +31,98 @@ export class PostulerMissionComponent implements OnInit {
   num: number;
   idm: number;
 
-
   constructor(
     private userService: UserService,
     private router: Router,
     private allusersService: AllusersService
-  ) {
-  }
+  ) {}
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   onSubmit() {
     if (
-      this.documents.filecin !== undefined ||
-      this.documents.fileA !== undefined ||
-      this.documents.fileB !== undefined ||
-      this.documents.fileC !== undefined ||
-      this.documents.fileD !== undefined ||
-      this.documents.fileE !== undefined||
-      this.documents.fileF !== undefined
+      this.soutien.isBenfTypeA == 'oui' &&
+      this.documents.fileF === undefined &&
+      (this.soutien.montantderniersoutien === undefined ||
+        this.soutien.datederniersoutien === undefined)
     ) {
-      this.userService
-        .addAll(this.mstage, this.cadre, this.soutien)
-        .subscribe((x: any) => {
-          if (x == '-1') {
-            Swal.fire(
-              'Ajout de mission',
-              'Un ou plusieurs champs sont invalide',
-              'error'
-            );
-          } else if (x == '-2') {
-            Swal.fire(
-              'Ajout de manifestation',
-              'Vous pouvez pas postuler sans remplir vos données profesionnels',
-              'error'
-            );
-          } else {
-            if (this.userService.addFiles(x, this.documents) == null) {
-              Swal.fire(
-                'Ajout de mission',
-                'Veuillez remplire tous les fichier demander',
-                'error'
-              );
-            } else {
-              this.userService.addFiles(x, this.documents).subscribe((data) => {
-                (<HTMLInputElement>(
-                  document.getElementById('impbtnS')
-                )).disabled = false;
-
-                Swal.fire(
-                  'Ajout de mission',
-                  'Ajout est fait avec success',
-                  'success'
-                );
-              });
-              this.idm = x;
-            }
-          }
-        });
-    } else {
       Swal.fire(
-        'Ajout de mission',
-        'Veuillez remplire tous les fichier demander',
+        'Ajout de manifestation',
+        'Rapport peut pas etre vide si vous avez deja beinificez d un type A',
         'error'
       );
+    } else {
+      if (
+        this.documents.filecin !== undefined ||
+        this.documents.fileA !== undefined ||
+        this.documents.fileB !== undefined ||
+        this.documents.fileC !== undefined ||
+        this.documents.fileD !== undefined ||
+        this.documents.fileE !== undefined
+      ) {
+        /*  */
+        let newDateDebut = new Date(this.mstage.dateDebut);
+        let newDateFin = new Date(this.mstage.dateFin);
+        let newDateDepart = new Date(this.mstage.dateDepart);
+        let newDateRetour = new Date(this.mstage.dateRetour);
+        if (
+          newDateDebut.getTime() > newDateFin.getTime() ||
+          newDateDepart.getTime() > newDateRetour.getTime()
+        ) {
+          Swal.fire(
+            'Ajout de manifestation',
+            'Veuillez verifiez les dates saisies (debut/fin/depart/retour)',
+            'error'
+          );
+        } else {
+          this.userService
+            .addAll(this.mstage, this.cadre, this.soutien)
+            .subscribe((x: any) => {
+              if (x == '-1') {
+                Swal.fire(
+                  'Ajout de mission',
+                  'Un ou plusieurs champs sont invalide',
+                  'error'
+                );
+              } else if (x == '-2') {
+                Swal.fire(
+                  'Ajout de manifestation',
+                  'Vous pouvez pas postuler sans remplir vos données profesionnels',
+                  'error'
+                );
+              } else {
+                if (this.userService.addFiles(x, this.documents) == null) {
+                  Swal.fire(
+                    'Ajout de mission',
+                    'Veuillez remplire tous les fichier demander',
+                    'error'
+                  );
+                } else {
+                  this.userService
+                    .addFiles(x, this.documents)
+                    .subscribe((data) => {
+                      (<HTMLInputElement>(
+                        document.getElementById('impbtnS')
+                      )).disabled = false;
+
+                      Swal.fire(
+                        'Ajout de mission',
+                        'Ajout est fait avec success',
+                        'success'
+                      );
+                    });
+                  this.idm = x;
+                }
+              }
+            });
+        }
+      } else {
+        Swal.fire(
+          'Ajout de mission',
+          'Veuillez remplire tous les fichier demander',
+          'error'
+        );
+      }
     }
   }
 
@@ -149,11 +176,10 @@ export class PostulerMissionComponent implements OnInit {
   onFileSelectedF(event: Event) {
     let selectedFileF = (<HTMLInputElement>event.target).files![0];
     this.documents.fileF = selectedFileF;
-    document.getElementById('doc5').textContent =
+    document.getElementById('doc6').textContent =
       selectedFileF.name.toUpperCase();
-    document.getElementById('doc5').style.color = 'red';
+    document.getElementById('doc6').style.color = 'red';
   }
-
 
   onSubmitt() {
     this.userService.exportReportMission(this.idm).subscribe((data: string) => {
@@ -169,6 +195,7 @@ export class PostulerMissionComponent implements OnInit {
           'L impression a ete fait avec success',
           'success'
         );
+        window.open(data);
       }
     });
   }
@@ -178,7 +205,6 @@ export class PostulerMissionComponent implements OnInit {
   }
 
   show1() {
-
-    document.getElementById('div1').style.display ='none';
+    document.getElementById('div1').style.display = 'none';
   }
 }
