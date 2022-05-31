@@ -48,6 +48,10 @@
             <label class="mb-1"><h6 class="mb-0 text-sm"> Mot de passe</h6></label>
             <input type="password" name="password" placeholder="Entrer le mot de passe" [(ngModel)]="user.password">
           </div>
+          <div class="row px-3">
+            <label class="mb-1"><h6 class="mb-0 text-sm"> Confirmation Mot de passe</h6></label>
+            <input type="password" name="password" placeholder="Confirmer le mot de passe" [(ngModel)]="user.password">
+          </div>
           <span class="erreurSpan">{{erreur}}</span>
           <div class="row  my-3">
             <div class="col-md-7"></div>
