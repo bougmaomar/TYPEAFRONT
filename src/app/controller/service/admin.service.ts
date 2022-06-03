@@ -224,4 +224,9 @@ export class AdminService {
       `${this.baseUrl + '/getetab/' + etabId}`
     );
   }
+  get_statistic_etablissement(etab : string,e2 : string,e3 : string,e4 : string,e5 : string,e6 : string,e7 : string,e8 : string,e9 : string,e10 : string,e11 : string,e12 : string,e13 : string):Observable<string[]>{
+    return this.httpClient.get<string[]>(
+      `${this.baseUrl + '/statistic/' + etab + '/' +e2 + '/' +e3 + '/' +e4 + '/' +e5 + '/' +e6 + '/' +e7 + '/' +e8 + '/'+e9 + '/' +e10 + '/' +e11 + '/' +e12+ '/' +e13 }`
+    );
+  }
 }

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Chart } from 'node_modules/chart.js';
+import {AdminService} from "../../controller/service/admin.service";
+import {of} from "rxjs";
 
 @Component({
   selector: 'app-dashboard',
@@ -7,17 +9,52 @@ import { Chart } from 'node_modules/chart.js';
   styleUrls: ['./dashboard.component.css'],
 })
 export class DashboardComponent implements OnInit {
-  constructor() {}
+  constructor(private adminservice: AdminService) {
+  }
 
+ NUM : number [] =[];
+
+nu: number;
   ngOnInit() {
+
+
+    this.adminservice.get_statistic_etablissement("ENSA","FSSM","ENCG","FMP","FLSH","FST","FSJES","FLAM","ENS","FP Safi","ENSA Safi","EST Safi","EST Essaouira").subscribe((num) => {
+num.forEach(elem => {
+  if( elem != null){
+    this.nu = +elem  ;
+    this.NUM.push(this.nu);
+  }
+  else{
+    this.nu = 0;
+    this.NUM.push(this.nu);
+  }
+
+})
+
+
+      this.ayoub(this.NUM);
+
+
+
+    })
+
+
+
+  }
+
+  ayoub (numero : number[]){
+
     var myChart = new Chart('myChart', {
+
       type: 'bar',
       data: {
-        labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+
+        labels: ["ENSA","FSSM","ENCG","FMP","FLSH","FST","FSJES","FLAM","ENS","FP Safi","ENSA Safi","EST Safi","EST Essaouira"],
         datasets: [
           {
+
             label: '# of Votes',
-            data: [12, 19, 3, 5, 2, 3],
+            data: numero,
             backgroundColor: [
               'rgba(255, 99, 132, 0.2)',
               'rgba(54, 162, 235, 0.2)',
@@ -46,5 +83,9 @@ export class DashboardComponent implements OnInit {
         },
       },
     });
+
+
   }
+
+
 }
