@@ -32,8 +32,9 @@ export class HistoriqueComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.getMStages();
+
     this.getManifs();
+    this.getMStages();
   }
 
   private getMStages() {
@@ -88,7 +89,6 @@ export class HistoriqueComponent implements OnInit {
     });
     this.imprimerMStage(id);
   }
-
   viewDetailsManif(id: number) {
     this.adminService.getManifestationById(id).subscribe((manifdonne) => {
       this.manif = manifdonne;

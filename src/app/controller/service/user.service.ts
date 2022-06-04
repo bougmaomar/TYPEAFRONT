@@ -40,7 +40,7 @@ export class UserService {
   }
 
   updateDonnesPro(donne: DonneePro): Observable<Object> {
-    return this.httpClient.post(`${this._baseUrl + '/updatedonnepro'}`, donne, {
+    return this.httpClient.put(`${this._baseUrl + '/updatedonnepro'}`, donne, {
       withCredentials: true,
     });
   }
@@ -200,6 +200,7 @@ export class UserService {
       }
     );
   }
+
 
   getThisUserId(): Observable<number> {
     return this.httpClient.get<number>(`${this._baseUrl + '/getthisuserid'}`, {

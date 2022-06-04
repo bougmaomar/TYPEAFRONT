@@ -5,6 +5,7 @@ import { AllusersService } from 'src/app/controller/service/allusers.service';
 import { UserService } from 'src/app/controller/service/user.service';
 import { AdminService } from 'src/app/controller/service/admin.service';
 import Swal from 'sweetalert2';
+import {Etablissement} from "../../../controller/model/Etablissement.model";
 
 @Component({
   selector: 'app-information-sur-demandeur',
@@ -14,6 +15,8 @@ import Swal from 'sweetalert2';
 export class InformationSurDemandeurComponent implements OnInit {
   donne: DonneePro = new DonneePro();
   donneData: DonneePro = new DonneePro();
+  etabData: Etablissement= new Etablissement();
+  etab : Etablissement= new Etablissement();
   constructor(
     private userService: UserService,
     private router: Router,
@@ -22,19 +25,30 @@ export class InformationSurDemandeurComponent implements OnInit {
 
   ngOnInit(): void {
     this.userService.getThisUserId().subscribe((theid: number) => {
-      this.adminService.getdonnepro(theid).subscribe((incoming) => {
+
+      this.adminService.getdonnepro(theid).subscribe((incoming ) => {
         this.donneData = incoming;
+        console.log(incoming.id)
+        console.log(incoming.id);
+        console.log("hhh")
+        console.log(incoming.etablissement.id);
+       this.adminService.getetablissement(incoming.etablissement.id).subscribe((inc) =>{
+         console.log(inc);
+         this.etabData=inc;
+       })
       });
     });
+
   }
 
   onSubmit() {
+    this.donne.etablissement=this.etab;
     this.userService.saveDonnesPro(this.donne).subscribe((data: any) => {
       console.log(data);
       if (data == -1) {
         Swal.fire(
-          'Mise a jour données',
-          'Vos données professionnels ont ete mise a jour',
+          'Ajout données',
+          'Vos données professionnels ont ete ajouter',
           'success'
         ).then((result) => {
           if (result.isConfirmed) {
@@ -42,11 +56,11 @@ export class InformationSurDemandeurComponent implements OnInit {
           }
         });
       } else if (data == 1) {
-        this.userService.saveDonnesPro(this.donne).subscribe((updated: any) => {
+        this.userService.updateDonnesPro(this.donne).subscribe((updated: any) => {
           if (updated == 1) {
             Swal.fire(
-              'Ajout données',
-              'Vos données professionnels ont ete ajouter',
+              'Mise a jour données',
+              'Vos données professionnels ont ete mise a jour',
               'success'
             ).then((result) => {
               if (result.isConfirmed) {

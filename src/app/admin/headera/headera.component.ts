@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AllusersService } from 'src/app/controller/service/allusers.service';
+import {parseSelectorToR3Selector} from "@angular/compiler/src/core";
 
 @Component({
   selector: 'app-headera',

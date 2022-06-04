@@ -49,7 +49,7 @@
                 <div class="col-md-6">
                   <div class="form-group" style="padding-top: 4px"><label
                     style="padding-bottom: 3px">Etablissement</label>
-                    <select class="form-control" [(ngModel)]="donne.etablissement" value={{donneData.etablissement}}>
+                    <select class="form-control" [(ngModel)]="etab.nom" value={{etabData.nom}}>
                       <option></option>
                       <option>FSTG</option>
                       <option>FSSM</option>
@@ -73,12 +73,6 @@
                     <input type="text" class="form-control" id="Evaluate Budget" placeholder=""
                            [(ngModel)]="donne.entiteRecherche" value={{donneData.entiteRecherche}}>
                   </div>
-
-                </div>
-                <div class="col-md-6">
-                  <div class="form-group"><label for="Company-Name">Responsable de l'entite de recherche</label>
-                    <input type="text" class="form-control" id="Company-Name" placeholder=""
-                           [(ngModel)]="donne.respoEntite" value={{donneData.respoEntite}}></div>
 
                 </div>
               </div>
