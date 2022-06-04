@@ -21,7 +21,7 @@ export class AuthGuard implements CanActivate {
     | UrlTree
     | Observable<boolean | UrlTree>
     | Promise<boolean | UrlTree> {
-    this.isAdmin = Boolean(localStorage.getItem('isAdmin'));
+    this.isAdmin = Boolean(sessionStorage.getItem('isAdmin'));
     if (this.isAdmin) {
       return true;
     } else {

@@ -21,7 +21,7 @@ export class AuthGuardUser implements CanActivate {
     | UrlTree
     | Observable<boolean | UrlTree>
     | Promise<boolean | UrlTree> {
-    this.isLogged = Boolean(localStorage.getItem('isLogged'));
+    this.isLogged = Boolean(sessionStorage.getItem('isLogged'));
     if (this.isLogged) {
       return true;
     } else {

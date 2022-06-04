@@ -18,8 +18,8 @@ export class HeaderaComponent implements OnInit {
   onLogoutAdmin() {
     this.allusersService.logoutUser().subscribe((data) => {
       this.router.navigate(['/admin']);
-      localStorage.removeItem('isLogged');
-      localStorage.removeItem('isAdmin');
+      sessionStorage.removeItem('isLogged');
+      sessionStorage.removeItem('isAdmin');
     });
   }
 }
