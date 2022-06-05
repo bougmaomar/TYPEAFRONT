@@ -16,7 +16,7 @@ export class HeaderComponent implements OnInit {
 
   constructor(private router: Router, private allusers: AllusersService) {
     router.events.subscribe((val) => {
-      this.isLogged = Boolean(sessionStorage.getItem('isLogged'));
+      this.isLogged = Boolean(localStorage.getItem('isLogged'));
     });
   }
 
@@ -31,7 +31,7 @@ export class HeaderComponent implements OnInit {
   logoutUser() {
     this.allusers.logoutUser().subscribe((data) => {
       this.router.navigate(['/login']);
-      sessionStorage.removeItem('isLogged');
+      localStorage.removeItem('isLogged');
     });
   }
 

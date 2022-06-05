@@ -30,8 +30,8 @@ export class AuthentificationComponent implements OnInit {
             this.isAdmin = data;
             if (this.isAdmin == true) {
               this.isLogged = true;
-              sessionStorage.setItem('isLogged', `${this.isLogged}`);
-              sessionStorage.setItem('isAdmin', `${this.isAdmin}`);
+              localStorage.setItem('isLogged', `${this.isLogged}`);
+              localStorage.setItem('isAdmin', `${this.isAdmin}`);
               this.router.navigate(['/admin/dashboard']);
             } else {
               this.erreur =

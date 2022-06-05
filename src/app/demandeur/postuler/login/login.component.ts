@@ -26,7 +26,7 @@ export class LoginComponent {
         this.router.navigate(['/choisir-postuler']);
         this.isLogged = true;
         console.log(this.user.email);
-        sessionStorage.setItem('isLogged', `${this.isLogged}`);
+        localStorage.setItem('isLogged', `${this.isLogged}`);
       } else if (x == -3 || x == -1) {
         this.erreur = 'Email ou mot de passe sont invalide';
       } else if (x == -4) {
