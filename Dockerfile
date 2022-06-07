@@ -1,4 +1,4 @@
-FROM node:ubuntu AS build
+FROM node:alpline AS build
 RUN mkdir -p /app
 
 WORKDIR /app
