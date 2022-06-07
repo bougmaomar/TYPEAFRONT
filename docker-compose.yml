@@ -9,8 +9,6 @@ services:
     - /usr/src/app/node_modules
     ports:
       - "4202:80"
-    command: >
-      bash -c "npm start"
  # docker-nginx:
   #  container_name: docker-nginx
    # build: ./
