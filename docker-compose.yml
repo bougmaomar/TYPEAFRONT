@@ -9,12 +9,14 @@ services:
     - /usr/src/app/node_modules
     ports:
       - "4202:80"
- # docker-nginx:
-  #  container_name: docker-nginx
-   # build: ./
-    #ports:
-    #  -"80:80"
-    #command: ["nginx", "-g", "daemon off;"]
-    #links:
-    #  -angular-service
+    command: >
+      bash -c "npm start"
+  docker-nginx:
+    container_name: docker-nginx
+    build: ./
+    ports:
+      - "80:80"
+    command: ["nginx", "-g", "daemon off;"]
+    links:
+      - angular-service
    

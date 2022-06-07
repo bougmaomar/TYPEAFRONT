@@ -9,6 +9,6 @@ RUN npm install
 COPY . /usr/src/app
 RUN npm run build --prod
 
-FROM nginx:1.20.1
-COPY --from=build /app/dist/frontend /usr/share/nginx/html
-EXPOSE 4200:80
+FROM nginx:alpine
+COPY src/nginx/etc/conf.d/default.conf /etc/nginx/conf/default.conf
+COPY --from=build dist/frontend usr/share/nginx/html
