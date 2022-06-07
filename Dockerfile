@@ -8,3 +8,7 @@ RUN npm install
 
 COPY . /usr/src/app
 RUN npm run build --prod
+
+FROM nginx:1.20.1
+COPY --from=build /app/dist/frontend /usr/share/nginx/html
+EXPOSE 4200:80
