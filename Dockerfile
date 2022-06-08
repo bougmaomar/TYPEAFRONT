@@ -4,8 +4,8 @@ WORKDIR /app
 COPY / ./
 COPY package.json ./
 
-RUN npm install && \
-    ng build
+RUN npm install
+RUN ng build
 
 COPY . .
 
