@@ -58,6 +58,7 @@ import { MailFormComponent } from './admin/mail-form/mail-form.component';
 import { AuthGuardUser } from './controller/service/authGuard/auth-guarduser.service';
 import { NgChartsModule } from 'ng2-charts';
 import {MatTabsModule} from "@angular/material/tabs";
+import { BudgetComponent } from './admin/budget/budget.component';
 
 @NgModule({
   declarations: [
@@ -87,6 +88,7 @@ import {MatTabsModule} from "@angular/material/tabs";
     DemandeManifComponent,
     DetailManifComponent,
     MailFormComponent,
+    BudgetComponent,
   ],
   imports: [
     BrowserModule,

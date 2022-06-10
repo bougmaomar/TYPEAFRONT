@@ -26,6 +26,7 @@ import { DemandeManifComponent } from './admin/demande-manif/demande-manif.compo
 import { DetailManifComponent } from './admin/detail-manif/detail-manif.component';
 import { AuthGuard } from './controller/service/authGuard/auth-guard.service';
 import { AuthGuardUser } from './controller/service/authGuard/auth-guarduser.service';
+import {BudgetComponent} from "./admin/budget/budget.component";
 
 const routes: Routes = [
   {
@@ -82,11 +83,14 @@ const routes: Routes = [
       },
       {
         path: 'demandes-Stage',
-
         component: DemandesComponent,
         canActivate: [AuthGuard],
       },
-
+      {
+        path: 'budget',
+        component: BudgetComponent,
+        canActivate: [AuthGuard],
+      },
       {
         path: 'message',
         component: MessageComponent,

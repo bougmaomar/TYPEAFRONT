@@ -5,6 +5,7 @@ export class DonneePro {
     niveau: string;
     grade: string;
     ced: string;
+    labo: string;
     etablissement: Etablissement;
     entiteRecherche: string;
     respoEntite: string;

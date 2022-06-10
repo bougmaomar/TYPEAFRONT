@@ -28,12 +28,8 @@ export class InformationSurDemandeurComponent implements OnInit {
 
       this.adminService.getdonnepro(theid).subscribe((incoming ) => {
         this.donneData = incoming;
-        console.log(incoming.id)
-        console.log(incoming.id);
-        console.log("hhh")
-        console.log(incoming.etablissement.id);
        this.adminService.getetablissement(incoming.etablissement.id).subscribe((inc) =>{
-         console.log(inc);
+
          this.etabData=inc;
        })
       });
@@ -44,7 +40,7 @@ export class InformationSurDemandeurComponent implements OnInit {
   onSubmit() {
     this.donne.etablissement=this.etab;
     this.userService.saveDonnesPro(this.donne).subscribe((data: any) => {
-      console.log(data);
+
       if (data == -1) {
         Swal.fire(
           'Ajout données',

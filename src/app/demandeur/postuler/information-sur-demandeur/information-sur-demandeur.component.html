@@ -22,9 +22,7 @@
                   </select></div>
 
 
-                <div class="form-group"><label for="Company-Name">Responsable de l'entite de recherche</label>
-                  <input type="text" class="form-control" id="Company-Name" value={{donneData.respoEntite}} placeholder="" [(ngModel)] = "donne.respoEntite">
-                </div>
+
 
                 </div>
                 <div class="col-md-6">
@@ -75,7 +73,18 @@
                   </div>
 
                 </div>
+                <div class="col-md-6">
+
+                  <div class="form-group"><label for="Company-Name">Responsable de l'entite de recherche</label>
+                    <input type="text" class="form-control" id="Company-Name" value={{donneData.respoEntite}} placeholder="" [(ngModel)] = "donne.respoEntite">
+
+
+                </div>
+                  <div class="form-group"><label for="labo_name">Laboratoire</label>
+                    <input type="text" class="form-control" id="labo_name" value={{donneData.labo}} placeholder="" [(ngModel)] = "donne.labo">
+                  </div>
               </div>
+
             </div>
             <div class="row">
               <div class=" col-md-4" style="display: flex">
@@ -98,6 +107,7 @@
         </div>
       </div>
     </div>
+  </div>
   </div>
 </div>
 
