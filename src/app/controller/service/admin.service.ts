@@ -12,15 +12,9 @@ import { MissionStage } from '../model/mission-stage.model';
 import { NewMontant } from '../model/montants.model';
 import { Soutien } from '../model/soutien.model';
 import { User } from '../model/user.model';
-<<<<<<< HEAD
 import { Etablissement } from '../model/Etablissement.model';
 import { Budget } from '../model/Budget.model';
-import { Document } from '../model/document.model';
-=======
-import {Etablissement} from "../model/Etablissement.model";
-import {Budget} from "../model/Budget.model";
-import {Montant_par_labo} from "../model/Montant_par_labo.model";
->>>>>>> c02d81fc2365af231dd049e8aa62d9214fa4f8a1
+import { Montant_par_labo } from '../model/Montant_par_labo.model';
 
 @Injectable({
   providedIn: 'root',
@@ -349,8 +343,10 @@ export class AdminService {
       `${this.baseUrl + '/budget_consommer/' + date}`
     );
   }
-  find_all_montant_par_labo():Observable<Montant_par_labo[]>{
-    return this.httpClient.get<Montant_par_labo[]>(`${this.baseUrl + '/getmontant_par_labo'}`);
+  find_all_montant_par_labo(): Observable<Montant_par_labo[]> {
+    return this.httpClient.get<Montant_par_labo[]>(
+      `${this.baseUrl + '/getmontant_par_labo'}`
+    );
   }
 
   findRapport(donneId: number): Observable<any> {
