@@ -75,15 +75,22 @@
                 </div>
                 <div class="col-md-6">
 
-                  <div class="form-group"><label for="Company-Name">Responsable de l'entite de recherche</label>
+                <div class="form-group"><label for="Company-Name">Responsable de l'entite de recherche</label>
                     <input type="text" class="form-control" id="Company-Name" value={{donneData.respoEntite}} placeholder="" [(ngModel)] = "donne.respoEntite">
-
-
                 </div>
-                  <div class="form-group"><label for="labo_name">Laboratoire</label>
-                    <input type="text" class="form-control" id="labo_name" value={{donneData.labo}} placeholder="" [(ngModel)] = "donne.labo">
-                  </div>
               </div>
+              <div>
+                <div class="form-group"><label for="labo_name">Laboratoire</label>
+                  <input type="text" class="form-control" id="labo_name" value={{donneData.labo}} placeholder="" [(ngModel)] = "donne.labo">
+                </div>
+
+                <div class="col-md-5">
+                  <input type="file" class="custom-file-input form-control mt-4" id="rapport" (change)="onFileSelected($event)">
+                  <label class="custom-file-label" for="rapport" id="doc">Document5</label>
+                </div>
+              </div>
+                  
+              
 
             </div>
             <div class="row">

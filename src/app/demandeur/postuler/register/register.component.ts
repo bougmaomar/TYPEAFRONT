@@ -1,4 +1,4 @@
-itimport { Component, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { User } from '../../../controller/model/user.model';
 import { AllusersService } from '../../../controller/service/allusers.service';
 import { Router } from '@angular/router';
@@ -21,6 +21,7 @@ export class RegisterComponent implements OnInit {
   ngOnInit(): void {}
 
   addUser() {
+    /*     if (document.getElementById('confpass').innerHTML === this.user.password) { */
     this.allusersService.registerUser(this.user).subscribe((data: number) => {
       if (data == 1) {
         Swal.fire({
@@ -42,10 +43,12 @@ export class RegisterComponent implements OnInit {
         this.erreur = 'Un ou plusieurs champs sont invalide veuillez verifier';
       }
     });
+    /*     } else {
+      this.erreur =
+        'les champs mot de passe et confirmation mot de passe doivent etre identique';
+    } */
   }
-
   onSubmit() {
-    console.log(this.user);
     this.addUser();
   }
 }

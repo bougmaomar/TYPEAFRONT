@@ -12,8 +12,9 @@ import { MissionStage } from '../model/mission-stage.model';
 import { NewMontant } from '../model/montants.model';
 import { Soutien } from '../model/soutien.model';
 import { User } from '../model/user.model';
-import {Etablissement} from "../model/Etablissement.model";
-import {Budget} from "../model/Budget.model";
+import { Etablissement } from '../model/Etablissement.model';
+import { Budget } from '../model/Budget.model';
+import { Document } from '../model/document.model';
 
 @Injectable({
   providedIn: 'root',
@@ -164,10 +165,9 @@ export class AdminService {
       }
     );
   }
-  save_budget(budget:Budget): Observable<Object> {
+  save_budget(budget: Budget): Observable<Object> {
     return this.httpClient.post(`${this.baseUrl + '/save_budget'}`, budget);
   }
-
 
   manifRefused(mStageId: number): Observable<number> {
     return this.httpClient.get<number>(
@@ -181,9 +181,7 @@ export class AdminService {
     );
   }
   countusers(): Observable<number> {
-    return this.httpClient.get<number>(
-      `${this.baseUrl + '/countusers'}`
-    );
+    return this.httpClient.get<number>(`${this.baseUrl + '/countusers'}`);
   }
 
   exportNvmontantmanif(id: number): Observable<Object> {
@@ -234,26 +232,121 @@ export class AdminService {
       `${this.baseUrl + '/getetab/' + etabId}`
     );
   }
-  get_statistic_etablissement(etab : string,e2 : string,e3 : string,e4 : string,e5 : string,e6 : string,e7 : string,e8 : string,e9 : string,e10 : string,e11 : string,e12 : string,e13 : string,e14 : string,e15 : string,e16 : string):Observable<string[]>{
+  get_statistic_etablissement(
+    etab: string,
+    e2: string,
+    e3: string,
+    e4: string,
+    e5: string,
+    e6: string,
+    e7: string,
+    e8: string,
+    e9: string,
+    e10: string,
+    e11: string,
+    e12: string,
+    e13: string,
+    e14: string,
+    e15: string,
+    e16: string
+  ): Observable<string[]> {
     return this.httpClient.get<string[]>(
-      `${this.baseUrl + '/statistic_graph_bar/' + etab + '/' +e2 + '/' +e3 + '/' +e4 + '/' +e5 + '/' +e6 + '/' +e7 + '/' +e8 + '/'+e9 + '/' +e10 + '/' +e11 + '/' +e12+ '/' +e13+ '/' +e14+ '/' +e15+ '/' +e16 }`
+      `${
+        this.baseUrl +
+        '/statistic_graph_bar/' +
+        etab +
+        '/' +
+        e2 +
+        '/' +
+        e3 +
+        '/' +
+        e4 +
+        '/' +
+        e5 +
+        '/' +
+        e6 +
+        '/' +
+        e7 +
+        '/' +
+        e8 +
+        '/' +
+        e9 +
+        '/' +
+        e10 +
+        '/' +
+        e11 +
+        '/' +
+        e12 +
+        '/' +
+        e13 +
+        '/' +
+        e14 +
+        '/' +
+        e15 +
+        '/' +
+        e16
+      }`
     );
   }
-  get_statistic_graph_mois(mois : string,e2 : string,e3 : string,e4 : string,e5 : string,e6 : string,e7 : string,e8 : string,e9 : string,e10 : string,e11 : string,e12 : string):Observable<string[]>{
+  get_statistic_graph_mois(
+    mois: string,
+    e2: string,
+    e3: string,
+    e4: string,
+    e5: string,
+    e6: string,
+    e7: string,
+    e8: string,
+    e9: string,
+    e10: string,
+    e11: string,
+    e12: string
+  ): Observable<string[]> {
     return this.httpClient.get<string[]>(
-      `${this.baseUrl + '/statistic_graph_monsuel/' + mois + '/' +e2 + '/' +e3 + '/' +e4 + '/' +e5 + '/' +e6 + '/' +e7 + '/' +e8 + '/'+e9 + '/' +e10 + '/' +e11 + '/' +e12 }`
+      `${
+        this.baseUrl +
+        '/statistic_graph_monsuel/' +
+        mois +
+        '/' +
+        e2 +
+        '/' +
+        e3 +
+        '/' +
+        e4 +
+        '/' +
+        e5 +
+        '/' +
+        e6 +
+        '/' +
+        e7 +
+        '/' +
+        e8 +
+        '/' +
+        e9 +
+        '/' +
+        e10 +
+        '/' +
+        e11 +
+        '/' +
+        e12
+      }`
     );
   }
 
-get_budget_annuelle_object(date : number ): Observable<Budget>{
+  get_budget_annuelle_object(date: number): Observable<Budget> {
     return this.httpClient.get<Budget>(
       `${this.baseUrl + '/BudgetAnnuelle_object/' + date}`
     );
   }
-  get_budget_comsommer(date : number ): Observable<number>{
+  get_budget_comsommer(date: number): Observable<number> {
     return this.httpClient.get<number>(
       `${this.baseUrl + '/budget_consommer/' + date}`
     );
   }
 
+  findRapport(donneId: number): Observable<any> {
+    return this.httpClient.get<any>(
+      `${this.baseUrl + '/viewlastdoc/' + donneId}`
+    );
+  }
 }

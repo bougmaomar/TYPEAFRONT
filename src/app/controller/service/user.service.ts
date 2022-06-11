@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Cadre } from '../model/cadre.model';
+import { Document } from '../model/document.model';
 import { documents } from '../model/documents.model';
 import { DonneePro } from '../model/donnee-pro.model';
 import { Manifestation } from '../model/manifestation.model';
@@ -37,6 +38,17 @@ export class UserService {
     return this.httpClient.post(`${this._baseUrl + '/adddonéespro'}`, donne, {
       withCredentials: true,
     });
+  }
+
+  addDonneProFile(donneId: number, doc: Document): Observable<Object> {
+    const formData = new FormData();
+    if (doc.file !== undefined) {
+      formData.append('fichier', doc.file, doc.file.name);
+    }
+    return this.httpClient.post<Object>(
+      `${this._baseUrl + '/add_documentD/' + donneId}`,
+      formData
+    );
   }
 
   updateDonnesPro(donne: DonneePro): Observable<Object> {
@@ -200,7 +212,6 @@ export class UserService {
       }
     );
   }
-
 
   getThisUserId(): Observable<number> {
     return this.httpClient.get<number>(`${this._baseUrl + '/getthisuserid'}`, {
