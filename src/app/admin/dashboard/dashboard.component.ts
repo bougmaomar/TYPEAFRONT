@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Chart} from 'node_modules/chart.js';
 import {AdminService} from "../../controller/service/admin.service";
+import {Montant_par_labo} from "../../controller/model/Montant_par_labo.model";
 
 
 @Component({
@@ -16,6 +17,7 @@ export class DashboardComponent implements OnInit {
   nbrusers: number;
 
   number: number;
+  montant_par_lab : Montant_par_labo [];
   date_actuelle: Date = new Date();
   budget_annuel: number;
   budget_consommer: number;
@@ -24,8 +26,9 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit() {
 
-
-    this.adminservice.get_statistic_etablissement("ENSA", "FSSM", "ENCG", "FMP", "FLSH", "FSTG", "FSJES", "FLAM", "ENS", "FP Safi", "ENSA Safi", "EST Safi", "EST Essaouira","FSJESK","FLAM","ESTK").subscribe((Liste_montants_string) => {
+this.adminservice.find_all_montant_par_labo().subscribe((elem)=>
+this.montant_par_lab=elem );
+    this.adminservice.get_statistic_etablissement("ENSA-M", "FSSM", "ENCG", "FMP", "FLSH", "FSTG", "FSJES", "FLAM", "ENS", "FP Safi", "ENSA Safi", "EST Safi", "EST Essaouira","FSJESK","FLAM","ESTK").subscribe((Liste_montants_string) => {
       Liste_montants_string.forEach(elem => {
         if (elem != null) {
           this.number = +elem;

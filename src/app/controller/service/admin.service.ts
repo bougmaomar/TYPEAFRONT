@@ -14,6 +14,7 @@ import { Soutien } from '../model/soutien.model';
 import { User } from '../model/user.model';
 import {Etablissement} from "../model/Etablissement.model";
 import {Budget} from "../model/Budget.model";
+import {Montant_par_labo} from "../model/Montant_par_labo.model";
 
 @Injectable({
   providedIn: 'root',
@@ -254,6 +255,9 @@ get_budget_annuelle_object(date : number ): Observable<Budget>{
     return this.httpClient.get<number>(
       `${this.baseUrl + '/budget_consommer/' + date}`
     );
+  }
+  find_all_montant_par_labo():Observable<Montant_par_labo[]>{
+    return this.httpClient.get<Montant_par_labo[]>(`${this.baseUrl + '/getmontant_par_labo'}`);
   }
 
 }
