@@ -23,7 +23,7 @@ date_actuelle : Date = new Date();
   }
 
   enregistrer() {
-      this.bud=this.budg;
+
     this.adminservice.save_budget(this.bud).subscribe((elem)=>{
       if(elem == -1){
 
